@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Cyrano</string>
+
+    <!-- Menu item labels -->
+    <string name="action_nearby">Nearby</string>
+    <string name="action_scripts">Scripts</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_search_for">Search for</string>
+    <string name="action_account">Account</string>
+    <string name="action_about">About</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_exit">Exit</string>
+    <string name="action_search_for_friend">Friends</string>
+    <string name="action_search_for_device">Devices</string>
+    <string name="action_search_for_trigger">Trigger</string>
+    <string name="action_search_advance">Advance search</string>
+
+    <string-array name="array_search_for">
+        <item>@string/action_search_for_friend</item>
+        <item>@string/action_search_for_device</item>
+        <item>@string/action_search_for_trigger</item>
+        <item>@string/action_search_advance</item>
+    </string-array>
+
+    <string name="radio_label_search_friend">Friends</string>
+    <string name="radio_label_search_device">Devices</string>
+    <string name="radio_label_search_trigger">Triggers</string>
+    <string name="textviewx_select_count">No. of records</string>
+    <string name="checkbox_detail_search">Detailed search</string>
+    <string name="checkbox_count_only">Search total number of record only</string>
+    <string name="button_label_search">Search</string>
+    <string name="label_first_name">First Name</string>
+    <string name="label_last_name">Last Name</string>
+    <string name="label_email">Email</string>
+    <string name="label_password">Password</string>
+    <string name="label_confirm_password">Confirmed Password</string>
+    <string name="label_register">Register</string>
+    <string name="label_login">Login</string>
+    <string name="service_search_friend_advance">FriendListMatchedBTCmn</string>
+    <string name="service_search_device_advance">DeviceListMatchedBTCmn</string>
+    <string name="service_search_trigger_advance">TriggerListMatchedBTCmn</string>
+
+    <!-- URLs -->
+    <string name="kbaq_stream_url">http://sc1.lax.llnw.net:80/stream/riosal_kbaq</string>
+    <string name="audio_file_url" formatted="false">http://www.high-tech.com/panther/archive/the%20ventures_the%20pink%20panther%20theme.mp3</string>
+    <string name="splashImage">http://cyrano.cjcornell.com/cyranosplash.png</string>
+
+    <!-- WebLogin and Register strings -->
+    <string name="usernameLabel">Username</string>
+    <string name="passwordLabel">Password</string>
+    <string name="registerButtonText">Register</string>
+
+    <!-- WebLogin specific strings -->
+    <string name="webLoginTitle">Login</string>
+    <string name="webLoginMsgDefault"></string>
+    <string name="loginButtonText">Login</string>
+    <string name="skipButtonText">Skip</string>
+    <string name="loggingIn">Logging in. Please wait&#8230;</string>
+    <string name="incorrectLogin">Incorrect login information.</string>
+    <string name="emptyUsername">Username is required.</string>
+    <string name="emptyPassword">Password is required.</string>
+
+    <!-- Register specific strings -->
+    <string name="registerTitle">Register</string>
+    <string name="registerMsgDefault"></string>
+    <string name="registering">Registering your username. Please wait&#8230;</string>
+    <string name="registerSuccess">"Success!"</string>
+    <string name="registered">"Your account has been successfully registered."</string>
+
+    <!-- Main form strings -->
+    <string name="mainTitle">Main Page</string>
+    <string name="ttsButtonText">Text to Speech</string>
+    <string name="sttButtonText">Speech to Text</string>
+    <string name="audioButtonText">Audio File</string>
+    <string name="urlButtonText">Radio</string>
+    <string name="coachingButtonText">Coaching</string>
+    <string name="fnameLabel">First Name</string>
+    <string name="lnameLabel">Last Name</string>
+    <string name="pNumLabel">Phone Number</string>
+    <string name="pnumLabel">Phone #</string>
+
+    <!-- Audio Test Strings -->
+    <string name="backButtonText">Back</string>
+    <string name="TTSTitle">Text to Speech</string>
+    <string name="TTSDescription">Type in a phrase to be converted to audio. Then click "Say it!"</string>
+    <string name="sayButtonText">Say it!</string>
+    <string name="STTTitle">Speech to Text</string>
+    <string name="defaultSTTLabel">Your spoken text will be displayed here.</string>
+    <string name="STTLabelError">An error occurred. Try again.</string>
+    <string name="startSTTButtonText">Say something!</string>
+    <string name="STTListeningMessage">Cyrano is listening&#8230; speak your message!</string>
+    <string name="AFTitle">Audio File</string>
+    <string name="AFDescription">Enjoy listening to the Pink Panther Theme! Cyrano is streaming this file via a URL link.</string>
+    <string name="playItButtonText">Play it!</string>
+    <string name="demoButtonText">Demo</string>
+    <string name="URLTitle">Radio</string>
+    <string name="URLDescription">You are listening to Tempe\'s own K-BAQ radio, streaming from the internet.</string>
+    <string name="coachingTitle">Coaching</string>
+    <string name="coachingDescription">Type in a group ID for an instruction set. Then click "Play it!"</string>
+    <string name="voiceCommandButtonText">Try Voice Command</string>
+    <string name="default_tts">Hello, world!</string>
+    <string name="coach_default_groupid">1</string>
+    <string name="title_activity_gpstest">GPSTestActivity</string>
+    <string name="singleFriendMessage">%s is nearby</string>
+    <string name="multipleFriendsMessage"> There are %d friends nearby</string>
+    <string name="singleFriendsMessage"> There is 1 friend nearby</string>
+    <string name="noFriendsMessage">There are no nearby User.</string>
+    <string name="singleuserMessage">%s is nearby</string>
+    <string name="multipleuersMessage"> There are %d Users nearby</string>
+    <string name="singleDeviceMessage"> There is 1 Device nearby</string>
+    <string name="multipleDeviceMessage"> There are %d Device nearby</string>
+    <string name="singletriggerMessage"> There is 1 Trigger nearby</string>
+    <string name="multipletriggerMessage"> There are %d Trigger nearby</string>   
+       
+    <!-- Seer uh no friends detected: -->
+    <!-- Cyrano Activity -->
+    <string name="title_activity_cyrano">Cyrano</string>
+    <string name="defaultStatusText"></string>
+    <string name="playButtonText">Resume</string>
+    <string name="pauseButtonText">Pause</string>
+    <string name="stopButtonText">Cancel</string>
+    <string name="previousButtonText">Prev</string>
+    <string name="nextButtonText">Next</string>
+    <string name="nearby">nearby</string>
+    <string name="newButton">new</string>
+    <string name="scriptsHeading">My Scripts</string>
+    <string name="multiFriendsHeading">Multiple Friends</string>
+    <string name="singleFriendHeading">Friend Display</string>
+    <string name="myAccountHeading">My Account</string>
+    <string name="splashDescription">Cyrano Splash Image</string>
+    <string name="placeholder"></string>
+
+    <!-- Settings Activity -->
+    <string name="title_activity_settings">Cyrano: Settings</string>
+    <string name="title_activity_friends">Cyrano: Friends</string>
+    <string name="versionText">Cyrano version %s</string>
+    
+    <!-- <string name="app_id">1377001939245809</string> -->
+    <!-- <string name="app_id">541372869318477</string> -->
+
+    <!-- Canopus APPID -->
+    <!-- <string name="app_id">813278652027828</string> -->
+
+    <!-- VISH APPID -->
+    <!-- <string name="app_id">937267139634748</string> -->
+
+    <string name="app_id">790713614295147</string>
+
+    <!-- Production Test App ID -->
+    <!-- <string name="app_id">845295548836953</string> -->
+
+
+    <!-- Shankar's App ID -->
+    <!-- <string name="app_id">338902142958005</string> -->
+
+
+    <!-- Shankar's Test App ID -->
+    <!-- <string name="app_id">339995362848683</string> -->
+
+
+    <!-- <string name="app_id_auth">com.facebook.app.NativeAppCallContentProvider541372869318477</string> -->
+    <!-- <string name="app_id_auth">com.facebook.app.NativeAppCallContentProvider338902142958005</string> -->
+
+    <string name="terseModeLabel">Terse Mode</string>
+    <string name="tsAudioLabel">Audio</string>
+    <string name="graphicalLabel">Graphics</string>
+    <string name="friendFinderLabel">Friend Finder</string>
+    <string name="friendAudioLabel">Friend Audio</string>
+    <string name="gpsTimeDelayLabelPrefix">GPS Poll</string>
+    <string name="gpsTimeDelayLabelSuffix">Mins</string>
+    <string name="maxFriendsLabel">Friends to Announce</string>
+    <string name="autoDisplayFriendsLabel">Auto Display Friends</string>
+    <string name="saveSettingsLabel">Save &amp; Exit</string>
+    <string name="fontSizeLabel">Text Size</string>
+
+    <string-array name="fontSizes">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+
+    <string name="notificationTitle">Cyrano</string>
+    <string name="notificationText">Cyrano is detecting friends.</string>
+    <string name="title_activity_activity_btuserlist">ActivityBTuserlist</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>
