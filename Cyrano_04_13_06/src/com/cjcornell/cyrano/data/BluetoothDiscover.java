@@ -147,6 +147,7 @@ public class BluetoothDiscover {
                 Log.v(TAG, "Puran Discovery Finish...");
                 // Toast.makeText(activity, "Puran Discovery Finish...",
                 // Toast.LENGTH_LONG).show();
+                try{
                 DataStore.getInstance().setBluetoothDeviceList(bluetoothDevices);
                 DataStore.getInstance().getbluletoothmac().clear();
                 DataStore.getInstance().setblutoothdevicemac(bluetoothmacaddress);
@@ -160,7 +161,11 @@ public class BluetoothDiscover {
                new TaskSearchForFriends(DataStore.getInstance().getActivity()).execute(DataStore.getInstance().getBluetoothDeviceList());
                DataStore.getInstance().setsearchval=true;
                }
-              
+                }
+                catch(Exception e)
+                {
+                	Log.e(TAG, e.toString());
+                }
 
             } else if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
                 Log.v(TAG, "ACTION_STATE_CHANGED");

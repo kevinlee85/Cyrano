@@ -39,7 +39,7 @@ public class DataStore {
     private ActivityCyrano activity;
     public String[] DES;
     public List<String> Triggerscripts=new ArrayList<String>();
-    public List<String> BlutoothFriendReminders=new ArrayList<String>();
+    public HashMap<String, String> BlutoothFriendReminders=new HashMap<String, String>();
     List<String> priorandcomplist=new ArrayList<String>();
     HashMap<String, Integer> giveidstobtids=new HashMap<String, Integer>();
     HashMap<String, String> IDSofBTIDS = new HashMap<String, String>();
@@ -196,13 +196,13 @@ public class DataStore {
         return Triggerscripts;
     }
 
-    public void set_BlutoothFriendReminders(List<String> blutoothFriendReminders) {
+    public void set_BlutoothFriendReminders(HashMap<String, String> blutoothFriendReminders2) {
         // TODO Auto-generated method stub
-        BlutoothFriendReminders=blutoothFriendReminders;
+        BlutoothFriendReminders=blutoothFriendReminders2;
         
     }
 
-    public List<String> get_BluetoothFriendReminder() {
+    public HashMap<String, String> get_BluetoothFriendReminder() {
         // TODO Auto-generated method stub
         return BlutoothFriendReminders;
     }
