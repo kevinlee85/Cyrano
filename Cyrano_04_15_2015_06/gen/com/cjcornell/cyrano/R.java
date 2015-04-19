@@ -9,22 +9,10 @@ package com.cjcornell.cyrano;
 
 public final class R {
     public static final class array {
-        public static final int array_search_for=0x7f090000;
-        public static final int fontSizes=0x7f090001;
+        public static final int array_search_for=0x7f0c0000;
+        public static final int fontSizes=0x7f0c0001;
     }
     public static final class attr {
-        /** <p>Must be one of the following constant values.</p>
-<table>
-<colgroup align="left" />
-<colgroup align="left" />
-<colgroup align="left" />
-<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>bottom</code></td><td>0</td><td> Keep in sync with Enums in LikeView </td></tr>
-<tr><td><code>inline</code></td><td>1</td><td></td></tr>
-<tr><td><code>top</code></td><td>2</td><td></td></tr>
-</table>
-         */
-        public static final int auxiliary_view_position=0x7f010015;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -32,11 +20,30 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int confirm_logout=0x7f01000c;
+        public static final int centered=0x7f010006;
+        /**  Screen edge padding. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int clipPadding=0x7f010011;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int confirm_logout=0x7f01002b;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int done_button_background=0x7f010006;
+        public static final int done_button_background=0x7f010025;
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -44,7 +51,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int done_button_text=0x7f010004;
+        public static final int done_button_text=0x7f010023;
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -52,7 +59,34 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int extra_fields=0x7f010001;
+        public static final int extra_fields=0x7f010020;
+        /**  Length of the delay to fade the indicator. 
+         <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fadeDelay=0x7f01001d;
+        /**  Length of the indicator fade to transparent. 
+         <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fadeLength=0x7f01001e;
+        /**  Whether or not the selected indicator fades. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fades=0x7f01001c;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -60,8 +94,9 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int fetch_user_info=0x7f01000d;
-        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+        public static final int fetch_user_info=0x7f01002c;
+        /**  Color of the filled circle that represents the current page. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -69,19 +104,85 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int foreground_color=0x7f010012;
-        /** <p>Must be one of the following constant values.</p>
+        public static final int fillColor=0x7f01000a;
+        /**  Color of the footer line and indicator. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int footerColor=0x7f010012;
+        /**  Height of the indicator above the footer line. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int footerIndicatorHeight=0x7f010015;
+        /**  Style of the indicator. Default is triangle. 
+         <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
 <colgroup align="left" />
 <colgroup align="left" />
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>center</code></td><td>0</td><td> Keep in sync with Enums in LikeView </td></tr>
-<tr><td><code>left</code></td><td>1</td><td></td></tr>
-<tr><td><code>right</code></td><td>2</td><td></td></tr>
+<tr><td><code>none</code></td><td>0</td><td></td></tr>
+<tr><td><code>triangle</code></td><td>1</td><td></td></tr>
+<tr><td><code>underline</code></td><td>2</td><td></td></tr>
 </table>
          */
-        public static final int horizontal_alignment=0x7f010016;
+        public static final int footerIndicatorStyle=0x7f010014;
+        /**  Left and right padding of the underline indicator. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int footerIndicatorUnderlinePadding=0x7f010016;
+        /**  Height of the footer line. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int footerLineHeight=0x7f010013;
+        /**  Padding between the bottom of the title and the footer. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int footerPadding=0x7f010017;
+        /**  Width of the gap between each indicator line. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int gapWidth=0x7f010010;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -89,7 +190,30 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int is_cropped=0x7f010011;
+        public static final int is_cropped=0x7f010030;
+        /**  Position of the line. 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>bottom</code></td><td>0</td><td></td></tr>
+<tr><td><code>top</code></td><td>1</td><td></td></tr>
+</table>
+         */
+        public static final int linePosition=0x7f010018;
+        /**  Width of each indicator line. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int lineWidth=0x7f01000f;
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -97,7 +221,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int login_text=0x7f01000e;
+        public static final int login_text=0x7f01002d;
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -105,7 +229,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int logout_text=0x7f01000f;
+        public static final int logout_text=0x7f01002e;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -113,15 +237,17 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int multi_select=0x7f010007;
-        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+        public static final int multi_select=0x7f010026;
+        /**  Color of the filled circles that represents pages. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int object_id=0x7f010013;
+        public static final int pageColor=0x7f01000b;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -133,7 +259,18 @@ containing a value of this type.
 <tr><td><code>large</code></td><td>-4</td><td></td></tr>
 </table>
          */
-        public static final int preset_size=0x7f010010;
+        public static final int preset_size=0x7f01002f;
+        /**  Radius of the circles. This is also the spacing between circles. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int radius=0x7f01000c;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -141,7 +278,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int radius_in_meters=0x7f010008;
+        public static final int radius_in_meters=0x7f010027;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -149,7 +286,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int results_limit=0x7f010009;
+        public static final int results_limit=0x7f010028;
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -157,7 +294,25 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int search_text=0x7f01000a;
+        public static final int search_text=0x7f010029;
+        /**  Whether or not the selected item is displayed as bold. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int selectedBold=0x7f010019;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int selectedColor=0x7f010007;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -165,7 +320,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int show_pictures=0x7f010000;
+        public static final int show_pictures=0x7f01001f;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -173,7 +328,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int show_search_box=0x7f01000b;
+        public static final int show_search_box=0x7f01002a;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -181,23 +336,51 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int show_title_bar=0x7f010002;
-        /** <p>Must be one of the following constant values.</p>
-<table>
-<colgroup align="left" />
-<colgroup align="left" />
-<colgroup align="left" />
-<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>standard</code></td><td>0</td><td> Keep in sync with Enums in LikeView </td></tr>
-<tr><td><code>button</code></td><td>1</td><td></td></tr>
-<tr><td><code>box_count</code></td><td>2</td><td></td></tr>
-</table>
+        public static final int show_title_bar=0x7f010021;
+        /**  Whether or not the selected indicator snaps to the circles. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
          */
-        public static final int style=0x7f010014;
+        public static final int snap=0x7f01000d;
+        /**  Color of the open circles. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int strokeColor=0x7f01000e;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int strokeWidth=0x7f010008;
+        /**  Padding between titles when bumping into each other. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int titlePadding=0x7f01001a;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int title_bar_background=0x7f010005;
+        public static final int title_bar_background=0x7f010024;
         /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -205,20 +388,90 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int title_text=0x7f010003;
+        public static final int title_text=0x7f010022;
+        /**  Padding between titles and the top of the View. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int topPadding=0x7f01001b;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int unselectedColor=0x7f010009;
+        /**  Style of the circle indicator. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiCirclePageIndicatorStyle=0x7f010000;
+        /**  Style of the icon indicator's views. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiIconPageIndicatorStyle=0x7f010001;
+        /**  Style of the line indicator. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiLinePageIndicatorStyle=0x7f010002;
+        /**  Style of the tab indicator's tabs. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiTabPageIndicatorStyle=0x7f010004;
+        /**  Style of the title indicator. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiTitlePageIndicatorStyle=0x7f010003;
+        /**  Style of the underline indicator. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int vpiUnderlinePageIndicatorStyle=0x7f010005;
+    }
+    public static final class bool {
+        public static final int default_circle_indicator_centered=0x7f070000;
+        public static final int default_circle_indicator_snap=0x7f070001;
+        public static final int default_line_indicator_centered=0x7f070002;
+        public static final int default_title_indicator_selected_bold=0x7f070003;
+        public static final int default_underline_indicator_fades=0x7f070004;
     }
     public static final class color {
-        public static final int com_facebook_blue=0x7f060002;
-        public static final int com_facebook_likeboxcountview_border_color=0x7f060009;
-        public static final int com_facebook_likeboxcountview_text_color=0x7f06000a;
-        public static final int com_facebook_likebutton_text_color=0x7f060008;
-        public static final int com_facebook_likeview_text_color=0x7f060007;
-        public static final int com_facebook_loginview_text_color=0x7f060006;
-        public static final int com_facebook_picker_search_bar_background=0x7f060000;
-        public static final int com_facebook_picker_search_bar_text=0x7f060001;
-        public static final int com_facebook_usersettingsfragment_connected_shadow_color=0x7f060004;
-        public static final int com_facebook_usersettingsfragment_connected_text_color=0x7f060003;
-        public static final int com_facebook_usersettingsfragment_not_connected_text_color=0x7f060005;
+        public static final int com_facebook_blue=0x7f060011;
+        public static final int com_facebook_loginfragment_connected_shadow_color=0x7f060013;
+        public static final int com_facebook_loginfragment_connected_text_color=0x7f060012;
+        public static final int com_facebook_loginfragment_not_connected_text_color=0x7f060014;
+        public static final int com_facebook_loginview_text_color=0x7f060015;
+        public static final int default_circle_indicator_fill_color=0x7f060008;
+        public static final int default_circle_indicator_page_color=0x7f060009;
+        public static final int default_circle_indicator_stroke_color=0x7f06000a;
+        public static final int default_line_indicator_selected_color=0x7f06000b;
+        public static final int default_line_indicator_unselected_color=0x7f06000c;
+        public static final int default_title_indicator_footer_color=0x7f06000d;
+        public static final int default_title_indicator_selected_color=0x7f06000e;
+        public static final int default_title_indicator_text_color=0x7f06000f;
+        public static final int default_underline_indicator_selected_color=0x7f060010;
+        public static final int vpi__background_holo_dark=0x7f060000;
+        public static final int vpi__background_holo_light=0x7f060001;
+        public static final int vpi__bright_foreground_disabled_holo_dark=0x7f060004;
+        public static final int vpi__bright_foreground_disabled_holo_light=0x7f060005;
+        public static final int vpi__bright_foreground_holo_dark=0x7f060002;
+        public static final int vpi__bright_foreground_holo_light=0x7f060003;
+        public static final int vpi__bright_foreground_inverse_holo_dark=0x7f060006;
+        public static final int vpi__bright_foreground_inverse_holo_light=0x7f060007;
+        public static final int vpi__dark_theme=0x7f060016;
+        public static final int vpi__light_theme=0x7f060017;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -232,247 +485,230 @@ containing a value of this type.
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f05001d;
-        public static final int activity_vertical_margin=0x7f05001e;
-        public static final int com_facebook_likeboxcountview_border_radius=0x7f050015;
-        public static final int com_facebook_likeboxcountview_border_width=0x7f050016;
-        public static final int com_facebook_likeboxcountview_caret_height=0x7f050014;
-        public static final int com_facebook_likeboxcountview_caret_width=0x7f050013;
-        public static final int com_facebook_likeboxcountview_text_padding=0x7f050018;
-        public static final int com_facebook_likeboxcountview_text_size=0x7f050017;
-        public static final int com_facebook_likebutton_compound_drawable_padding=0x7f050011;
-        public static final int com_facebook_likebutton_padding_bottom=0x7f050010;
-        public static final int com_facebook_likebutton_padding_left=0x7f05000d;
-        public static final int com_facebook_likebutton_padding_right=0x7f05000e;
-        public static final int com_facebook_likebutton_padding_top=0x7f05000f;
-        public static final int com_facebook_likebutton_text_size=0x7f050012;
-        public static final int com_facebook_likeview_edge_padding=0x7f05000b;
-        public static final int com_facebook_likeview_internal_padding=0x7f05000c;
-        public static final int com_facebook_likeview_text_size=0x7f05000a;
-        public static final int com_facebook_loginview_compound_drawable_padding=0x7f050008;
-        public static final int com_facebook_loginview_padding_bottom=0x7f050007;
-        public static final int com_facebook_loginview_padding_left=0x7f050004;
-        public static final int com_facebook_loginview_padding_right=0x7f050005;
-        public static final int com_facebook_loginview_padding_top=0x7f050006;
-        public static final int com_facebook_loginview_text_size=0x7f050009;
-        public static final int com_facebook_picker_divider_width=0x7f050001;
-        public static final int com_facebook_picker_place_image_size=0x7f050000;
-        public static final int com_facebook_profilepictureview_preset_size_large=0x7f05001b;
-        public static final int com_facebook_profilepictureview_preset_size_normal=0x7f05001a;
-        public static final int com_facebook_profilepictureview_preset_size_small=0x7f050019;
-        public static final int com_facebook_tooltip_horizontal_padding=0x7f05001c;
-        public static final int com_facebook_usersettingsfragment_profile_picture_height=0x7f050003;
-        public static final int com_facebook_usersettingsfragment_profile_picture_width=0x7f050002;
-        public static final int form_padding=0x7f05001f;
+        public static final int activity_horizontal_margin=0x7f090019;
+        public static final int activity_vertical_margin=0x7f09001a;
+        public static final int com_facebook_loginfragment_profile_picture_height=0x7f09000e;
+        public static final int com_facebook_loginfragment_profile_picture_width=0x7f09000d;
+        public static final int com_facebook_loginview_height=0x7f090014;
+        public static final int com_facebook_loginview_padding_bottom=0x7f090012;
+        public static final int com_facebook_loginview_padding_left=0x7f09000f;
+        public static final int com_facebook_loginview_padding_right=0x7f090010;
+        public static final int com_facebook_loginview_padding_top=0x7f090011;
+        public static final int com_facebook_loginview_text_size=0x7f090015;
+        public static final int com_facebook_loginview_width=0x7f090013;
+        public static final int com_facebook_profilepictureview_preset_size_large=0x7f090018;
+        public static final int com_facebook_profilepictureview_preset_size_normal=0x7f090017;
+        public static final int com_facebook_profilepictureview_preset_size_small=0x7f090016;
+        public static final int default_circle_indicator_radius=0x7f090000;
+        public static final int default_circle_indicator_stroke_width=0x7f090001;
+        public static final int default_line_indicator_gap_width=0x7f090003;
+        public static final int default_line_indicator_line_width=0x7f090002;
+        public static final int default_line_indicator_stroke_width=0x7f090004;
+        public static final int default_title_indicator_clip_padding=0x7f090005;
+        public static final int default_title_indicator_footer_indicator_height=0x7f090007;
+        public static final int default_title_indicator_footer_indicator_underline_padding=0x7f090008;
+        public static final int default_title_indicator_footer_line_height=0x7f090006;
+        public static final int default_title_indicator_footer_padding=0x7f090009;
+        public static final int default_title_indicator_text_size=0x7f09000a;
+        public static final int default_title_indicator_title_padding=0x7f09000b;
+        public static final int default_title_indicator_top_padding=0x7f09000c;
+        public static final int form_padding=0x7f09001b;
     }
     public static final class drawable {
-        public static final int com_facebook_button_blue=0x7f020000;
-        public static final int com_facebook_button_blue_focused=0x7f020001;
-        public static final int com_facebook_button_blue_normal=0x7f020002;
-        public static final int com_facebook_button_blue_pressed=0x7f020003;
-        public static final int com_facebook_button_check=0x7f020004;
-        public static final int com_facebook_button_check_off=0x7f020005;
-        public static final int com_facebook_button_check_on=0x7f020006;
-        public static final int com_facebook_button_grey_focused=0x7f020007;
-        public static final int com_facebook_button_grey_normal=0x7f020008;
-        public static final int com_facebook_button_grey_pressed=0x7f020009;
-        public static final int com_facebook_button_like=0x7f02000a;
-        public static final int com_facebook_button_like_background=0x7f02000b;
-        public static final int com_facebook_button_like_background_selected=0x7f02000c;
-        public static final int com_facebook_button_like_icon=0x7f02000d;
-        public static final int com_facebook_button_like_icon_selected=0x7f02000e;
-        public static final int com_facebook_button_like_pressed=0x7f02000f;
-        public static final int com_facebook_button_like_selected=0x7f020010;
-        public static final int com_facebook_close=0x7f020011;
-        public static final int com_facebook_inverse_icon=0x7f020012;
-        public static final int com_facebook_list_divider=0x7f020013;
-        public static final int com_facebook_list_section_header_background=0x7f020014;
-        public static final int com_facebook_loginbutton_silver=0x7f020015;
-        public static final int com_facebook_logo=0x7f020016;
-        public static final int com_facebook_picker_default_separator_color=0x7f020033;
-        public static final int com_facebook_picker_item_background=0x7f020017;
-        public static final int com_facebook_picker_list_focused=0x7f020018;
-        public static final int com_facebook_picker_list_longpressed=0x7f020019;
-        public static final int com_facebook_picker_list_pressed=0x7f02001a;
-        public static final int com_facebook_picker_list_selector=0x7f02001b;
-        public static final int com_facebook_picker_list_selector_background_transition=0x7f02001c;
-        public static final int com_facebook_picker_list_selector_disabled=0x7f02001d;
-        public static final int com_facebook_picker_magnifier=0x7f02001e;
-        public static final int com_facebook_picker_top_button=0x7f02001f;
-        public static final int com_facebook_place_default_icon=0x7f020020;
-        public static final int com_facebook_profile_default_icon=0x7f020021;
-        public static final int com_facebook_profile_picture_blank_portrait=0x7f020022;
-        public static final int com_facebook_profile_picture_blank_square=0x7f020023;
-        public static final int com_facebook_tooltip_black_background=0x7f020024;
-        public static final int com_facebook_tooltip_black_bottomnub=0x7f020025;
-        public static final int com_facebook_tooltip_black_topnub=0x7f020026;
-        public static final int com_facebook_tooltip_black_xout=0x7f020027;
-        public static final int com_facebook_tooltip_blue_background=0x7f020028;
-        public static final int com_facebook_tooltip_blue_bottomnub=0x7f020029;
-        public static final int com_facebook_tooltip_blue_topnub=0x7f02002a;
-        public static final int com_facebook_tooltip_blue_xout=0x7f02002b;
-        public static final int com_facebook_top_background=0x7f02002c;
-        public static final int com_facebook_top_button=0x7f02002d;
-        public static final int com_facebook_usersettingsfragment_background_gradient=0x7f02002e;
-        public static final int cyranosplash=0x7f02002f;
-        public static final int facebook=0x7f020030;
-        public static final int ic_launcher=0x7f020031;
-        public static final int notification=0x7f020032;
+        public static final int com_facebook_button_check=0x7f020000;
+        public static final int com_facebook_button_check_off=0x7f020001;
+        public static final int com_facebook_button_check_on=0x7f020002;
+        public static final int com_facebook_button_grey_focused=0x7f020003;
+        public static final int com_facebook_button_grey_normal=0x7f020004;
+        public static final int com_facebook_button_grey_pressed=0x7f020005;
+        public static final int com_facebook_close=0x7f020006;
+        public static final int com_facebook_icon=0x7f020007;
+        public static final int com_facebook_list_divider=0x7f020008;
+        public static final int com_facebook_list_section_header_background=0x7f020009;
+        public static final int com_facebook_loginbutton_blue=0x7f02000a;
+        public static final int com_facebook_loginbutton_blue_focused=0x7f02000b;
+        public static final int com_facebook_loginbutton_blue_normal=0x7f02000c;
+        public static final int com_facebook_loginbutton_blue_pressed=0x7f02000d;
+        public static final int com_facebook_loginbutton_silver=0x7f02000e;
+        public static final int com_facebook_loginfragment_background_gradient=0x7f02000f;
+        public static final int com_facebook_logo=0x7f020010;
+        public static final int com_facebook_picker_item_background=0x7f020011;
+        public static final int com_facebook_picker_list_focused=0x7f020012;
+        public static final int com_facebook_picker_list_longpressed=0x7f020013;
+        public static final int com_facebook_picker_list_pressed=0x7f020014;
+        public static final int com_facebook_picker_list_selector=0x7f020015;
+        public static final int com_facebook_picker_list_selector_background_transition=0x7f020016;
+        public static final int com_facebook_picker_list_selector_disabled=0x7f020017;
+        public static final int com_facebook_picker_top_button=0x7f020018;
+        public static final int com_facebook_place_default_icon=0x7f020019;
+        public static final int com_facebook_profile_default_icon=0x7f02001a;
+        public static final int com_facebook_profile_picture_blank_portrait=0x7f02001b;
+        public static final int com_facebook_profile_picture_blank_square=0x7f02001c;
+        public static final int com_facebook_top_background=0x7f02001d;
+        public static final int com_facebook_top_button=0x7f02001e;
+        public static final int cyranosplash=0x7f02001f;
+        public static final int facebook=0x7f020020;
+        public static final int ic_launcher=0x7f020021;
+        public static final int notification=0x7f020022;
+        public static final int vpi__tab_indicator=0x7f020023;
+        public static final int vpi__tab_selected_focused_holo=0x7f020024;
+        public static final int vpi__tab_selected_holo=0x7f020025;
+        public static final int vpi__tab_selected_pressed_holo=0x7f020026;
+        public static final int vpi__tab_unselected_focused_holo=0x7f020027;
+        public static final int vpi__tab_unselected_holo=0x7f020028;
+        public static final int vpi__tab_unselected_pressed_holo=0x7f020029;
     }
     public static final class id {
-        public static final int SCROLLER_ID=0x7f0b0083;
-        public static final int action_about=0x7f0b0096;
-        public static final int action_account=0x7f0b0095;
-        public static final int action_exit=0x7f0b0098;
-        public static final int action_logout=0x7f0b0097;
-        public static final int action_nearby=0x7f0b0092;
-        public static final int action_scripts=0x7f0b0093;
-        public static final int action_search_for=0x7f0b0094;
-        public static final int action_settings=0x7f0b0091;
-        public static final int activity_register=0x7f0b0029;
-        public static final int activity_weblogin=0x7f0b0089;
-        public static final int audioButton=0x7f0b002c;
-        public static final int autoDisplayFriendsButton=0x7f0b0049;
-        public static final int backButton=0x7f0b0051;
-        public static final int bottom=0x7f0b0006;
-        public static final int box_count=0x7f0b0003;
-        public static final int branch1=0x7f0b001a;
-        public static final int branch2=0x7f0b001b;
-        public static final int branch3=0x7f0b001c;
-        public static final int branch4=0x7f0b001d;
-        public static final int branchControls=0x7f0b0019;
-        public static final int btnShowLocation=0x7f0b0027;
-        public static final int button=0x7f0b0004;
-        public static final int button1=0x7f0b0031;
-        public static final int button2=0x7f0b0030;
-        public static final int button_inner_login=0x7f0b007b;
-        public static final int button_inner_register=0x7f0b007f;
-        public static final int button_login=0x7f0b008c;
-        public static final int button_register=0x7f0b008d;
-        public static final int button_search=0x7f0b0078;
-        public static final int center=0x7f0b0009;
-        public static final int check_count_only=0x7f0b0077;
-        public static final int check_detail_search=0x7f0b0076;
-        public static final int coachingButton=0x7f0b002e;
-        public static final int com_facebook_body_frame=0x7f0b0066;
-        public static final int com_facebook_button_xout=0x7f0b0068;
-        public static final int com_facebook_login_activity_progress_bar=0x7f0b0056;
-        public static final int com_facebook_picker_activity_circle=0x7f0b0055;
-        public static final int com_facebook_picker_checkbox=0x7f0b0058;
-        public static final int com_facebook_picker_checkbox_stub=0x7f0b005c;
-        public static final int com_facebook_picker_divider=0x7f0b0060;
-        public static final int com_facebook_picker_done_button=0x7f0b005f;
-        public static final int com_facebook_picker_image=0x7f0b0059;
-        public static final int com_facebook_picker_list_section_header=0x7f0b005d;
-        public static final int com_facebook_picker_list_view=0x7f0b0054;
-        public static final int com_facebook_picker_profile_pic_stub=0x7f0b005a;
-        public static final int com_facebook_picker_row_activity_circle=0x7f0b0057;
-        public static final int com_facebook_picker_search_text=0x7f0b0065;
-        public static final int com_facebook_picker_title=0x7f0b005b;
-        public static final int com_facebook_picker_title_bar=0x7f0b0062;
-        public static final int com_facebook_picker_title_bar_stub=0x7f0b0061;
-        public static final int com_facebook_picker_top_bar=0x7f0b005e;
-        public static final int com_facebook_search_bar_view=0x7f0b0064;
-        public static final int com_facebook_tooltip_bubble_view_bottom_pointer=0x7f0b006a;
-        public static final int com_facebook_tooltip_bubble_view_text_body=0x7f0b0069;
-        public static final int com_facebook_tooltip_bubble_view_top_pointer=0x7f0b0067;
-        public static final int com_facebook_usersettingsfragment_login_button=0x7f0b006d;
-        public static final int com_facebook_usersettingsfragment_logo_image=0x7f0b006b;
-        public static final int com_facebook_usersettingsfragment_profile_name=0x7f0b006c;
-        public static final int commandGroupContent=0x7f0b0025;
-        public static final int commandGroups=0x7f0b0026;
-        public static final int description=0x7f0b0050;
-        public static final int edittext_confirmed_password=0x7f0b007e;
-        public static final int edittext_email=0x7f0b0079;
-        public static final int edittext_firstname=0x7f0b007c;
-        public static final int edittext_lastname=0x7f0b007d;
-        public static final int edittext_password=0x7f0b007a;
-        public static final int fbAuthButton=0x7f0b008e;
-        public static final int firstLine=0x7f0b006e;
-        public static final int fnameInput=0x7f0b0036;
-        public static final int fnameLabel=0x7f0b0035;
-        public static final int fontSizeSpinner=0x7f0b0047;
-        public static final int friendAboutus=0x7f0b0013;
-        public static final int friendAudioButton=0x7f0b0045;
-        public static final int friendContent=0x7f0b000f;
-        public static final int friendCoordinates=0x7f0b0012;
-        public static final int friendFinderButton=0x7f0b0044;
-        public static final int friendName=0x7f0b0011;
-        public static final int friendPicture=0x7f0b0010;
-        public static final int friendsContent=0x7f0b0023;
-        public static final int friendsList=0x7f0b0024;
-        public static final int gpsDelayText=0x7f0b0046;
-        public static final int graphicalModeButton=0x7f0b0043;
-        public static final int imageoffriends=0x7f0b0082;
-        public static final int include1=0x7f0b0090;
-        public static final int inline=0x7f0b0007;
-        public static final int large=0x7f0b0000;
-        public static final int left=0x7f0b000a;
-        public static final int listTextView=0x7f0b0081;
-        public static final int list_view_search_for=0x7f0b0080;
-        public static final int listview_btusers=0x7f0b000d;
-        public static final int listview_friends=0x7f0b0028;
-        public static final int lnameInput=0x7f0b0038;
-        public static final int lnameLabel=0x7f0b0037;
-        public static final int mainContent=0x7f0b0014;
-        public static final int mainInformation=0x7f0b0016;
-        public static final int mainLayout=0x7f0b0040;
-        public static final int mainMessage=0x7f0b0017;
-        public static final int mainPicture=0x7f0b0018;
-        public static final int mainTitle=0x7f0b0015;
-        public static final int maxFriendsText=0x7f0b0048;
-        public static final int nextButton=0x7f0b0022;
-        public static final int normal=0x7f0b0001;
-        public static final int number_picker_number_of_records_needed=0x7f0b0075;
-        public static final int out=0x7f0b0084;
-        public static final int pNumInput=0x7f0b003a;
-        public static final int pNumLabel=0x7f0b0039;
-        public static final int pageTitle=0x7f0b004f;
-        public static final int passwordInput=0x7f0b003e;
-        public static final int passwordLabel=0x7f0b003d;
-        public static final int pauseButton=0x7f0b0020;
-        public static final int picker_subtitle=0x7f0b0063;
-        public static final int playButton=0x7f0b0053;
-        public static final int playbackControls=0x7f0b001e;
-        public static final int previousButton=0x7f0b001f;
-        public static final int radio_group_search_options=0x7f0b0070;
-        public static final int radio_search_device=0x7f0b0072;
-        public static final int radio_search_friend=0x7f0b0071;
-        public static final int radio_search_trigger=0x7f0b0073;
-        public static final int registerButton=0x7f0b003f;
-        public static final int registerMsgDefault=0x7f0b0033;
-        public static final int registerTitle=0x7f0b0032;
-        public static final int right=0x7f0b000b;
-        public static final int saveSettingsButton=0x7f0b004a;
-        public static final int sayButton=0x7f0b0087;
-        public static final int scrollview=0x7f0b000c;
-        public static final int secondLine=0x7f0b006f;
-        public static final int small=0x7f0b0002;
-        public static final int spinnerTarget=0x7f0b0085;
-        public static final int splashLinearLayout=0x7f0b008f;
-        public static final int splashPicture=0x7f0b0086;
-        public static final int standard=0x7f0b0005;
-        public static final int stopButton=0x7f0b0021;
-        public static final int sttButton=0x7f0b002b;
-        public static final int sttMessage=0x7f0b004d;
-        public static final int sttTitle=0x7f0b004c;
-        public static final int terseModeButton=0x7f0b0041;
-        public static final int textBox=0x7f0b0052;
-        public static final int textview_select_record_count=0x7f0b0074;
-        public static final int top=0x7f0b0008;
-        public static final int tsAudioButton=0x7f0b0042;
-        public static final int ttsBackButton=0x7f0b004e;
-        public static final int ttsButton=0x7f0b002a;
-        public static final int urlButton=0x7f0b002d;
-        public static final int urllink=0x7f0b0088;
-        public static final int usernameAndPassword=0x7f0b0034;
-        public static final int usernameInput=0x7f0b003c;
-        public static final int usernameLabel=0x7f0b003b;
-        public static final int versionInfo=0x7f0b004b;
-        public static final int voiceCommandButton=0x7f0b002f;
-        public static final int webLoginMsgDefault=0x7f0b008b;
-        public static final int webLoginTitle=0x7f0b008a;
-        public static final int wrapperLayout=0x7f0b000e;
+        public static final int SCROLLER_ID=0x7f050079;
+        public static final int action_about=0x7f05008c;
+        public static final int action_account=0x7f05008b;
+        public static final int action_exit=0x7f05008e;
+        public static final int action_logout=0x7f05008d;
+        public static final int action_nearby=0x7f050088;
+        public static final int action_scripts=0x7f050089;
+        public static final int action_search_for=0x7f05008a;
+        public static final int action_settings=0x7f050087;
+        public static final int activity_register=0x7f050025;
+        public static final int activity_weblogin=0x7f05007f;
+        public static final int audioButton=0x7f050028;
+        public static final int autoDisplayFriendsButton=0x7f050045;
+        public static final int backButton=0x7f05004d;
+        public static final int bottom=0x7f050003;
+        public static final int branch1=0x7f050016;
+        public static final int branch2=0x7f050017;
+        public static final int branch3=0x7f050018;
+        public static final int branch4=0x7f050019;
+        public static final int branchControls=0x7f050015;
+        public static final int btnShowLocation=0x7f050023;
+        public static final int button1=0x7f05002d;
+        public static final int button2=0x7f05002c;
+        public static final int button_inner_login=0x7f050071;
+        public static final int button_inner_register=0x7f050075;
+        public static final int button_login=0x7f050082;
+        public static final int button_register=0x7f050083;
+        public static final int button_search=0x7f05006e;
+        public static final int check_count_only=0x7f05006d;
+        public static final int check_detail_search=0x7f05006c;
+        public static final int coachingButton=0x7f05002a;
+        public static final int com_facebook_loginfragment_login_button=0x7f050054;
+        public static final int com_facebook_loginfragment_logo_image=0x7f050052;
+        public static final int com_facebook_loginfragment_profile_name=0x7f050053;
+        public static final int com_facebook_picker_activity_circle=0x7f050051;
+        public static final int com_facebook_picker_checkbox=0x7f050056;
+        public static final int com_facebook_picker_checkbox_stub=0x7f05005a;
+        public static final int com_facebook_picker_divider=0x7f05005e;
+        public static final int com_facebook_picker_done_button=0x7f05005d;
+        public static final int com_facebook_picker_image=0x7f050057;
+        public static final int com_facebook_picker_list_section_header=0x7f05005b;
+        public static final int com_facebook_picker_list_view=0x7f050050;
+        public static final int com_facebook_picker_profile_pic_stub=0x7f050058;
+        public static final int com_facebook_picker_row_activity_circle=0x7f050055;
+        public static final int com_facebook_picker_title=0x7f050059;
+        public static final int com_facebook_picker_title_bar=0x7f050060;
+        public static final int com_facebook_picker_title_bar_stub=0x7f05005f;
+        public static final int com_facebook_picker_top_bar=0x7f05005c;
+        public static final int com_facebook_placepickerfragment_search_box_stub=0x7f050061;
+        public static final int commandGroupContent=0x7f050021;
+        public static final int commandGroups=0x7f050022;
+        public static final int description=0x7f05004c;
+        public static final int edittext_confirmed_password=0x7f050074;
+        public static final int edittext_email=0x7f05006f;
+        public static final int edittext_firstname=0x7f050072;
+        public static final int edittext_lastname=0x7f050073;
+        public static final int edittext_password=0x7f050070;
+        public static final int fbAuthButton=0x7f050084;
+        public static final int firstLine=0x7f050064;
+        public static final int fnameInput=0x7f050032;
+        public static final int fnameLabel=0x7f050031;
+        public static final int fontSizeSpinner=0x7f050043;
+        public static final int friendAboutus=0x7f05000f;
+        public static final int friendAudioButton=0x7f050041;
+        public static final int friendContent=0x7f05000b;
+        public static final int friendCoordinates=0x7f05000e;
+        public static final int friendFinderButton=0x7f050040;
+        public static final int friendName=0x7f05000d;
+        public static final int friendPicture=0x7f05000c;
+        public static final int friendsContent=0x7f05001f;
+        public static final int friendsList=0x7f050020;
+        public static final int gpsDelayText=0x7f050042;
+        public static final int graphicalModeButton=0x7f05003f;
+        public static final int imageoffriends=0x7f050078;
+        public static final int include1=0x7f050086;
+        public static final int large=0x7f050007;
+        public static final int listTextView=0x7f050077;
+        public static final int list_view_search_for=0x7f050076;
+        public static final int listview_btusers=0x7f050009;
+        public static final int listview_friends=0x7f050024;
+        public static final int lnameInput=0x7f050034;
+        public static final int lnameLabel=0x7f050033;
+        public static final int mainContent=0x7f050010;
+        public static final int mainInformation=0x7f050012;
+        public static final int mainLayout=0x7f05003c;
+        public static final int mainMessage=0x7f050013;
+        public static final int mainPicture=0x7f050014;
+        public static final int mainTitle=0x7f050011;
+        public static final int maxFriendsText=0x7f050044;
+        public static final int nextButton=0x7f05001e;
+        public static final int none=0x7f050000;
+        public static final int normal=0x7f050006;
+        public static final int number_picker_number_of_records_needed=0x7f05006b;
+        public static final int out=0x7f05007a;
+        public static final int pNumInput=0x7f050036;
+        public static final int pNumLabel=0x7f050035;
+        public static final int pageTitle=0x7f05004b;
+        public static final int passwordInput=0x7f05003a;
+        public static final int passwordLabel=0x7f050039;
+        public static final int pauseButton=0x7f05001c;
+        public static final int picker_subtitle=0x7f050063;
+        public static final int playButton=0x7f05004f;
+        public static final int playbackControls=0x7f05001a;
+        public static final int previousButton=0x7f05001b;
+        public static final int radio_group_search_options=0x7f050066;
+        public static final int radio_search_device=0x7f050068;
+        public static final int radio_search_friend=0x7f050067;
+        public static final int radio_search_trigger=0x7f050069;
+        public static final int registerButton=0x7f05003b;
+        public static final int registerMsgDefault=0x7f05002f;
+        public static final int registerTitle=0x7f05002e;
+        public static final int saveSettingsButton=0x7f050046;
+        public static final int sayButton=0x7f05007d;
+        public static final int scrollview=0x7f050008;
+        public static final int search_box=0x7f050062;
+        public static final int secondLine=0x7f050065;
+        public static final int small=0x7f050005;
+        public static final int spinnerTarget=0x7f05007b;
+        public static final int splashLinearLayout=0x7f050085;
+        public static final int splashPicture=0x7f05007c;
+        public static final int stopButton=0x7f05001d;
+        public static final int sttButton=0x7f050027;
+        public static final int sttMessage=0x7f050049;
+        public static final int sttTitle=0x7f050048;
+        public static final int terseModeButton=0x7f05003d;
+        public static final int textBox=0x7f05004e;
+        public static final int textview_select_record_count=0x7f05006a;
+        public static final int top=0x7f050004;
+        public static final int triangle=0x7f050001;
+        public static final int tsAudioButton=0x7f05003e;
+        public static final int ttsBackButton=0x7f05004a;
+        public static final int ttsButton=0x7f050026;
+        public static final int underline=0x7f050002;
+        public static final int urlButton=0x7f050029;
+        public static final int urllink=0x7f05007e;
+        public static final int usernameAndPassword=0x7f050030;
+        public static final int usernameInput=0x7f050038;
+        public static final int usernameLabel=0x7f050037;
+        public static final int versionInfo=0x7f050047;
+        public static final int voiceCommandButton=0x7f05002b;
+        public static final int webLoginMsgDefault=0x7f050081;
+        public static final int webLoginTitle=0x7f050080;
+        public static final int wrapperLayout=0x7f05000a;
+    }
+    public static final class integer {
+        public static final int default_circle_indicator_orientation=0x7f080000;
+        public static final int default_title_indicator_footer_indicator_style=0x7f080001;
+        public static final int default_title_indicator_line_position=0x7f080002;
+        public static final int default_underline_indicator_fade_delay=0x7f080003;
+        public static final int default_underline_indicator_fade_length=0x7f080004;
     }
     public static final class layout {
         public static final int activity_activity_btuserlist=0x7f030000;
@@ -486,7 +722,7 @@ containing a value of this type.
         public static final int audiofile=0x7f030008;
         public static final int coaching=0x7f030009;
         public static final int com_facebook_friendpickerfragment=0x7f03000a;
-        public static final int com_facebook_login_activity_layout=0x7f03000b;
+        public static final int com_facebook_loginfragment=0x7f03000b;
         public static final int com_facebook_picker_activity_circle_row=0x7f03000c;
         public static final int com_facebook_picker_checkbox=0x7f03000d;
         public static final int com_facebook_picker_image=0x7f03000e;
@@ -497,63 +733,60 @@ containing a value of this type.
         public static final int com_facebook_picker_title_bar_stub=0x7f030013;
         public static final int com_facebook_placepickerfragment=0x7f030014;
         public static final int com_facebook_placepickerfragment_list_row=0x7f030015;
-        public static final int com_facebook_search_bar_layout=0x7f030016;
-        public static final int com_facebook_tooltip_bubble=0x7f030017;
-        public static final int com_facebook_usersettingsfragment=0x7f030018;
-        public static final int command_group_item=0x7f030019;
-        public static final int dialog_advance_search=0x7f03001a;
-        public static final int dialog_login=0x7f03001b;
-        public static final int dialog_registration=0x7f03001c;
-        public static final int dialog_search_for=0x7f03001d;
-        public static final int layout_list1=0x7f03001e;
-        public static final int layout_list2=0x7f03001f;
-        public static final int layout_list3=0x7f030020;
-        public static final int main=0x7f030021;
-        public static final int spinner_layout=0x7f030022;
-        public static final int splash_screen=0x7f030023;
-        public static final int test=0x7f030024;
-        public static final int texttospeech=0x7f030025;
-        public static final int urllink=0x7f030026;
-        public static final int weblogin=0x7f030027;
+        public static final int command_group_item=0x7f030016;
+        public static final int dialog_advance_search=0x7f030017;
+        public static final int dialog_login=0x7f030018;
+        public static final int dialog_registration=0x7f030019;
+        public static final int dialog_search_for=0x7f03001a;
+        public static final int layout_list1=0x7f03001b;
+        public static final int layout_list2=0x7f03001c;
+        public static final int layout_list3=0x7f03001d;
+        public static final int main=0x7f03001e;
+        public static final int spinner_layout=0x7f03001f;
+        public static final int splash_screen=0x7f030020;
+        public static final int test=0x7f030021;
+        public static final int texttospeech=0x7f030022;
+        public static final int urllink=0x7f030023;
+        public static final int weblogin=0x7f030024;
     }
     public static final class menu {
-        public static final int activity_btuserlist=0x7f0a0000;
-        public static final int bluetooth_test=0x7f0a0001;
-        public static final int cyrano=0x7f0a0002;
-        public static final int gpstest=0x7f0a0003;
-        public static final int main=0x7f0a0004;
-        public static final int register=0x7f0a0005;
-        public static final int settings=0x7f0a0006;
-        public static final int speech_to_text=0x7f0a0007;
+        public static final int activity_btuserlist=0x7f0d0000;
+        public static final int bluetooth_test=0x7f0d0001;
+        public static final int cyrano=0x7f0d0002;
+        public static final int gpstest=0x7f0d0003;
+        public static final int main=0x7f0d0004;
+        public static final int register=0x7f0d0005;
+        public static final int settings=0x7f0d0006;
+        public static final int speech_to_text=0x7f0d0007;
     }
     public static final class raw {
         public static final int testmidi=0x7f040000;
         public static final int testmp3=0x7f040001;
     }
     public static final class string {
-        public static final int AFDescription=0x7f070062;
-        public static final int AFTitle=0x7f070061;
-        public static final int STTLabelError=0x7f07005e;
-        public static final int STTListeningMessage=0x7f070060;
-        public static final int STTTitle=0x7f07005c;
-        public static final int TTSDescription=0x7f07005a;
-        public static final int TTSTitle=0x7f070059;
-        public static final int URLDescription=0x7f070066;
-        public static final int URLTitle=0x7f070065;
-        public static final int action_about=0x7f070023;
-        public static final int action_account=0x7f070022;
-        public static final int action_exit=0x7f070025;
-        public static final int action_logout=0x7f070024;
+        public static final int AFDescription=0x7f0b0057;
+        public static final int AFTitle=0x7f0b0056;
+        public static final int STTLabelError=0x7f0b0053;
+        public static final int STTListeningMessage=0x7f0b0055;
+        public static final int STTTitle=0x7f0b0051;
+        public static final int TTSDescription=0x7f0b004f;
+        public static final int TTSTitle=0x7f0b004e;
+        public static final int URLDescription=0x7f0b005b;
+        public static final int URLTitle=0x7f0b005a;
+        public static final int action_about=0x7f0b0018;
+        public static final int action_account=0x7f0b0017;
+        public static final int action_exit=0x7f0b001a;
+        public static final int action_logout=0x7f0b0019;
         /**  Menu item labels 
          */
-        public static final int action_nearby=0x7f07001e;
-        public static final int action_scripts=0x7f07001f;
-        public static final int action_search_advance=0x7f070029;
-        public static final int action_search_for=0x7f070021;
-        public static final int action_search_for_device=0x7f070027;
-        public static final int action_search_for_friend=0x7f070026;
-        public static final int action_search_for_trigger=0x7f070028;
-        public static final int action_settings=0x7f070020;
+        public static final int action_nearby=0x7f0b0013;
+        public static final int action_scripts=0x7f0b0014;
+        public static final int action_search_advance=0x7f0b001e;
+        public static final int action_search_for=0x7f0b0016;
+        public static final int action_search_for_device=0x7f0b001c;
+        public static final int action_search_for_friend=0x7f0b001b;
+        public static final int action_search_for_trigger=0x7f0b001d;
+        public static final int action_settings=0x7f0b0015;
         /**  <string name="app_id">1377001939245809</string> 
  <string name="app_id">541372869318477</string> 
  Canopus APPID 
@@ -561,131 +794,120 @@ containing a value of this type.
  VISH APPID 
  <string name="app_id">937267139634748</string> 
          */
-        public static final int app_id=0x7f070089;
-        public static final int app_name=0x7f07001d;
-        public static final int audioButtonText=0x7f070051;
-        public static final int audio_file_url=0x7f07003c;
-        public static final int autoDisplayFriendsLabel=0x7f070092;
+        public static final int app_id=0x7f0b007e;
+        public static final int app_name=0x7f0b0012;
+        public static final int audioButtonText=0x7f0b0046;
+        public static final int audio_file_url=0x7f0b0031;
+        public static final int autoDisplayFriendsLabel=0x7f0b0087;
         /**  Audio Test Strings 
          */
-        public static final int backButtonText=0x7f070058;
-        public static final int button_label_search=0x7f070030;
-        public static final int checkbox_count_only=0x7f07002f;
-        public static final int checkbox_detail_search=0x7f07002e;
-        public static final int coach_default_groupid=0x7f07006b;
-        public static final int coachingButtonText=0x7f070053;
-        public static final int coachingDescription=0x7f070068;
-        public static final int coachingTitle=0x7f070067;
-        public static final int com_facebook_choose_friends=0x7f070011;
-        public static final int com_facebook_dialogloginactivity_ok_button=0x7f070000;
-        public static final int com_facebook_image_download_unknown_error=0x7f07001c;
-        public static final int com_facebook_internet_permission_error_message=0x7f070015;
-        public static final int com_facebook_internet_permission_error_title=0x7f070014;
-        public static final int com_facebook_like_button_liked=0x7f070002;
-        public static final int com_facebook_like_button_not_liked=0x7f070001;
-        public static final int com_facebook_loading=0x7f070013;
-        public static final int com_facebook_loginview_cancel_action=0x7f070008;
-        public static final int com_facebook_loginview_log_in_button=0x7f070004;
-        public static final int com_facebook_loginview_log_out_action=0x7f070007;
-        public static final int com_facebook_loginview_log_out_button=0x7f070003;
-        public static final int com_facebook_loginview_logged_in_as=0x7f070005;
-        public static final int com_facebook_loginview_logged_in_using_facebook=0x7f070006;
-        public static final int com_facebook_logo_content_description=0x7f070009;
-        public static final int com_facebook_nearby=0x7f070012;
-        public static final int com_facebook_picker_done_button_text=0x7f070010;
-        public static final int com_facebook_placepicker_subtitle_catetory_only_format=0x7f07000e;
-        public static final int com_facebook_placepicker_subtitle_format=0x7f07000d;
-        public static final int com_facebook_placepicker_subtitle_were_here_only_format=0x7f07000f;
-        public static final int com_facebook_requesterror_password_changed=0x7f070018;
-        public static final int com_facebook_requesterror_permissions=0x7f07001a;
-        public static final int com_facebook_requesterror_reconnect=0x7f070019;
-        public static final int com_facebook_requesterror_relogin=0x7f070017;
-        public static final int com_facebook_requesterror_web_login=0x7f070016;
-        public static final int com_facebook_tooltip_default=0x7f07001b;
-        public static final int com_facebook_usersettingsfragment_log_in_button=0x7f07000a;
-        public static final int com_facebook_usersettingsfragment_logged_in=0x7f07000b;
-        public static final int com_facebook_usersettingsfragment_not_logged_in=0x7f07000c;
-        public static final int defaultSTTLabel=0x7f07005d;
-        public static final int defaultStatusText=0x7f070078;
-        public static final int default_tts=0x7f07006a;
-        public static final int demoButtonText=0x7f070064;
-        public static final int emptyPassword=0x7f070048;
-        public static final int emptyUsername=0x7f070047;
-        public static final int fnameLabel=0x7f070054;
-        public static final int fontSizeLabel=0x7f070094;
-        public static final int friendAudioLabel=0x7f07008e;
-        public static final int friendFinderLabel=0x7f07008d;
-        public static final int gpsTimeDelayLabelPrefix=0x7f07008f;
-        public static final int gpsTimeDelayLabelSuffix=0x7f070090;
-        public static final int graphicalLabel=0x7f07008c;
-        public static final int hello_world=0x7f070098;
-        public static final int incorrectLogin=0x7f070046;
+        public static final int backButtonText=0x7f0b004d;
+        public static final int button_label_search=0x7f0b0025;
+        public static final int checkbox_count_only=0x7f0b0024;
+        public static final int checkbox_detail_search=0x7f0b0023;
+        public static final int coach_default_groupid=0x7f0b0060;
+        public static final int coachingButtonText=0x7f0b0048;
+        public static final int coachingDescription=0x7f0b005d;
+        public static final int coachingTitle=0x7f0b005c;
+        public static final int com_facebook_choose_friends=0x7f0b000f;
+        public static final int com_facebook_dialogloginactivity_ok_button=0x7f0b0000;
+        public static final int com_facebook_loading=0x7f0b0011;
+        public static final int com_facebook_loginfragment_log_in_button=0x7f0b0008;
+        public static final int com_facebook_loginfragment_logged_in=0x7f0b0009;
+        public static final int com_facebook_loginfragment_not_logged_in=0x7f0b000a;
+        public static final int com_facebook_loginview_cancel_action=0x7f0b0006;
+        public static final int com_facebook_loginview_log_in_button=0x7f0b0002;
+        public static final int com_facebook_loginview_log_out_action=0x7f0b0005;
+        public static final int com_facebook_loginview_log_out_button=0x7f0b0001;
+        public static final int com_facebook_loginview_logged_in_as=0x7f0b0003;
+        public static final int com_facebook_loginview_logged_in_using_facebook=0x7f0b0004;
+        public static final int com_facebook_logo_content_description=0x7f0b0007;
+        public static final int com_facebook_nearby=0x7f0b0010;
+        public static final int com_facebook_picker_done_button_text=0x7f0b000e;
+        public static final int com_facebook_placepicker_subtitle_catetory_only_format=0x7f0b000c;
+        public static final int com_facebook_placepicker_subtitle_format=0x7f0b000b;
+        public static final int com_facebook_placepicker_subtitle_were_here_only_format=0x7f0b000d;
+        public static final int defaultSTTLabel=0x7f0b0052;
+        public static final int defaultStatusText=0x7f0b006d;
+        public static final int default_tts=0x7f0b005f;
+        public static final int demoButtonText=0x7f0b0059;
+        public static final int emptyPassword=0x7f0b003d;
+        public static final int emptyUsername=0x7f0b003c;
+        public static final int fnameLabel=0x7f0b0049;
+        public static final int fontSizeLabel=0x7f0b0089;
+        public static final int friendAudioLabel=0x7f0b0083;
+        public static final int friendFinderLabel=0x7f0b0082;
+        public static final int gpsTimeDelayLabelPrefix=0x7f0b0084;
+        public static final int gpsTimeDelayLabelSuffix=0x7f0b0085;
+        public static final int graphicalLabel=0x7f0b0081;
+        public static final int hello_world=0x7f0b008d;
+        public static final int incorrectLogin=0x7f0b003b;
         /**  URLs 
          */
-        public static final int kbaq_stream_url=0x7f07003b;
-        public static final int label_confirm_password=0x7f070035;
-        public static final int label_email=0x7f070033;
-        public static final int label_first_name=0x7f070031;
-        public static final int label_last_name=0x7f070032;
-        public static final int label_login=0x7f070037;
-        public static final int label_password=0x7f070034;
-        public static final int label_register=0x7f070036;
-        public static final int lnameLabel=0x7f070055;
-        public static final int loggingIn=0x7f070045;
-        public static final int loginButtonText=0x7f070043;
+        public static final int kbaq_stream_url=0x7f0b0030;
+        public static final int label_confirm_password=0x7f0b002a;
+        public static final int label_email=0x7f0b0028;
+        public static final int label_first_name=0x7f0b0026;
+        public static final int label_last_name=0x7f0b0027;
+        public static final int label_login=0x7f0b002c;
+        public static final int label_password=0x7f0b0029;
+        public static final int label_register=0x7f0b002b;
+        public static final int lnameLabel=0x7f0b004a;
+        public static final int loggingIn=0x7f0b003a;
+        public static final int loginButtonText=0x7f0b0038;
         /**  Main form strings 
          */
-        public static final int mainTitle=0x7f07004e;
-        public static final int maxFriendsLabel=0x7f070091;
-        public static final int multiFriendsHeading=0x7f070081;
-        public static final int multipleDeviceMessage=0x7f070074;
-        public static final int multipleFriendsMessage=0x7f07006e;
-        public static final int multipletriggerMessage=0x7f070076;
-        public static final int multipleuersMessage=0x7f070072;
-        public static final int myAccountHeading=0x7f070083;
-        public static final int nearby=0x7f07007e;
-        public static final int newButton=0x7f07007f;
-        public static final int nextButtonText=0x7f07007d;
-        public static final int noFriendsMessage=0x7f070070;
-        public static final int notificationText=0x7f070096;
-        public static final int notificationTitle=0x7f070095;
-        public static final int pNumLabel=0x7f070056;
-        public static final int passwordLabel=0x7f07003f;
-        public static final int pauseButtonText=0x7f07007a;
-        public static final int placeholder=0x7f070085;
-        public static final int playButtonText=0x7f070079;
-        public static final int playItButtonText=0x7f070063;
-        public static final int pnumLabel=0x7f070057;
-        public static final int previousButtonText=0x7f07007c;
-        public static final int radio_label_search_device=0x7f07002b;
-        public static final int radio_label_search_friend=0x7f07002a;
-        public static final int radio_label_search_trigger=0x7f07002c;
-        public static final int registerButtonText=0x7f070040;
-        public static final int registerMsgDefault=0x7f07004a;
-        public static final int registerSuccess=0x7f07004c;
+        public static final int mainTitle=0x7f0b0043;
+        public static final int maxFriendsLabel=0x7f0b0086;
+        public static final int multiFriendsHeading=0x7f0b0076;
+        public static final int multipleDeviceMessage=0x7f0b0069;
+        public static final int multipleFriendsMessage=0x7f0b0063;
+        public static final int multipletriggerMessage=0x7f0b006b;
+        public static final int multipleuersMessage=0x7f0b0067;
+        public static final int myAccountHeading=0x7f0b0078;
+        public static final int nearby=0x7f0b0073;
+        public static final int newButton=0x7f0b0074;
+        public static final int nextButtonText=0x7f0b0072;
+        public static final int noFriendsMessage=0x7f0b0065;
+        public static final int notificationText=0x7f0b008b;
+        public static final int notificationTitle=0x7f0b008a;
+        public static final int pNumLabel=0x7f0b004b;
+        public static final int passwordLabel=0x7f0b0034;
+        public static final int pauseButtonText=0x7f0b006f;
+        public static final int placeholder=0x7f0b007a;
+        public static final int playButtonText=0x7f0b006e;
+        public static final int playItButtonText=0x7f0b0058;
+        public static final int pnumLabel=0x7f0b004c;
+        public static final int previousButtonText=0x7f0b0071;
+        public static final int radio_label_search_device=0x7f0b0020;
+        public static final int radio_label_search_friend=0x7f0b001f;
+        public static final int radio_label_search_trigger=0x7f0b0021;
+        public static final int registerButtonText=0x7f0b0035;
+        public static final int registerMsgDefault=0x7f0b003f;
+        public static final int registerSuccess=0x7f0b0041;
         /**  Register specific strings 
          */
-        public static final int registerTitle=0x7f070049;
-        public static final int registered=0x7f07004d;
-        public static final int registering=0x7f07004b;
-        public static final int saveSettingsLabel=0x7f070093;
-        public static final int sayButtonText=0x7f07005b;
-        public static final int scriptsHeading=0x7f070080;
-        public static final int service_search_device_advance=0x7f070039;
-        public static final int service_search_friend_advance=0x7f070038;
-        public static final int service_search_trigger_advance=0x7f07003a;
-        public static final int singleDeviceMessage=0x7f070073;
-        public static final int singleFriendHeading=0x7f070082;
-        public static final int singleFriendMessage=0x7f07006d;
-        public static final int singleFriendsMessage=0x7f07006f;
-        public static final int singletriggerMessage=0x7f070075;
-        public static final int singleuserMessage=0x7f070071;
-        public static final int skipButtonText=0x7f070044;
-        public static final int splashDescription=0x7f070084;
-        public static final int splashImage=0x7f07003d;
-        public static final int startSTTButtonText=0x7f07005f;
-        public static final int stopButtonText=0x7f07007b;
-        public static final int sttButtonText=0x7f070050;
+        public static final int registerTitle=0x7f0b003e;
+        public static final int registered=0x7f0b0042;
+        public static final int registering=0x7f0b0040;
+        public static final int saveSettingsLabel=0x7f0b0088;
+        public static final int sayButtonText=0x7f0b0050;
+        public static final int scriptsHeading=0x7f0b0075;
+        public static final int service_search_device_advance=0x7f0b002e;
+        public static final int service_search_friend_advance=0x7f0b002d;
+        public static final int service_search_trigger_advance=0x7f0b002f;
+        public static final int singleDeviceMessage=0x7f0b0068;
+        public static final int singleFriendHeading=0x7f0b0077;
+        public static final int singleFriendMessage=0x7f0b0062;
+        public static final int singleFriendsMessage=0x7f0b0064;
+        public static final int singletriggerMessage=0x7f0b006a;
+        public static final int singleuserMessage=0x7f0b0066;
+        public static final int skipButtonText=0x7f0b0039;
+        public static final int splashDescription=0x7f0b0079;
+        public static final int splashImage=0x7f0b0032;
+        public static final int startSTTButtonText=0x7f0b0054;
+        public static final int stopButtonText=0x7f0b0070;
+        public static final int sttButtonText=0x7f0b0045;
         /**  Production Test App ID 
  <string name="app_id">845295548836953</string> 
  Shankar's App ID 
@@ -695,30 +917,30 @@ containing a value of this type.
  <string name="app_id_auth">com.facebook.app.NativeAppCallContentProvider541372869318477</string> 
  <string name="app_id_auth">com.facebook.app.NativeAppCallContentProvider338902142958005</string> 
          */
-        public static final int terseModeLabel=0x7f07008a;
-        public static final int textviewx_select_count=0x7f07002d;
-        public static final int title_activity_activity_btuserlist=0x7f070097;
+        public static final int terseModeLabel=0x7f0b007f;
+        public static final int textviewx_select_count=0x7f0b0022;
+        public static final int title_activity_activity_btuserlist=0x7f0b008c;
         /**  Seer uh no friends detected: 
  Cyrano Activity 
          */
-        public static final int title_activity_cyrano=0x7f070077;
-        public static final int title_activity_friends=0x7f070087;
-        public static final int title_activity_gpstest=0x7f07006c;
+        public static final int title_activity_cyrano=0x7f0b006c;
+        public static final int title_activity_friends=0x7f0b007c;
+        public static final int title_activity_gpstest=0x7f0b0061;
         /**  Settings Activity 
          */
-        public static final int title_activity_settings=0x7f070086;
-        public static final int tsAudioLabel=0x7f07008b;
-        public static final int ttsButtonText=0x7f07004f;
-        public static final int urlButtonText=0x7f070052;
+        public static final int title_activity_settings=0x7f0b007b;
+        public static final int tsAudioLabel=0x7f0b0080;
+        public static final int ttsButtonText=0x7f0b0044;
+        public static final int urlButtonText=0x7f0b0047;
         /**  WebLogin and Register strings 
          */
-        public static final int usernameLabel=0x7f07003e;
-        public static final int versionText=0x7f070088;
-        public static final int voiceCommandButtonText=0x7f070069;
-        public static final int webLoginMsgDefault=0x7f070042;
+        public static final int usernameLabel=0x7f0b0033;
+        public static final int versionText=0x7f0b007d;
+        public static final int voiceCommandButtonText=0x7f0b005e;
+        public static final int webLoginMsgDefault=0x7f0b0037;
         /**  WebLogin specific strings 
          */
-        public static final int webLoginTitle=0x7f070041;
+        public static final int webLoginTitle=0x7f0b0036;
     }
     public static final class style {
         /** 
@@ -731,18 +953,807 @@ containing a value of this type.
             backward-compatibility can go here.
         
          */
-        public static final int AppBaseTheme=0x7f080003;
+        public static final int AppBaseTheme=0x7f0a0007;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080004;
-        public static final int LoginFormContainer=0x7f080005;
-        public static final int SplashScreen=0x7f080006;
-        public static final int com_facebook_loginview_default_style=0x7f080000;
-        public static final int com_facebook_loginview_silver_style=0x7f080001;
-        public static final int tooltip_bubble_text=0x7f080002;
+        public static final int AppTheme=0x7f0a0008;
+        public static final int LoginFormContainer=0x7f0a0009;
+        public static final int SplashScreen=0x7f0a000a;
+        public static final int TextAppearance_TabPageIndicator=0x7f0a0003;
+        public static final int Theme_PageIndicatorDefaults=0x7f0a0000;
+        public static final int Widget=0x7f0a0001;
+        public static final int Widget_IconPageIndicator=0x7f0a0004;
+        public static final int Widget_TabPageIndicator=0x7f0a0002;
+        public static final int com_facebook_loginview_default_style=0x7f0a0005;
+        public static final int com_facebook_loginview_silver_style=0x7f0a0006;
     }
     public static final class styleable {
+        /** Attributes that can be used with a CirclePageIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #CirclePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_android_orientation android:orientation}</code></td><td> Orientation of the indicator.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_centered com.cjcornell.cyrano:centered}</code></td><td> Whether or not the indicators should be centered.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_fillColor com.cjcornell.cyrano:fillColor}</code></td><td> Color of the filled circle that represents the current page.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_pageColor com.cjcornell.cyrano:pageColor}</code></td><td> Color of the filled circles that represents pages.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_radius com.cjcornell.cyrano:radius}</code></td><td> Radius of the circles.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_snap com.cjcornell.cyrano:snap}</code></td><td> Whether or not the selected indicator snaps to the circles.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_strokeColor com.cjcornell.cyrano:strokeColor}</code></td><td> Color of the open circles.</td></tr>
+           <tr><td><code>{@link #CirclePageIndicator_strokeWidth com.cjcornell.cyrano:strokeWidth}</code></td><td> Width of the stroke used to draw the circles.</td></tr>
+           </table>
+           @see #CirclePageIndicator_android_background
+           @see #CirclePageIndicator_android_orientation
+           @see #CirclePageIndicator_centered
+           @see #CirclePageIndicator_fillColor
+           @see #CirclePageIndicator_pageColor
+           @see #CirclePageIndicator_radius
+           @see #CirclePageIndicator_snap
+           @see #CirclePageIndicator_strokeColor
+           @see #CirclePageIndicator_strokeWidth
+         */
+        public static final int[] CirclePageIndicator = {
+            0x010100c4, 0x010100d4, 0x7f010006, 0x7f010008,
+            0x7f01000a, 0x7f01000b, 0x7f01000c, 0x7f01000d,
+            0x7f01000e
+        };
+        /**
+          <p>
+          @attr description
+           View background 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#background}.
+          @attr name android:background
+        */
+        public static final int CirclePageIndicator_android_background = 1;
+        /**
+          <p>
+          @attr description
+           Orientation of the indicator. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#orientation}.
+          @attr name android:orientation
+        */
+        public static final int CirclePageIndicator_android_orientation = 0;
+        /**
+          <p>
+          @attr description
+           Whether or not the indicators should be centered. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:centered
+        */
+        public static final int CirclePageIndicator_centered = 2;
+        /**
+          <p>
+          @attr description
+           Color of the filled circle that represents the current page. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:fillColor
+        */
+        public static final int CirclePageIndicator_fillColor = 4;
+        /**
+          <p>
+          @attr description
+           Color of the filled circles that represents pages. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:pageColor
+        */
+        public static final int CirclePageIndicator_pageColor = 5;
+        /**
+          <p>
+          @attr description
+           Radius of the circles. This is also the spacing between circles. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:radius
+        */
+        public static final int CirclePageIndicator_radius = 6;
+        /**
+          <p>
+          @attr description
+           Whether or not the selected indicator snaps to the circles. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:snap
+        */
+        public static final int CirclePageIndicator_snap = 7;
+        /**
+          <p>
+          @attr description
+           Color of the open circles. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:strokeColor
+        */
+        public static final int CirclePageIndicator_strokeColor = 8;
+        /**
+          <p>
+          @attr description
+           Width of the stroke used to draw the circles. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:strokeWidth
+        */
+        public static final int CirclePageIndicator_strokeWidth = 3;
+        /** Attributes that can be used with a LinePageIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #LinePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
+           <tr><td><code>{@link #LinePageIndicator_centered com.cjcornell.cyrano:centered}</code></td><td> Whether or not the indicators should be centered.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_gapWidth com.cjcornell.cyrano:gapWidth}</code></td><td> Width of the gap between each indicator line.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_lineWidth com.cjcornell.cyrano:lineWidth}</code></td><td> Width of each indicator line.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_selectedColor com.cjcornell.cyrano:selectedColor}</code></td><td> Color of the selected line that represents the current page.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_strokeWidth com.cjcornell.cyrano:strokeWidth}</code></td><td> Width of each indicator line's stroke.</td></tr>
+           <tr><td><code>{@link #LinePageIndicator_unselectedColor com.cjcornell.cyrano:unselectedColor}</code></td><td> Color of the unselected lines that represent the pages.</td></tr>
+           </table>
+           @see #LinePageIndicator_android_background
+           @see #LinePageIndicator_centered
+           @see #LinePageIndicator_gapWidth
+           @see #LinePageIndicator_lineWidth
+           @see #LinePageIndicator_selectedColor
+           @see #LinePageIndicator_strokeWidth
+           @see #LinePageIndicator_unselectedColor
+         */
+        public static final int[] LinePageIndicator = {
+            0x010100d4, 0x7f010006, 0x7f010007, 0x7f010008,
+            0x7f010009, 0x7f01000f, 0x7f010010
+        };
+        /**
+          <p>
+          @attr description
+           View background 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#background}.
+          @attr name android:background
+        */
+        public static final int LinePageIndicator_android_background = 0;
+        /**
+          <p>
+          @attr description
+           Whether or not the indicators should be centered. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:centered
+        */
+        public static final int LinePageIndicator_centered = 1;
+        /**
+          <p>
+          @attr description
+           Width of the gap between each indicator line. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:gapWidth
+        */
+        public static final int LinePageIndicator_gapWidth = 6;
+        /**
+          <p>
+          @attr description
+           Width of each indicator line. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:lineWidth
+        */
+        public static final int LinePageIndicator_lineWidth = 5;
+        /**
+          <p>
+          @attr description
+           Color of the selected line that represents the current page. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:selectedColor
+        */
+        public static final int LinePageIndicator_selectedColor = 2;
+        /**
+          <p>
+          @attr description
+           Width of each indicator line's stroke. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:strokeWidth
+        */
+        public static final int LinePageIndicator_strokeWidth = 3;
+        /**
+          <p>
+          @attr description
+           Color of the unselected lines that represent the pages. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:unselectedColor
+        */
+        public static final int LinePageIndicator_unselectedColor = 4;
+        /** Attributes that can be used with a TitlePageIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #TitlePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_android_textColor android:textColor}</code></td><td> Color of regular titles.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_android_textSize android:textSize}</code></td><td> Size of title text.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_clipPadding com.cjcornell.cyrano:clipPadding}</code></td><td> Screen edge padding.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerColor com.cjcornell.cyrano:footerColor}</code></td><td> Color of the footer line and indicator.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorHeight com.cjcornell.cyrano:footerIndicatorHeight}</code></td><td> Height of the indicator above the footer line.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorStyle com.cjcornell.cyrano:footerIndicatorStyle}</code></td><td> Style of the indicator.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerIndicatorUnderlinePadding com.cjcornell.cyrano:footerIndicatorUnderlinePadding}</code></td><td> Left and right padding of the underline indicator.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerLineHeight com.cjcornell.cyrano:footerLineHeight}</code></td><td> Height of the footer line.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_footerPadding com.cjcornell.cyrano:footerPadding}</code></td><td> Padding between the bottom of the title and the footer.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_linePosition com.cjcornell.cyrano:linePosition}</code></td><td> Position of the line.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_selectedBold com.cjcornell.cyrano:selectedBold}</code></td><td> Whether or not the selected item is displayed as bold.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_selectedColor com.cjcornell.cyrano:selectedColor}</code></td><td> Color of the selected title.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_titlePadding com.cjcornell.cyrano:titlePadding}</code></td><td> Padding between titles when bumping into each other.</td></tr>
+           <tr><td><code>{@link #TitlePageIndicator_topPadding com.cjcornell.cyrano:topPadding}</code></td><td> Padding between titles and the top of the View.</td></tr>
+           </table>
+           @see #TitlePageIndicator_android_background
+           @see #TitlePageIndicator_android_textColor
+           @see #TitlePageIndicator_android_textSize
+           @see #TitlePageIndicator_clipPadding
+           @see #TitlePageIndicator_footerColor
+           @see #TitlePageIndicator_footerIndicatorHeight
+           @see #TitlePageIndicator_footerIndicatorStyle
+           @see #TitlePageIndicator_footerIndicatorUnderlinePadding
+           @see #TitlePageIndicator_footerLineHeight
+           @see #TitlePageIndicator_footerPadding
+           @see #TitlePageIndicator_linePosition
+           @see #TitlePageIndicator_selectedBold
+           @see #TitlePageIndicator_selectedColor
+           @see #TitlePageIndicator_titlePadding
+           @see #TitlePageIndicator_topPadding
+         */
+        public static final int[] TitlePageIndicator = {
+            0x01010095, 0x01010098, 0x010100d4, 0x7f010007,
+            0x7f010011, 0x7f010012, 0x7f010013, 0x7f010014,
+            0x7f010015, 0x7f010016, 0x7f010017, 0x7f010018,
+            0x7f010019, 0x7f01001a, 0x7f01001b
+        };
+        /**
+          <p>
+          @attr description
+           View background 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#background}.
+          @attr name android:background
+        */
+        public static final int TitlePageIndicator_android_background = 2;
+        /**
+          <p>
+          @attr description
+           Color of regular titles. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#textColor}.
+          @attr name android:textColor
+        */
+        public static final int TitlePageIndicator_android_textColor = 1;
+        /**
+          <p>
+          @attr description
+           Size of title text. 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#textSize}.
+          @attr name android:textSize
+        */
+        public static final int TitlePageIndicator_android_textSize = 0;
+        /**
+          <p>
+          @attr description
+           Screen edge padding. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:clipPadding
+        */
+        public static final int TitlePageIndicator_clipPadding = 4;
+        /**
+          <p>
+          @attr description
+           Color of the footer line and indicator. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:footerColor
+        */
+        public static final int TitlePageIndicator_footerColor = 5;
+        /**
+          <p>
+          @attr description
+           Height of the indicator above the footer line. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:footerIndicatorHeight
+        */
+        public static final int TitlePageIndicator_footerIndicatorHeight = 8;
+        /**
+          <p>
+          @attr description
+           Style of the indicator. Default is triangle. 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>none</code></td><td>0</td><td></td></tr>
+<tr><td><code>triangle</code></td><td>1</td><td></td></tr>
+<tr><td><code>underline</code></td><td>2</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:footerIndicatorStyle
+        */
+        public static final int TitlePageIndicator_footerIndicatorStyle = 7;
+        /**
+          <p>
+          @attr description
+           Left and right padding of the underline indicator. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:footerIndicatorUnderlinePadding
+        */
+        public static final int TitlePageIndicator_footerIndicatorUnderlinePadding = 9;
+        /**
+          <p>
+          @attr description
+           Height of the footer line. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:footerLineHeight
+        */
+        public static final int TitlePageIndicator_footerLineHeight = 6;
+        /**
+          <p>
+          @attr description
+           Padding between the bottom of the title and the footer. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:footerPadding
+        */
+        public static final int TitlePageIndicator_footerPadding = 10;
+        /**
+          <p>
+          @attr description
+           Position of the line. 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>bottom</code></td><td>0</td><td></td></tr>
+<tr><td><code>top</code></td><td>1</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:linePosition
+        */
+        public static final int TitlePageIndicator_linePosition = 11;
+        /**
+          <p>
+          @attr description
+           Whether or not the selected item is displayed as bold. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:selectedBold
+        */
+        public static final int TitlePageIndicator_selectedBold = 12;
+        /**
+          <p>
+          @attr description
+           Color of the selected title. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:selectedColor
+        */
+        public static final int TitlePageIndicator_selectedColor = 3;
+        /**
+          <p>
+          @attr description
+           Padding between titles when bumping into each other. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:titlePadding
+        */
+        public static final int TitlePageIndicator_titlePadding = 13;
+        /**
+          <p>
+          @attr description
+           Padding between titles and the top of the View. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:topPadding
+        */
+        public static final int TitlePageIndicator_topPadding = 14;
+        /** Attributes that can be used with a UnderlinePageIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_android_background android:background}</code></td><td> View background </td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fadeDelay com.cjcornell.cyrano:fadeDelay}</code></td><td> Length of the delay to fade the indicator.</td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fadeLength com.cjcornell.cyrano:fadeLength}</code></td><td> Length of the indicator fade to transparent.</td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_fades com.cjcornell.cyrano:fades}</code></td><td> Whether or not the selected indicator fades.</td></tr>
+           <tr><td><code>{@link #UnderlinePageIndicator_selectedColor com.cjcornell.cyrano:selectedColor}</code></td><td> Color of the selected line that represents the current page.</td></tr>
+           </table>
+           @see #UnderlinePageIndicator_android_background
+           @see #UnderlinePageIndicator_fadeDelay
+           @see #UnderlinePageIndicator_fadeLength
+           @see #UnderlinePageIndicator_fades
+           @see #UnderlinePageIndicator_selectedColor
+         */
+        public static final int[] UnderlinePageIndicator = {
+            0x010100d4, 0x7f010007, 0x7f01001c, 0x7f01001d,
+            0x7f01001e
+        };
+        /**
+          <p>
+          @attr description
+           View background 
+          <p>This corresponds to the global attribute
+          resource symbol {@link android.R.attr#background}.
+          @attr name android:background
+        */
+        public static final int UnderlinePageIndicator_android_background = 0;
+        /**
+          <p>
+          @attr description
+           Length of the delay to fade the indicator. 
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:fadeDelay
+        */
+        public static final int UnderlinePageIndicator_fadeDelay = 3;
+        /**
+          <p>
+          @attr description
+           Length of the indicator fade to transparent. 
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:fadeLength
+        */
+        public static final int UnderlinePageIndicator_fadeLength = 4;
+        /**
+          <p>
+          @attr description
+           Whether or not the selected indicator fades. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:fades
+        */
+        public static final int UnderlinePageIndicator_fades = 2;
+        /**
+          <p>
+          @attr description
+           Color of the selected line that represents the current page. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:selectedColor
+        */
+        public static final int UnderlinePageIndicator_selectedColor = 1;
+        /** Attributes that can be used with a ViewPagerIndicator.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiCirclePageIndicatorStyle com.cjcornell.cyrano:vpiCirclePageIndicatorStyle}</code></td><td> Style of the circle indicator.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiIconPageIndicatorStyle com.cjcornell.cyrano:vpiIconPageIndicatorStyle}</code></td><td> Style of the icon indicator's views.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiLinePageIndicatorStyle com.cjcornell.cyrano:vpiLinePageIndicatorStyle}</code></td><td> Style of the line indicator.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiTabPageIndicatorStyle com.cjcornell.cyrano:vpiTabPageIndicatorStyle}</code></td><td> Style of the tab indicator's tabs.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiTitlePageIndicatorStyle com.cjcornell.cyrano:vpiTitlePageIndicatorStyle}</code></td><td> Style of the title indicator.</td></tr>
+           <tr><td><code>{@link #ViewPagerIndicator_vpiUnderlinePageIndicatorStyle com.cjcornell.cyrano:vpiUnderlinePageIndicatorStyle}</code></td><td> Style of the underline indicator.</td></tr>
+           </table>
+           @see #ViewPagerIndicator_vpiCirclePageIndicatorStyle
+           @see #ViewPagerIndicator_vpiIconPageIndicatorStyle
+           @see #ViewPagerIndicator_vpiLinePageIndicatorStyle
+           @see #ViewPagerIndicator_vpiTabPageIndicatorStyle
+           @see #ViewPagerIndicator_vpiTitlePageIndicatorStyle
+           @see #ViewPagerIndicator_vpiUnderlinePageIndicatorStyle
+         */
+        public static final int[] ViewPagerIndicator = {
+            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
+            0x7f010004, 0x7f010005
+        };
+        /**
+          <p>
+          @attr description
+           Style of the circle indicator. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:vpiCirclePageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiCirclePageIndicatorStyle = 0;
+        /**
+          <p>
+          @attr description
+           Style of the icon indicator's views. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:vpiIconPageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiIconPageIndicatorStyle = 1;
+        /**
+          <p>
+          @attr description
+           Style of the line indicator. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:vpiLinePageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiLinePageIndicatorStyle = 2;
+        /**
+          <p>
+          @attr description
+           Style of the tab indicator's tabs. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:vpiTabPageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiTabPageIndicatorStyle = 4;
+        /**
+          <p>
+          @attr description
+           Style of the title indicator. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:vpiTitlePageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiTitlePageIndicatorStyle = 3;
+        /**
+          <p>
+          @attr description
+           Style of the underline indicator. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.cjcornell.cyrano:vpiUnderlinePageIndicatorStyle
+        */
+        public static final int ViewPagerIndicator_vpiUnderlinePageIndicatorStyle = 5;
         /** Attributes that can be used with a com_facebook_friend_picker_fragment.
            <p>Includes the following attributes:</p>
            <table>
@@ -754,7 +1765,7 @@ containing a value of this type.
            @see #com_facebook_friend_picker_fragment_multi_select
          */
         public static final int[] com_facebook_friend_picker_fragment = {
-            0x7f010007
+            0x7f010026
         };
         /**
           <p>This symbol is the offset where the {@link com.cjcornell.cyrano.R.attr#multi_select}
@@ -770,111 +1781,6 @@ containing a value of this type.
           @attr name com.cjcornell.cyrano:multi_select
         */
         public static final int com_facebook_friend_picker_fragment_multi_select = 0;
-        /** Attributes that can be used with a com_facebook_like_view.
-           <p>Includes the following attributes:</p>
-           <table>
-           <colgroup align="left" />
-           <colgroup align="left" />
-           <tr><th>Attribute</th><th>Description</th></tr>
-           <tr><td><code>{@link #com_facebook_like_view_auxiliary_view_position com.cjcornell.cyrano:auxiliary_view_position}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_like_view_foreground_color com.cjcornell.cyrano:foreground_color}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_like_view_horizontal_alignment com.cjcornell.cyrano:horizontal_alignment}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_like_view_object_id com.cjcornell.cyrano:object_id}</code></td><td></td></tr>
-           <tr><td><code>{@link #com_facebook_like_view_style com.cjcornell.cyrano:style}</code></td><td></td></tr>
-           </table>
-           @see #com_facebook_like_view_auxiliary_view_position
-           @see #com_facebook_like_view_foreground_color
-           @see #com_facebook_like_view_horizontal_alignment
-           @see #com_facebook_like_view_object_id
-           @see #com_facebook_like_view_style
-         */
-        public static final int[] com_facebook_like_view = {
-            0x7f010012, 0x7f010013, 0x7f010014, 0x7f010015,
-            0x7f010016
-        };
-        /**
-          <p>This symbol is the offset where the {@link com.cjcornell.cyrano.R.attr#auxiliary_view_position}
-          attribute's value can be found in the {@link #com_facebook_like_view} array.
-
-
-          <p>Must be one of the following constant values.</p>
-<table>
-<colgroup align="left" />
-<colgroup align="left" />
-<colgroup align="left" />
-<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>bottom</code></td><td>0</td><td> Keep in sync with Enums in LikeView </td></tr>
-<tr><td><code>inline</code></td><td>1</td><td></td></tr>
-<tr><td><code>top</code></td><td>2</td><td></td></tr>
-</table>
-          @attr name com.cjcornell.cyrano:auxiliary_view_position
-        */
-        public static final int com_facebook_like_view_auxiliary_view_position = 3;
-        /**
-          <p>This symbol is the offset where the {@link com.cjcornell.cyrano.R.attr#foreground_color}
-          attribute's value can be found in the {@link #com_facebook_like_view} array.
-
-
-          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
-"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name com.cjcornell.cyrano:foreground_color
-        */
-        public static final int com_facebook_like_view_foreground_color = 0;
-        /**
-          <p>This symbol is the offset where the {@link com.cjcornell.cyrano.R.attr#horizontal_alignment}
-          attribute's value can be found in the {@link #com_facebook_like_view} array.
-
-
-          <p>Must be one of the following constant values.</p>
-<table>
-<colgroup align="left" />
-<colgroup align="left" />
-<colgroup align="left" />
-<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>center</code></td><td>0</td><td> Keep in sync with Enums in LikeView </td></tr>
-<tr><td><code>left</code></td><td>1</td><td></td></tr>
-<tr><td><code>right</code></td><td>2</td><td></td></tr>
-</table>
-          @attr name com.cjcornell.cyrano:horizontal_alignment
-        */
-        public static final int com_facebook_like_view_horizontal_alignment = 4;
-        /**
-          <p>This symbol is the offset where the {@link com.cjcornell.cyrano.R.attr#object_id}
-          attribute's value can be found in the {@link #com_facebook_like_view} array.
-
-
-          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
-<p>This may also be a reference to a resource (in the form
-"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
-theme attribute (in the form
-"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
-containing a value of this type.
-          @attr name com.cjcornell.cyrano:object_id
-        */
-        public static final int com_facebook_like_view_object_id = 1;
-        /**
-          <p>This symbol is the offset where the {@link com.cjcornell.cyrano.R.attr#style}
-          attribute's value can be found in the {@link #com_facebook_like_view} array.
-
-
-          <p>Must be one of the following constant values.</p>
-<table>
-<colgroup align="left" />
-<colgroup align="left" />
-<colgroup align="left" />
-<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
-<tr><td><code>standard</code></td><td>0</td><td> Keep in sync with Enums in LikeView </td></tr>
-<tr><td><code>button</code></td><td>1</td><td></td></tr>
-<tr><td><code>box_count</code></td><td>2</td><td></td></tr>
-</table>
-          @attr name com.cjcornell.cyrano:style
-        */
-        public static final int com_facebook_like_view_style = 2;
         /** Attributes that can be used with a com_facebook_login_view.
            <p>Includes the following attributes:</p>
            <table>
@@ -892,7 +1798,7 @@ containing a value of this type.
            @see #com_facebook_login_view_logout_text
          */
         public static final int[] com_facebook_login_view = {
-            0x7f01000c, 0x7f01000d, 0x7f01000e, 0x7f01000f
+            0x7f01002b, 0x7f01002c, 0x7f01002d, 0x7f01002e
         };
         /**
           <p>This symbol is the offset where the {@link com.cjcornell.cyrano.R.attr#confirm_logout}
@@ -973,8 +1879,8 @@ containing a value of this type.
            @see #com_facebook_picker_fragment_title_text
          */
         public static final int[] com_facebook_picker_fragment = {
-            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
-            0x7f010004, 0x7f010005, 0x7f010006
+            0x7f01001f, 0x7f010020, 0x7f010021, 0x7f010022,
+            0x7f010023, 0x7f010024, 0x7f010025
         };
         /**
           <p>This symbol is the offset where the {@link com.cjcornell.cyrano.R.attr#done_button_background}
@@ -1083,7 +1989,7 @@ containing a value of this type.
            @see #com_facebook_place_picker_fragment_show_search_box
          */
         public static final int[] com_facebook_place_picker_fragment = {
-            0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b
+            0x7f010027, 0x7f010028, 0x7f010029, 0x7f01002a
         };
         /**
           <p>This symbol is the offset where the {@link com.cjcornell.cyrano.R.attr#radius_in_meters}
@@ -1154,7 +2060,7 @@ containing a value of this type.
            @see #com_facebook_profile_picture_view_preset_size
          */
         public static final int[] com_facebook_profile_picture_view = {
-            0x7f010010, 0x7f010011
+            0x7f01002f, 0x7f010030
         };
         /**
           <p>This symbol is the offset where the {@link com.cjcornell.cyrano.R.attr#is_cropped}
