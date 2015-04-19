@@ -82,8 +82,8 @@ import com.cjcornell.cyrano.utils.Utils;
 import com.facebook.Session;
 
 public class ActivityCyrano extends Activity implements
-		AudioMethods.AudioCompletionNotifiable,
-		com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable {
+AudioMethods.AudioCompletionNotifiable,
+com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable {
 
 	private final static String TAG = "Cyrano";
 	private final static int MAX_BRANCHES = 4;
@@ -103,6 +103,7 @@ public class ActivityCyrano extends Activity implements
 	private ImageView friendPicture;
 	private TextView friendName, friendAboutText;
 	private TextView friendCoordinates;
+
 
 	private RelativeLayout friendsContent;
 	private ListView friendsList;
@@ -167,6 +168,7 @@ public class ActivityCyrano extends Activity implements
 
 			// Get the list of friends to display and display them
 		}
+
 	};
 
 	// A list of troubleshooting items
@@ -330,6 +332,7 @@ public class ActivityCyrano extends Activity implements
 		// Get the option selected, and do the appropriate action
 		int itemId = item.getItemId();
 		Intent stopFFS;
+		final Dialog dialog = new Dialog(ActivityCyrano.this);
 		switch (itemId) {
 		case R.id.action_nearby:
 			// switchToNearbyFriends();
@@ -399,15 +402,26 @@ public class ActivityCyrano extends Activity implements
 			startActivity(loginIntent);
 			finish();
 			return true;
-		case R.id.action_exit:
+		case R.id.action_exit://guru
+			
+			if(dialog.isShowing()){
+				dialog.dismiss();
+				dialog.cancel();
+			}
+			// STOP THE BROADCASTRECEIVER
+			if (gotBTFriends!=null) {
+				LocalBroadcastManager.getInstance(this).unregisterReceiver(gotBTFriends);
+				gotBTFriends=null;
+			}
+			// STOP THE SERVICE
 			stopFFS = new Intent(FriendFinderService.SHUTDOWN_FFS);
 			LocalBroadcastManager.getInstance(this).sendBroadcast(stopFFS);
 			Intent homeIntent = new Intent(Intent.ACTION_MAIN);
 			homeIntent.addCategory(Intent.CATEGORY_HOME);
-			startActivity(homeIntent);
-
+			startActivity(homeIntent);			
+			finish();
 		case R.id.action_search_for:
-			final Dialog dialog = new Dialog(ActivityCyrano.this);
+
 			dialog.setTitle(getResources()
 					.getString(R.string.action_search_for));
 			dialog.setContentView(R.layout.dialog_search_for);
@@ -432,24 +446,24 @@ public class ActivityCyrano extends Activity implements
 						// Search for friend
 						discover.start();
 						new TaskSearchForFriends(ActivityCyrano.this)
-								.execute(DataStore.getInstance()
-										.getBluetoothDeviceList());
+						.execute(DataStore.getInstance()
+								.getBluetoothDeviceList());
 						break;
 
 					case 1:
 						// Search for devices
 						discover.start();
 						new TaskSearchForDevices(ActivityCyrano.this)
-								.execute(DataStore.getInstance()
-										.getBluetoothDeviceList());
+						.execute(DataStore.getInstance()
+								.getBluetoothDeviceList());
 						break;
 
 					case 2:
 						// Search for triggers
 						discover.start();
 						new TaskSearchForTriggers(ActivityCyrano.this)
-								.execute(DataStore.getInstance()
-										.getBluetoothDeviceList());
+						.execute(DataStore.getInstance()
+								.getBluetoothDeviceList());
 						break;
 
 					case 3:
@@ -468,18 +482,23 @@ public class ActivityCyrano extends Activity implements
 			return super.onOptionsItemSelected(item);
 		}
 	}
-
+	@Override
+	public void onContextMenuClosed(Menu menu) {
+		super.onContextMenuClosed(menu);
+		closeContextMenu();
+	}
 	/**
 	 * Called when the pause play control is pressed
 	 */
 	@Override
 	protected void onPause() {
-
+		super.onPause();
 		// discover.stopAll();
 		// uiHandler = null;
 		AudioMethods.stopTextToSpeech();
 		// cancelAutoAdvance();
 		activityispause = true;
+		closeContextMenu();
 		/*
 		 * KINJ isActivityfront=false; cancelAutoAdvance();
 		 * 
@@ -492,13 +511,23 @@ public class ActivityCyrano extends Activity implements
 		// BluetoothManager.disableBluetoothSCO(this);
 
 		// LocalBroadcastManager.getInstance(this).unregisterReceiver(gotFriends);
-		LocalBroadcastManager.getInstance(this)
-				.unregisterReceiver(gotBTFriends);
-		super.onPause();
+
+		if (gotBTFriends!=null) {
+			LocalBroadcastManager.getInstance(this).unregisterReceiver(gotBTFriends);
+			gotBTFriends=null;
+		}
+	}
+
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		if (gotBTFriends!=null) {
+			LocalBroadcastManager.getInstance(this).unregisterReceiver(gotBTFriends);
+			gotBTFriends=null;
+		}
 	}
 
 	private void checkForCrashes() {
-
 		CrashManager.register(this, "39a07ca7626e8c3846225d24d8f2871e");
 	}
 
@@ -532,14 +561,12 @@ public class ActivityCyrano extends Activity implements
 		try {
 			IntentFilter biff = new IntentFilter(DISPLAY_BT_FRIENDS);
 			// IntentFilter biff = new IntentFilter(DISPLAY_FRIENDS);
-
 			IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
 			filter.addAction(BluetoothDevice.ACTION_UUID);
 			filter.addAction(BluetoothDevice.ACTION_ACL_CONNECTED);
 			filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
 			filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
-			LocalBroadcastManager.getInstance(this).registerReceiver(
-					gotBTFriends, biff);
+			LocalBroadcastManager.getInstance(this).registerReceiver(gotBTFriends, biff);
 		} catch (Exception e) {
 			Log.e(TAG, e.toString());
 		}
@@ -638,7 +665,7 @@ public class ActivityCyrano extends Activity implements
 			new TextToSpeachService().textToSpeech(ActivityCyrano.this, this
 					.getResources().getString(R.string.noFriendsMessage));
 			Toast.makeText(this, R.string.noFriendsMessage, Toast.LENGTH_SHORT)
-					.show();
+			.show();
 		}
 
 	}
@@ -846,8 +873,8 @@ public class ActivityCyrano extends Activity implements
 								+ bluetoothFriend.getEmail() + ")"));
 				StringBuilder sb = new StringBuilder();
 				sb.append("MAC Address" + bluetoothFriend.getAddress() + "\n")
-						.append("Email" + bluetoothFriend.getEmail() + "\n")
-						.append("ID" + bluetoothFriend.getId() + "\n");
+				.append("Email" + bluetoothFriend.getEmail() + "\n")
+				.append("ID" + bluetoothFriend.getId() + "\n");
 				friendCoordinates.setText(sb.toString());
 
 				// picture = new
@@ -930,13 +957,13 @@ public class ActivityCyrano extends Activity implements
 
 			StringBuilder sb = new StringBuilder();
 			sb.append(AppSettings.formatter.format(friend.getLatitude()))
-					.append(", ")
-					.append(AppSettings.formatter.format(friend.getLongitude()))
-					.append(" (").append(friend.getDistanceString())
-					.append(")\n").append("Details1: ")
-					.append(friend.getDetails1()).append("\nDetails2: ")
-					.append(friend.getDetails2()).append("\nDetails3: ")
-					.append(friend.getDetails3());
+			.append(", ")
+			.append(AppSettings.formatter.format(friend.getLongitude()))
+			.append(" (").append(friend.getDistanceString())
+			.append(")\n").append("Details1: ")
+			.append(friend.getDetails1()).append("\nDetails2: ")
+			.append(friend.getDetails2()).append("\nDetails3: ")
+			.append(friend.getDetails3());
 			friendCoordinates.setText(sb.toString());
 
 			// picture = new
@@ -962,7 +989,7 @@ public class ActivityCyrano extends Activity implements
 				new TextToSpeachService().getInstance().textToSpeech(
 						ActivityCyrano.this,
 						sp.getString("name", " ")
-								+ sp.getString("about_text", " "));
+						+ sp.getString("about_text", " "));
 
 			}
 		}, 20);
@@ -1388,26 +1415,26 @@ public class ActivityCyrano extends Activity implements
 					devices.add(arr.getJSONObject(i)
 							.getString("bt_mac_address"));
 					BlutoothFriendReminders
-							.put(arr.getJSONObject(i).getString(
-									"bt_mac_address"), arr.getJSONObject(i)
-									.getString("personal_reminder"));// this
-																		// thing
-																		// is
-																		// use
-																		// to
-																		// store
-																		// the
-																		// personal
-																		// reminder
-																		// of
-																		// friend
+					.put(arr.getJSONObject(i).getString(
+							"bt_mac_address"), arr.getJSONObject(i)
+							.getString("personal_reminder"));// this
+					// thing
+					// is
+					// use
+					// to
+					// store
+					// the
+					// personal
+					// reminder
+					// of
+					// friend
 					Log.v(TAG, devices.toString());
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
 			}
 			new TaskGetUserInfoBluetoothList(ActivityCyrano.this)
-					.execute(devices);
+			.execute(devices);
 			DataStore.getInstance().set_BlutoothFriendReminders(
 					BlutoothFriendReminders);
 		} else {
@@ -1415,7 +1442,7 @@ public class ActivityCyrano extends Activity implements
 				Toast.makeText(
 						ActivityCyrano.this,
 						this.getResources()
-								.getString(R.string.noFriendsMessage),
+						.getString(R.string.noFriendsMessage),
 						Toast.LENGTH_SHORT).show();
 				// new TextToSpeachService().textToSpeech(ActivityCyrano.this,
 				// this.getResources().getString(R.string.noFriendsMessage));
@@ -1456,9 +1483,9 @@ public class ActivityCyrano extends Activity implements
 		if (DataStore.getInstance().setsearchval == false) {
 			Utils.eLog(TAG + ": onErrorSearchForFriend" + "BHUPINDer1");
 			new TaskSearchForDevices(DataStore.getInstance().getActivity())
-					.execute(DataStore.getInstance().getBluetoothDeviceList());
+			.execute(DataStore.getInstance().getBluetoothDeviceList());
 			new TaskSearchForTriggers(DataStore.getInstance().getActivity())
-					.execute(DataStore.getInstance().getBluetoothDeviceList());
+			.execute(DataStore.getInstance().getBluetoothDeviceList());
 			DataStore.getInstance().setfriendsearchval = false;
 		}
 
@@ -1482,7 +1509,7 @@ public class ActivityCyrano extends Activity implements
 			new TextToSpeachService().getInstance().textToSpeech(
 					ActivityCyrano.this,
 					this.getResources()
-							.getString(R.string.singleFriendsMessage));
+					.getString(R.string.singleFriendsMessage));
 		} else if (arr.length() > 1) {
 			new TextToSpeachService().getInstance().textToSpeech(
 					ActivityCyrano.this,
@@ -1493,11 +1520,11 @@ public class ActivityCyrano extends Activity implements
 			DataStore.getInstance().setsearchval = false;
 			if (DataStore.getInstance().setsearchval = false) {
 				new TaskSearchForDevices(DataStore.getInstance().getActivity())
-						.execute(DataStore.getInstance()
-								.getBluetoothDeviceList());
+				.execute(DataStore.getInstance()
+						.getBluetoothDeviceList());
 				new TaskSearchForTriggers(DataStore.getInstance().getActivity())
-						.execute(DataStore.getInstance()
-								.getBluetoothDeviceList());
+				.execute(DataStore.getInstance()
+						.getBluetoothDeviceList());
 				DataStore.getInstance().setfriendsearchval = false;
 			}
 		}
@@ -1548,18 +1575,18 @@ public class ActivityCyrano extends Activity implements
 		Utils.showShortToast(
 				ActivityCyrano.this,
 				size
-						+ (serviceName.contains(Utils.KEYWORD_FRIEND) ? " friend(s)"
-								: serviceName.contains(Utils.KEYWORD_DEVICE) ? " device(s)"
-										: " trigger(s)") + " found");
+				+ (serviceName.contains(Utils.KEYWORD_FRIEND) ? " friend(s)"
+						: serviceName.contains(Utils.KEYWORD_DEVICE) ? " device(s)"
+								: " trigger(s)") + " found");
 	}
 
 	public void onCompleteAdvanceSearchResult(JSONArray arr, String serviceName) {
 		Utils.showShortToast(
 				ActivityCyrano.this,
 				arr.length()
-						+ (serviceName.contains(Utils.KEYWORD_FRIEND) ? " friend(s) record"
-								: serviceName.contains(Utils.KEYWORD_DEVICE) ? " device(s) record"
-										: " trigger(s) record") + " found");
+				+ (serviceName.contains(Utils.KEYWORD_FRIEND) ? " friend(s) record"
+						: serviceName.contains(Utils.KEYWORD_DEVICE) ? " device(s) record"
+								: " trigger(s) record") + " found");
 	}
 
 	private void advanceSearch() {
@@ -1580,7 +1607,7 @@ public class ActivityCyrano extends Activity implements
 		numberPickerRecordCount.setMaxValue(100);
 		numberPickerRecordCount.setMinValue(1);
 		numberPickerRecordCount
-				.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
+		.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
 
 		final CheckBox checkBoxDetailRecord = (CheckBox) dialog
 				.findViewById(R.id.check_detail_search);
@@ -1588,21 +1615,21 @@ public class ActivityCyrano extends Activity implements
 				.findViewById(R.id.button_search);
 
 		checkBoxCountOnly
-				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+		.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
-					@Override
-					public void onCheckedChanged(CompoundButton buttonView,
-							boolean isChecked) {
-						numberPickerRecordCount
-								.setVisibility(isChecked ? View.INVISIBLE
-										: View.VISIBLE);
-						textView.setVisibility(isChecked ? View.INVISIBLE
-								: View.VISIBLE);
-						checkBoxDetailRecord
-								.setVisibility(isChecked ? View.INVISIBLE
-										: View.VISIBLE);
-					}
-				});
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView,
+					boolean isChecked) {
+				numberPickerRecordCount
+				.setVisibility(isChecked ? View.INVISIBLE
+						: View.VISIBLE);
+				textView.setVisibility(isChecked ? View.INVISIBLE
+						: View.VISIBLE);
+				checkBoxDetailRecord
+				.setVisibility(isChecked ? View.INVISIBLE
+						: View.VISIBLE);
+			}
+		});
 		checkBoxCountOnly.setChecked(true);
 
 		buttonSearch.setOnClickListener(new OnClickListener() {
@@ -1647,11 +1674,11 @@ public class ActivityCyrano extends Activity implements
 						+ Constants.SEPERATOR
 						+ (countOnly ? Utils.FIRST_PARAM_COUNT
 								: Utils.FIRST_PARAM_RECORD)
-						+ Constants.SEPERATOR
-						+ (detailedRecord ? Utils.SECOND_PARAM_FULL
-								: Utils.SECOND_PARAM_LIGHT)
-						+ Constants.SEPERATOR
-						+ numberPickerRecordCount.getValue();
+								+ Constants.SEPERATOR
+								+ (detailedRecord ? Utils.SECOND_PARAM_FULL
+										: Utils.SECOND_PARAM_LIGHT)
+										+ Constants.SEPERATOR
+										+ numberPickerRecordCount.getValue();
 
 				new TaskAdvanceSearch(ActivityCyrano.this, service, countOnly,
 						detailedRecord).execute(requestUrl);
