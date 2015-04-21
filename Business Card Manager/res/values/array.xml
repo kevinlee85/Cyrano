@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="drawer_menu">
+        
+        <item>My Cards</item>
+        <item>Inbox</item>
+        <item>Sent</item>
+        <item>Logout</item>
+        
+    </string-array>
+    
+    <string-array name="drawer_menu_icons">
+        
+        <item>&#xf0e3;</item>
+        <item>&#xf109;</item>
+        <item>&#xf1ad;</item>
+        <item>&#xf19c;</item>
+        
+    </string-array>
+    
+    <string-array name="category_menu">
+        
+        <item>Legal</item>
+        <item>Computer</item>
+        <item>Construction</item>
+        <item>Banking</item>
+        <item>Communication</item>
+        
+    </string-array>
+    
+    <string-array name="category_menu_icons">
+        
+        <item>&#xf0e3;</item>
+        <item>&#xf109;</item>
+        <item>&#xf1ad;</item>
+        <item>&#xf19c;</item>
+        <item>&#xf1d7;</item>
+        
+    </string-array>
+    
+    <string-array name="construction_sub_menu">
+        
+        <item>Electrician</item>
+        <item>General Contractor</item>
+        <item>Plumber</item>
+        <item>Roofing</item>
+        <item>Welding</item>
+        
+    </string-array>
+    
+    <string-array name="construction_sub_menu_icons">
+        
+        <item>&#xf1ad;</item>
+        <item>&#xf1ad;</item>
+        <item>&#xf1ad;</item>
+        <item>&#xf1ad;</item>
+        <item>&#xf1ad;</item>
+        
+    </string-array>
+
+</resources>
