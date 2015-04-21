@@ -13,10 +13,14 @@ import android.widget.TextView;
 import com.psktechnology.businesscardmanager.R;
 import com.psktechnology.constant.AppConstant;
 import com.psktechnology.constant.AppGlobal;
+import com.psktechnology.constant.WSConstant;
 import com.psktechnology.dialog.ForgotPassword_Dialog;
+import com.psktechnology.fragmentactivity.DrawerActivity;
+import com.psktechnology.interfaces.WSResponseListener;
+import com.psktechnology.model.ResponseObject;
 import com.psktechnology.webservice.WebServices;
 
-public class Login extends Activity implements OnClickListener {
+public class Login extends Activity implements OnClickListener, WSResponseListener {
 	
 	Activity activity;
 	
@@ -26,6 +30,8 @@ public class Login extends Activity implements OnClickListener {
 	
 	String email, password;
 	WebServices ws;
+	
+	ForgotPassword_Dialog fp_dialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +64,8 @@ public class Login extends Activity implements OnClickListener {
 	}
 
 	private void forgotPassword() {
-		new ForgotPassword_Dialog(activity).show();
+		fp_dialog = new ForgotPassword_Dialog(activity);
+		fp_dialog.show();
 	}
 
 	private void signup() {
@@ -112,6 +119,59 @@ public class Login extends Activity implements OnClickListener {
 		tvforgotpass.setOnClickListener(this);
 		btnlogin.setOnClickListener(this);
 		
+	}
+	
+	// TODO response from web service
+	@Override
+	public void onDelieverResponse(String serviceType, Object data, Exception error) {
+
+		ResponseObject responseObj = (ResponseObject) data;
+
+		if (error == null) {
+			if (responseObj != null) {
+				
+				if (serviceType.equalsIgnoreCase(WSConstant.RT_LOGIN)) {
+
+					if (responseObj.getStatus().equalsIgnoreCase(AppConstant.success)) {
+						AppGlobal.showToast(activity, responseObj.getMsg());
+
+						saveData(responseObj);
+						gotoHomeScreen();
+						
+					} else if (responseObj.getStatus().equalsIgnoreCase(AppConstant.fail)) {
+						AppGlobal.showToast(activity, responseObj.getMsg());
+					}
+				} else if (serviceType.equalsIgnoreCase(WSConstant.RT_FORGOT_PASSWORD)) {
+					
+					if (responseObj.getStatus().equalsIgnoreCase(AppConstant.success)) {
+						AppGlobal.showToast(activity, responseObj.getMsg());
+						fp_dialog.dismiss();
+					} else if (responseObj.getStatus().equalsIgnoreCase(AppConstant.fail)) {
+						AppGlobal.showToast(activity, responseObj.getMsg());
+					}
+
+				}
+
+			}
+		} else {
+			AppGlobal.showToast(activity, error.getLocalizedMessage());
+		}
+
+	}
+
+	@Override
+	public void onDelieverResponse_Fragment(String serviceType, Object data, Exception error, Activity activity) {	}
+	
+	// TODO save response data into prefrences
+    private void saveData(ResponseObject responseObj) {
+    	AppGlobal.setStringPreference(activity, AppConstant.pref_UserId, responseObj.getId());
+    	AppGlobal.setBooleanPreference(activity, AppConstant.pref_RememberMe, true);
+    }
+	
+	// TODO go to second step of registration
+    private void gotoHomeScreen() {
+		startActivity(new Intent(activity, DrawerActivity.class));
+		finish();
 	}
 
 }

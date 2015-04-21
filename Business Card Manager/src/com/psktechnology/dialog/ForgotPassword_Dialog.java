@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.psktechnology.businesscardmanager.R;
 import com.psktechnology.constant.AppConstant;
 import com.psktechnology.constant.AppGlobal;
+import com.psktechnology.webservice.WebServices;
 
 public class ForgotPassword_Dialog extends Dialog implements OnClickListener {
 	
@@ -25,6 +26,7 @@ public class ForgotPassword_Dialog extends Dialog implements OnClickListener {
 	Button btndrawer, btnclose;
 	
 	String email;
+	WebServices ws;
 
 	public ForgotPassword_Dialog(Activity activity) {
 		super(activity);
@@ -42,6 +44,7 @@ public class ForgotPassword_Dialog extends Dialog implements OnClickListener {
 	}
 
 	private void init() {
+		ws = new WebServices();
 		
 		btndrawer = (Button) findViewById(R.id.btndrawer);
 		btndrawer.setVisibility(View.INVISIBLE);
@@ -82,7 +85,7 @@ public class ForgotPassword_Dialog extends Dialog implements OnClickListener {
 	private void send() {
 		if (isValidate()) {
 			if (AppGlobal.isNetworkConnected(activity)) {
-				AppGlobal.showToast(activity, AppConstant.underDevelopment);
+				ws.forgotPassword(activity, email);
 			} else {
 				AppGlobal.showToast(activity, AppConstant.noInternetConnection);
 			}

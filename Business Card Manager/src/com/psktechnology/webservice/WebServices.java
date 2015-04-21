@@ -32,6 +32,13 @@ public class WebServices {
         							+ "email=" + email + "&"
         							+ "password=" + password);
     }
+    
+    public void forgotPassword(Activity activity, String email) {
+
+    	new AsyncGetService(activity, WSConstant.RT_FORGOT_PASSWORD, true)
+    						.execute(WSConstant.WS_FORGOT_PASSWORD
+    								+ "email=" + email);
+    }
 
     public void getSecurityQuestion(Activity activity, String responseType, String url) {
         new AsyncGetService(activity, responseType, false).execute(url);
@@ -110,14 +117,6 @@ public class WebServices {
         namevalue.add(new BasicNameValuePair("txtsummary", txtsummary));
 
         new AsyncPostService(activity, WSConstant.RT_ADDITEM, namevalue, false).execute(WSConstant.WS_ADDITEM);
-    }
-    
-    public void forgotPassword(Activity activity, String username) {
-
-        ArrayList<NameValuePair> namevalue = new ArrayList<NameValuePair>();
-        namevalue.add(new BasicNameValuePair("username", username));
-
-        new AsyncPostService(activity, WSConstant.RT_FORGOT_PASSWORD, namevalue, true).execute(WSConstant.WS_FORGOT_PASSWORD);
     }
     
     public void uploadFile(Activity activity, String queryId, File file, String fileType) {

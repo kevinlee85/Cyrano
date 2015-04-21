@@ -154,6 +154,7 @@ public class Signup extends Activity implements OnClickListener, WSResponseListe
 						AppGlobal.showToast(activity, responseObj.getMsg());
 
 						saveData(responseObj);
+						gotoHomeScreen();
 
 					} else if (responseObj.getStatus().equalsIgnoreCase(AppConstant.fail)) {
 						AppGlobal.showToast(activity, responseObj.getMsg());
@@ -174,9 +175,12 @@ public class Signup extends Activity implements OnClickListener, WSResponseListe
     private void saveData(ResponseObject responseObj) {
     	AppGlobal.setStringPreference(activity, AppConstant.pref_UserId, responseObj.getId());
     	AppGlobal.setBooleanPreference(activity, AppConstant.pref_RememberMe, true);
-    	
+    }
+    
+    // TODO go to second step of registration
+    private void gotoHomeScreen() {
     	startActivity(new Intent(activity, DrawerActivity.class));
 		finish();
-    }
+	}
 
 }

@@ -7,7 +7,9 @@ public class WSConstant {
 	public static final String WS_ROOT = "http://programmingtutorial.in/devBusinessCard/services/";
 	
 	public static final String WS_REGISTER = WS_ROOT + "userInsert.php?";
-	public static final String WS_LOGIN = WS_ROOT + "userLogin.php?";;
+	public static final String WS_LOGIN = WS_ROOT + "userLogin.php?";
+	public static final String WS_FORGOT_PASSWORD = WS_ROOT + "forgotPassword.php?";
+	
     public static final String WS_QUESTION1 = WS_ROOT + "securityquestion1";
     public static final String WS_QUESTION2 = WS_ROOT + "securityquestion2";
     public static final String WS_REGISTER_STEP2 = WS_ROOT + "step2";
@@ -16,7 +18,6 @@ public class WSConstant {
     public static final String WS_SENTBOX = WS_ROOT + "sentitems";
     public static final String WS_INBOX_DETAILS = WS_ROOT + "inboxdetail";
     public static final String WS_SENTBOX_DETAILS = WS_ROOT + "sentdetails";
-    public static final String WS_FORGOT_PASSWORD = WS_ROOT + "forgot";
     public static final String WS_GETCOURSE = WS_ROOT + "courses";
     public static final String WS_GETCATEGORIES = WS_ROOT + "categories";
     public static final String WS_ADDITEM = WS_ROOT + "additem";
@@ -29,6 +30,8 @@ public class WSConstant {
 
 	public static final String RT_REGISTER = "userInsert";
 	public static final String RT_LOGIN = "login";
+	public static final String RT_FORGOT_PASSWORD = "forgot";
+	
     public static final String RT_QUESTION1 = "securityquestion1";
     public static final String RT_QUESTION2 = "securityquestion2";
     public static final String RT_REGISTER_STEP2 = "step2";
@@ -37,7 +40,6 @@ public class WSConstant {
     public static final String RT_SENTBOX = "sentitems";
     public static final String RT_INBOX_DETAILS = "inboxdetail";
     public static final String RT_SENTBOX_DETAILS = "sentdetails";
-    public static final String RT_FORGOT_PASSWORD = "forgot";
     public static final String RT_GETCOURSE = "getcourse";
     public static final String RT_GETCATEGORIES = "getcategories";
     public static final String RT_ADDITEM = "additem";
