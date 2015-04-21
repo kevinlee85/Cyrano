@@ -23,8 +23,8 @@ public class Command {
     // Basic attributes of a troubleshooting attribute
     private int id, scriptId, commandId, number;
     private String name, description, type, image, fileName, url;
-    private double delay; // Time delay
-    private int triggerFlag, stopEnabled, pauseEnabled, next, previous;
+	private double delay; // Time delay
+    private int triggerFlag, stopEnabled, pauseEnabled, next, previous,cancel;
     private String branchToRec1, branchToLabel1, branchToRec2, branchToLabel2, branchToRec3, branchToLabel3,
             branchToRec4, branchToLabel4;
     private int labelOrientation;
@@ -50,7 +50,7 @@ public class Command {
     /** Constructor */
     public Command(JSONObject json, boolean isLast, ScriptItem parent) throws JSONException {
 
-        // Initialize the basic attributes
+        // Initialize the basic attributes      
         try {
             this.id = json.getInt(Constants.KEY_COMMAND_ID);
         } catch (JSONException e) {
@@ -127,6 +127,13 @@ public class Command {
             e.printStackTrace();
             this.labelOrientation = 0;
         }
+        //Cancel button script...
+        try {
+            this.cancel = json.getInt(Constants.KEY_COMMAND_CANCEL);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            this.cancel = 0;
+        }
 
         this.name = json.getString(Constants.KEY_COMMAND_NAME);
         this.description = json.getString(Constants.KEY_COMMAND_DESCRIPTION);
@@ -172,7 +179,10 @@ public class Command {
     public int getId() {
         return id;
     }
-
+    
+    public int getCancel() {
+		return cancel;
+	}
     public int getScriptId() {
         return scriptId;
     }
@@ -226,7 +236,7 @@ public class Command {
     }
 
     public String getBranchToRec2() {
-        return branchToRec2;
+        return branchToRec2; 
     }
 
     public String getBranchToLabel2() {

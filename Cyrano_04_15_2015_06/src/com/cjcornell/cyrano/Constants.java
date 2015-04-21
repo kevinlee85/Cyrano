@@ -83,5 +83,6 @@ public class Constants
     public static final String KEY_COMMAND_BRANCH_TO_LABEL_4 = "command_branchto_label_4";
     public static final String KEY_COMMAND_LABEL_ORIENTATION = "command_label_orientation";
     public static final String KEY_COMMAND_OTHER = "other";
+    public static final String KEY_COMMAND_CANCEL = "cancel_id";
     
 }
