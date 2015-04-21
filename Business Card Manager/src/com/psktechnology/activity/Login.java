@@ -14,10 +14,9 @@ import com.psktechnology.businesscardmanager.R;
 import com.psktechnology.constant.AppConstant;
 import com.psktechnology.constant.AppGlobal;
 import com.psktechnology.dialog.ForgotPassword_Dialog;
-import com.psktechnology.interfaces.WSResponseListener;
 import com.psktechnology.webservice.WebServices;
 
-public class Login extends Activity implements OnClickListener, WSResponseListener {
+public class Login extends Activity implements OnClickListener {
 	
 	Activity activity;
 	
