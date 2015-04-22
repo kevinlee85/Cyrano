@@ -13,9 +13,11 @@ import android.widget.TextView;
 
 import com.psktechnology.businesscardmanager.R;
 import com.psktechnology.constant.AppGlobal;
+import com.psktechnology.dialog.SelectCategoryDialog;
 import com.psktechnology.fragmentactivity.DrawerActivity;
+import com.psktechnology.interfaces.SelectCategoryDialogInterface;
 
-public class MyCards extends Fragment implements OnClickListener {
+public class SelectCard extends Fragment implements OnClickListener, SelectCategoryDialogInterface {
 	
 	View rootView;
 	Activity activity;
@@ -23,13 +25,13 @@ public class MyCards extends Fragment implements OnClickListener {
 	TextView tvtitle;
 	Button btndrawer, btnclose;
 	
-	public MyCards() {	}
+	public SelectCard() {	}
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
 		getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-		rootView = inflater.inflate(R.layout.fragment_mycards, container, false);
+		rootView = inflater.inflate(R.layout.fragment_selectcard, container, false);
 
 		init();
 		return rootView;
@@ -60,7 +62,20 @@ public class MyCards extends Fragment implements OnClickListener {
 		
 		tvtitle = (TextView) rootView.findViewById(R.id.tvtitle);
 		tvtitle.setSelected(true);
-		tvtitle.setText("My Cards");
+		tvtitle.setText("Select Card");
+		
+		new SelectCategoryDialog(activity, this).show();
+	}
+	
+	@Override
+	public void setCategoryId(Integer categoryId, String catName) {
+//		llsearch.setVisibility(View.VISIBLE);
+//		llbuttons.setVisibility(View.VISIBLE);
+//		
+//		this.categoryType = categoryId;
+//		this.tvtitle.setText("Select Your Card(" + catName + ")");
+//		getCards();
+		
 	}
 
 }

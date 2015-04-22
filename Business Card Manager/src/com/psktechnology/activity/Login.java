@@ -40,6 +40,7 @@ public class Login extends Activity implements OnClickListener, WSResponseListen
 		setContentView(R.layout.activity_login);
 		
 		init();
+		checkForSession();
 	}
 	
 	@Override
@@ -60,6 +61,14 @@ public class Login extends Activity implements OnClickListener, WSResponseListen
 
 		default:
 			break;
+		}
+	}
+	
+	// TODO check if user already saved his/her password
+	private void checkForSession() {
+		Boolean isLoggedIn = AppGlobal.getBooleanPreference(activity, AppConstant.pref_RememberMe);
+		if(isLoggedIn) {
+			gotoHomeScreen();
 		}
 	}
 
@@ -118,7 +127,6 @@ public class Login extends Activity implements OnClickListener, WSResponseListen
 		tvsignup.setOnClickListener(this);
 		tvforgotpass.setOnClickListener(this);
 		btnlogin.setOnClickListener(this);
-		
 	}
 	
 	// TODO response from web service

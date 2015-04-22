@@ -9,12 +9,42 @@ package com.psktechnology.businesscardmanager;
 
 public final class R {
     public static final class array {
+        public static final int automotive_sub_menu=0x7f040004;
+        public static final int automotive_sub_menu_icons=0x7f040005;
+        public static final int business_sub_menu=0x7f040006;
+        public static final int business_sub_menu_icons=0x7f040007;
         public static final int category_menu=0x7f040002;
         public static final int category_menu_icons=0x7f040003;
-        public static final int construction_sub_menu=0x7f040004;
-        public static final int construction_sub_menu_icons=0x7f040005;
+        public static final int computers_sub_menu=0x7f040008;
+        public static final int computers_sub_menu_icons=0x7f040009;
+        public static final int construction_sub_menu=0x7f04000a;
+        public static final int construction_sub_menu_icons=0x7f04000b;
         public static final int drawer_menu=0x7f040000;
         public static final int drawer_menu_icons=0x7f040001;
+        public static final int education_sub_menu=0x7f04000c;
+        public static final int education_sub_menu_icons=0x7f04000d;
+        public static final int entertainment_sub_menu=0x7f04000e;
+        public static final int entertainment_sub_menu_icons=0x7f04000f;
+        public static final int food_sub_menu=0x7f040010;
+        public static final int food_sub_menu_icons=0x7f040011;
+        public static final int health_sub_menu=0x7f040012;
+        public static final int health_sub_menu_icons=0x7f040013;
+        public static final int home_sub_menu=0x7f040014;
+        public static final int home_sub_menu_icons=0x7f040015;
+        public static final int legal_sub_menu=0x7f040016;
+        public static final int legal_sub_menu_icons=0x7f040017;
+        public static final int manufacturing_sub_menu=0x7f040018;
+        public static final int manufacturing_sub_menu_icons=0x7f040019;
+        public static final int merchants_sub_menu=0x7f04001a;
+        public static final int merchants_sub_menu_icons=0x7f04001b;
+        public static final int miscellaneous_sub_menu=0x7f04001c;
+        public static final int miscellaneous_sub_menu_icons=0x7f04001d;
+        public static final int personal_sub_menu=0x7f040020;
+        public static final int personal_sub_menu_icons=0x7f040021;
+        public static final int real_sub_menu=0x7f04001e;
+        public static final int real_sub_menu_icons=0x7f04001f;
+        public static final int travel_sub_menu=0x7f040022;
+        public static final int travel_sub_menu_icons=0x7f040023;
     }
     public static final class attr {
     }
@@ -35,30 +65,32 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
+        public static final int btnclear=0x7f080012;
         public static final int btnclose=0x7f08000f;
         public static final int btndrawer=0x7f08000d;
         public static final int btnlogin=0x7f080006;
         public static final int btnregister=0x7f08000c;
         public static final int btnsend=0x7f080010;
-        public static final int content_frame=0x7f080012;
-        public static final int drawer_Linear_layout=0x7f080013;
-        public static final int drawer_layout=0x7f080011;
+        public static final int content_frame=0x7f080014;
+        public static final int drawer_Linear_layout=0x7f080015;
+        public static final int drawer_layout=0x7f080013;
         public static final int etconfirmpassword=0x7f08000b;
         public static final int etemail=0x7f080001;
         public static final int etfname=0x7f080009;
         public static final int etlname=0x7f08000a;
         public static final int etpassword=0x7f080002;
-        public static final int imgchild=0x7f080015;
-        public static final int imggroup=0x7f080017;
+        public static final int exlvcategory=0x7f080011;
+        public static final int imgchild=0x7f080017;
+        public static final int imggroup=0x7f080019;
         public static final int include=0x7f080007;
-        public static final int left_drawer=0x7f080014;
+        public static final int left_drawer=0x7f080016;
         public static final int scrollView1=0x7f080008;
         public static final int textView1=0x7f080000;
         public static final int textView2=0x7f080004;
-        public static final int tvchild=0x7f080016;
+        public static final int tvchild=0x7f080018;
         public static final int tvforgotpass=0x7f080005;
-        public static final int tvgcounter=0x7f080019;
-        public static final int tvgroup=0x7f080018;
+        public static final int tvgcounter=0x7f08001b;
+        public static final int tvgroup=0x7f08001a;
         public static final int tvsignup=0x7f080003;
         public static final int tvtitle=0x7f08000e;
     }
@@ -67,10 +99,12 @@ public final class R {
         public static final int activity_signup=0x7f030001;
         public static final int custom_actionbar=0x7f030002;
         public static final int dialog_forgot_password=0x7f030003;
-        public static final int fragment_activity_drawer_activity=0x7f030004;
-        public static final int fragment_mycards=0x7f030005;
-        public static final int listchild=0x7f030006;
-        public static final int listgroup=0x7f030007;
+        public static final int dialog_select_category=0x7f030004;
+        public static final int fragment_activity_drawer_activity=0x7f030005;
+        public static final int fragment_mycards=0x7f030006;
+        public static final int fragment_selectcard=0x7f030007;
+        public static final int listchild=0x7f030008;
+        public static final int listgroup=0x7f030009;
     }
     public static final class string {
         public static final int action_settings=0x7f060002;

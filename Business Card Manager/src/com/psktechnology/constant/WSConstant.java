@@ -4,11 +4,11 @@ public class WSConstant {
 	
 	/********** WS URL ************/
 	
-	public static final String WS_ROOT = "http://programmingtutorial.in/devBusinessCard/services/";
+	public static final String WS_ROOT = "http://phptest.byethost9.com/BCard/services/";
 	
-	public static final String WS_REGISTER = WS_ROOT + "userInsert.php?";
-	public static final String WS_LOGIN = WS_ROOT + "userLogin.php?";
-	public static final String WS_FORGOT_PASSWORD = WS_ROOT + "forgotPassword.php?";
+	public static final String WS_REGISTER = WS_ROOT + "userInsert.php";
+	public static final String WS_LOGIN = WS_ROOT + "userLogin.php";
+	public static final String WS_FORGOT_PASSWORD = WS_ROOT + "forgotPassword.php";
 	
     public static final String WS_QUESTION1 = WS_ROOT + "securityquestion1";
     public static final String WS_QUESTION2 = WS_ROOT + "securityquestion2";

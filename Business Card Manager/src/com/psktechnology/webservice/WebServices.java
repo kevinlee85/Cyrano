@@ -16,28 +16,34 @@ import com.psktechnology.constant.WSConstant;
 public class WebServices {
 	
 	public void registerMember(Activity activity, String fname, String lname, String email, String password) {
+		
+		ArrayList<NameValuePair> namevalue = new ArrayList<NameValuePair>();
 
-        new AsyncGetService(activity, WSConstant.RT_REGISTER, true)
-        					.execute(WSConstant.WS_REGISTER
-        							+ "fname=" + fname + "&"
-        							+ "lname=" + lname + "&"
-        							+ "email=" + email + "&"
-        							+ "password=" + password);
+        namevalue.add(new BasicNameValuePair("fname", fname));
+        namevalue.add(new BasicNameValuePair("lname", lname));
+        namevalue.add(new BasicNameValuePair("email", email));
+        namevalue.add(new BasicNameValuePair("password", password));
+
+        new AsyncPostService(activity, WSConstant.RT_REGISTER, namevalue, true).execute(WSConstant.WS_REGISTER);
     }
 	
     public void loginMember(Activity activity, String email, String password) {
-        
-        new AsyncGetService(activity, WSConstant.RT_LOGIN, true)
-        					.execute(WSConstant.WS_LOGIN
-        							+ "email=" + email + "&"
-        							+ "password=" + password);
+    	
+		ArrayList<NameValuePair> namevalue = new ArrayList<NameValuePair>();
+
+        namevalue.add(new BasicNameValuePair("email", email));
+        namevalue.add(new BasicNameValuePair("password", password));
+
+        new AsyncPostService(activity, WSConstant.RT_LOGIN, namevalue, true).execute(WSConstant.WS_LOGIN);
     }
     
     public void forgotPassword(Activity activity, String email) {
+    	
+		ArrayList<NameValuePair> namevalue = new ArrayList<NameValuePair>();
 
-    	new AsyncGetService(activity, WSConstant.RT_FORGOT_PASSWORD, true)
-    						.execute(WSConstant.WS_FORGOT_PASSWORD
-    								+ "email=" + email);
+        namevalue.add(new BasicNameValuePair("email", email));
+
+        new AsyncPostService(activity, WSConstant.RT_FORGOT_PASSWORD, namevalue, true).execute(WSConstant.WS_FORGOT_PASSWORD);
     }
 
     public void getSecurityQuestion(Activity activity, String responseType, String url) {

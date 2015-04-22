@@ -26,6 +26,7 @@ import com.psktechnology.businesscardmanager.R;
 import com.psktechnology.constant.AppConstant;
 import com.psktechnology.constant.AppGlobal;
 import com.psktechnology.fragment.MyCards;
+import com.psktechnology.fragment.SelectCard;
 
 public class DrawerActivity extends FragmentActivity {
 	
@@ -36,10 +37,10 @@ public class DrawerActivity extends FragmentActivity {
     ExpandableListView mDrawerList;
     
     List<String> listGroup;
+	List<String> listGroupIcons;
+	
     HashMap<String, List<String>> listChild;
-    
-    List<String> listGroupIcons;
-    List<String> listChildIcons;
+    HashMap<String, List<String>> listChildIcons;
     
     DrawerExpandableListAdapter DrawerExpandableListAdapter;
 
@@ -56,16 +57,17 @@ public class DrawerActivity extends FragmentActivity {
 		
 		listGroupIcons = Arrays.asList(getResources().getStringArray(R.array.drawer_menu_icons));
 		listGroup = Arrays.asList(getResources().getStringArray(R.array.drawer_menu));
+		
+		listChildIcons = new HashMap<String, List<String>>();
 		listChild = new HashMap<String, List<String>>();
 		
-		listChildIcons = Arrays.asList(getResources().getStringArray(R.array.construction_sub_menu_icons));
-		List<String> construction_sub_menu = Arrays.asList(getResources().getStringArray(R.array.construction_sub_menu));
 		List<String> empty = new ArrayList<String>();
 		
 		listChild.put(listGroup.get(0), empty);
 		listChild.put(listGroup.get(1), empty);
 		listChild.put(listGroup.get(2), empty);
 		listChild.put(listGroup.get(3), empty);
+		listChild.put(listGroup.get(4), empty);
 		
 		DrawerExpandableListAdapter = new  DrawerExpandableListAdapter(activity, listGroupIcons, listGroup, listChildIcons, listChild);
 		mDrawerList.setAdapter(DrawerExpandableListAdapter);
@@ -99,7 +101,9 @@ public class DrawerActivity extends FragmentActivity {
 					break;
 					
 				case 1:
-					AppGlobal.showToast(activity, AppConstant.underDevelopment);
+					SelectCard sc = new SelectCard();
+					ft.replace(R.id.content_frame, sc);
+					ft.commit();
 					mDrawerLayout.closeDrawer(drawer_Linear_layout);
 					break;
 					
@@ -109,6 +113,11 @@ public class DrawerActivity extends FragmentActivity {
 					break;
 					
 				case 3:
+					AppGlobal.showToast(activity, AppConstant.underDevelopment);
+					mDrawerLayout.closeDrawer(drawer_Linear_layout);
+					break;
+					
+				case 4:
 					AppGlobal.setBooleanPreference(activity, AppConstant.pref_RememberMe, false);
 					mDrawerLayout.closeDrawer(drawer_Linear_layout);
 					

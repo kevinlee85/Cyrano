@@ -18,11 +18,11 @@ public class DrawerExpandableListAdapter extends BaseExpandableListAdapter {
 
 	Activity activity;
 	
-	List<String> listGroupIcons;
-	List<String> listChildIcons;
-	
 	List<String> listGroup;
+	List<String> listGroupIcons;
+	
 	HashMap<String, List<String>> listChild;
+	HashMap<String, List<String>> listChildIcons;
 	
 	private static final int[] EMPTY_STATE_SET = {};
 	private static final int[] GROUP_EXPANDED_STATE_SET = { };
@@ -33,7 +33,7 @@ public class DrawerExpandableListAdapter extends BaseExpandableListAdapter {
 	};
 
 	public DrawerExpandableListAdapter(Activity activity, List<String> listGroupIcons, List<String> listGroup,
-			List<String> listChildIcons, HashMap<String, List<String>> listChild) {
+			HashMap<String, List<String>> listChildIcons, HashMap<String, List<String>> listChild) {
 		this.activity = activity;
 		this.listGroupIcons = listGroupIcons;
 		this.listGroup = listGroup;
@@ -61,10 +61,11 @@ public class DrawerExpandableListAdapter extends BaseExpandableListAdapter {
 		}
    		
    		final String childText = (String) getChild(groupPosition, childPosition);
+   		final String childTextIcon = (String) listChildIcons.get(listGroup.get(groupPosition)).get(childPosition);
    		
    		TextView img_selection = (TextView) convertView.findViewById(R.id.imgchild);
    		img_selection.setTypeface(AppGlobal.setFontAwesomeFonts(activity));
-		img_selection.setText(listChildIcons.get(childPosition));
+		img_selection.setText(childTextIcon);
 		
 		TextView txtListChild = (TextView) convertView.findViewById(R.id.tvchild);
 		txtListChild.setText(childText);
