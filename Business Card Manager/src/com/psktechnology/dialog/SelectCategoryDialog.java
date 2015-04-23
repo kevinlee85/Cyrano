@@ -1,6 +1,5 @@
 package com.psktechnology.dialog;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -169,56 +168,282 @@ public class SelectCategoryDialog extends Dialog implements OnClickListener {
 				
 				switch (groupPosition) {
 				case 0:
-					
 					switch (childPosition) {
 					case 0:
-						selectCatInterface.setCategoryId(31, "Electrician");
+						selectCatInterface.setCategoryId(11, "Auto Accessories");
 						dismiss();
 						break;
-						
 					case 1:
-						selectCatInterface.setCategoryId(32, "General Contractor");
+						selectCatInterface.setCategoryId(12, "Auto Dealers – New");
 						dismiss();
 						break;
-						
 					case 2:
-						selectCatInterface.setCategoryId(33, "Plumber");
+						selectCatInterface.setCategoryId(13, "Auto Dealers – Used");
 						dismiss();
 						break;
-						
 					case 3:
-						selectCatInterface.setCategoryId(34, "Roofing");
+						selectCatInterface.setCategoryId(14, "Detail & Carwash");
 						dismiss();
 						break;
-						
 					case 4:
-						selectCatInterface.setCategoryId(35, "Welding");
+						selectCatInterface.setCategoryId(15, "Gas Stations");
 						dismiss();
 						break;
-						
 					case 5:
-						selectCatInterface.setCategoryId(35, "Welding");
+						selectCatInterface.setCategoryId(16, "Motorcycle Sales & Repair");
 						dismiss();
 						break;
-						
 					case 6:
-						selectCatInterface.setCategoryId(35, "Welding");
+						selectCatInterface.setCategoryId(17, "Rental & Leasing");
 						dismiss();
 						break;
-						
 					case 7:
-						selectCatInterface.setCategoryId(35, "Welding");
+						selectCatInterface.setCategoryId(18, "Service, Repair & Parts");
 						dismiss();
 						break;
-						
 					case 8:
-						selectCatInterface.setCategoryId(35, "Welding");
+						selectCatInterface.setCategoryId(19, "Towing");
 						dismiss();
 						break;
-						
 					default:
 						break;
-						
+					}
+					break;
+					
+				case 1:
+					switch (childPosition) {
+					case 0:
+						selectCatInterface.setCategoryId(21, "Consultants");
+						dismiss();
+						break;
+					case 1:
+						selectCatInterface.setCategoryId(22, "Employment Agency");
+						dismiss();
+						break;
+					case 2:
+						selectCatInterface.setCategoryId(23, "Marketing & Communications");
+						dismiss();
+						break;
+					case 3:
+						selectCatInterface.setCategoryId(24, "Office Supplies");
+						dismiss();
+						break;
+					case 4:
+						selectCatInterface.setCategoryId(25, "Printing & Publishing");
+						dismiss();
+						break;
+					default:
+						break;
+					}
+					break;
+					
+				case 2:
+					switch (childPosition) {
+					case 0:
+						selectCatInterface.setCategoryId(31, "Consultants");
+						dismiss();
+						break;
+					case 1:
+						selectCatInterface.setCategoryId(32, "Employment Agency");
+						dismiss();
+						break;
+					default:
+						break;
+					}
+					break;
+					
+				case 3:
+					switch (childPosition) {
+					case 0:
+						selectCatInterface.setCategoryId(41, "Consultants");
+						dismiss();
+						break;
+					case 1:
+						selectCatInterface.setCategoryId(42, "Employment Agency");
+						dismiss();
+						break;
+					default:
+						break;
+					}
+					break;
+					
+				case 4:
+					switch (childPosition) {
+					case 0:
+						selectCatInterface.setCategoryId(51, "Consultants");
+						dismiss();
+						break;
+					case 1:
+						selectCatInterface.setCategoryId(52, "Employment Agency");
+						dismiss();
+						break;
+					default:
+						break;
+					}
+					break;
+					
+				case 5:
+					switch (childPosition) {
+					case 0:
+						selectCatInterface.setCategoryId(61, "Consultants");
+						dismiss();
+						break;
+					case 1:
+						selectCatInterface.setCategoryId(62, "Employment Agency");
+						dismiss();
+						break;
+					default:
+						break;
+					}
+					break;
+					
+				case 6:
+					switch (childPosition) {
+					case 0:
+						selectCatInterface.setCategoryId(71, "Consultants");
+						dismiss();
+						break;
+					case 1:
+						selectCatInterface.setCategoryId(72, "Employment Agency");
+						dismiss();
+						break;
+					default:
+						break;
+					}
+					break;
+					
+				case 7:
+					switch (childPosition) {
+					case 0:
+						selectCatInterface.setCategoryId(81, "Consultants");
+						dismiss();
+						break;
+					case 1:
+						selectCatInterface.setCategoryId(82, "Employment Agency");
+						dismiss();
+						break;
+					default:
+						break;
+					}
+					break;
+					
+				case 8:
+					switch (childPosition) {
+					case 0:
+						selectCatInterface.setCategoryId(91, "Consultants");
+						dismiss();
+						break;
+					case 1:
+						selectCatInterface.setCategoryId(92, "Employment Agency");
+						dismiss();
+						break;
+					default:
+						break;
+					}
+					break;
+					
+				case 9:
+					switch (childPosition) {
+					case 0:
+						selectCatInterface.setCategoryId(101, "Consultants");
+						dismiss();
+						break;
+					case 1:
+						selectCatInterface.setCategoryId(102, "Employment Agency");
+						dismiss();
+						break;
+					default:
+						break;
+					}
+					break;
+					
+				case 10:
+					switch (childPosition) {
+					case 0:
+						selectCatInterface.setCategoryId(111, "Consultants");
+						dismiss();
+						break;
+					case 1:
+						selectCatInterface.setCategoryId(112, "Employment Agency");
+						dismiss();
+						break;
+					default:
+						break;
+					}
+					break;
+					
+				case 11:
+					switch (childPosition) {
+					case 0:
+						selectCatInterface.setCategoryId(121, "Consultants");
+						dismiss();
+						break;
+					case 1:
+						selectCatInterface.setCategoryId(122, "Employment Agency");
+						dismiss();
+						break;
+					default:
+						break;
+					}
+					break;
+					
+				case 12:
+					switch (childPosition) {
+					case 0:
+						selectCatInterface.setCategoryId(131, "Consultants");
+						dismiss();
+						break;
+					case 1:
+						selectCatInterface.setCategoryId(132, "Employment Agency");
+						dismiss();
+						break;
+					default:
+						break;
+					}
+					break;
+					
+				case 13:
+					switch (childPosition) {
+					case 0:
+						selectCatInterface.setCategoryId(141, "Consultants");
+						dismiss();
+						break;
+					case 1:
+						selectCatInterface.setCategoryId(142, "Employment Agency");
+						dismiss();
+						break;
+					default:
+						break;
+					}
+					break;
+					
+				case 14:
+					switch (childPosition) {
+					case 0:
+						selectCatInterface.setCategoryId(151, "Consultants");
+						dismiss();
+						break;
+					case 1:
+						selectCatInterface.setCategoryId(152, "Employment Agency");
+						dismiss();
+						break;
+					default:
+						break;
+					}
+					break;
+					
+				case 15:
+					switch (childPosition) {
+					case 0:
+						selectCatInterface.setCategoryId(161, "Consultants");
+						dismiss();
+						break;
+					case 1:
+						selectCatInterface.setCategoryId(162, "Employment Agency");
+						dismiss();
+						break;
+					default:
+						break;
 					}
 					break;
 					
