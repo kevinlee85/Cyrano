@@ -240,11 +240,11 @@ public class SelectCategoryDialog extends Dialog implements OnClickListener {
 				case 2:
 					switch (childPosition) {
 					case 0:
-						selectCatInterface.setCategoryId(31, "Consultants");
+						selectCatInterface.setCategoryId(31, "Computer Programming & Support");
 						dismiss();
 						break;
 					case 1:
-						selectCatInterface.setCategoryId(32, "Employment Agency");
+						selectCatInterface.setCategoryId(32, "Consumer Electronics & Accessories");
 						dismiss();
 						break;
 					default:
@@ -255,11 +255,11 @@ public class SelectCategoryDialog extends Dialog implements OnClickListener {
 				case 3:
 					switch (childPosition) {
 					case 0:
-						selectCatInterface.setCategoryId(41, "Consultants");
+						selectCatInterface.setCategoryId(41, "Blasting & Demolition");
 						dismiss();
 						break;
 					case 1:
-						selectCatInterface.setCategoryId(42, "Employment Agency");
+						selectCatInterface.setCategoryId(42, "Building Materials & Supplies");
 						dismiss();
 						break;
 					default:
@@ -270,11 +270,11 @@ public class SelectCategoryDialog extends Dialog implements OnClickListener {
 				case 4:
 					switch (childPosition) {
 					case 0:
-						selectCatInterface.setCategoryId(51, "Consultants");
+						selectCatInterface.setCategoryId(51, "Adult & Continuing Education");
 						dismiss();
 						break;
 					case 1:
-						selectCatInterface.setCategoryId(52, "Employment Agency");
+						selectCatInterface.setCategoryId(52, "Early Childhood Education");
 						dismiss();
 						break;
 					default:
@@ -285,11 +285,11 @@ public class SelectCategoryDialog extends Dialog implements OnClickListener {
 				case 5:
 					switch (childPosition) {
 					case 0:
-						selectCatInterface.setCategoryId(61, "Consultants");
+						selectCatInterface.setCategoryId(61, "Artists, Writers");
 						dismiss();
 						break;
 					case 1:
-						selectCatInterface.setCategoryId(62, "Employment Agency");
+						selectCatInterface.setCategoryId(62, "Event Planners & Supplies");
 						dismiss();
 						break;
 					default:
@@ -300,11 +300,11 @@ public class SelectCategoryDialog extends Dialog implements OnClickListener {
 				case 6:
 					switch (childPosition) {
 					case 0:
-						selectCatInterface.setCategoryId(71, "Consultants");
+						selectCatInterface.setCategoryId(71, "Desserts, Catering & Supplies");
 						dismiss();
 						break;
 					case 1:
-						selectCatInterface.setCategoryId(72, "Employment Agency");
+						selectCatInterface.setCategoryId(72, "Fast Food & Carry Out");
 						dismiss();
 						break;
 					default:
@@ -315,11 +315,11 @@ public class SelectCategoryDialog extends Dialog implements OnClickListener {
 				case 7:
 					switch (childPosition) {
 					case 0:
-						selectCatInterface.setCategoryId(81, "Consultants");
+						selectCatInterface.setCategoryId(81, "Acupuncture");
 						dismiss();
 						break;
 					case 1:
-						selectCatInterface.setCategoryId(82, "Employment Agency");
+						selectCatInterface.setCategoryId(82, "Assisted Living & Home Health Caret");
 						dismiss();
 						break;
 					default:
@@ -330,11 +330,11 @@ public class SelectCategoryDialog extends Dialog implements OnClickListener {
 				case 8:
 					switch (childPosition) {
 					case 0:
-						selectCatInterface.setCategoryId(91, "Consultants");
+						selectCatInterface.setCategoryId(91, "Antiques & Collectibles");
 						dismiss();
 						break;
 					case 1:
-						selectCatInterface.setCategoryId(92, "Employment Agency");
+						selectCatInterface.setCategoryId(92, "Cleaning");
 						dismiss();
 						break;
 					default:
@@ -345,11 +345,11 @@ public class SelectCategoryDialog extends Dialog implements OnClickListener {
 				case 9:
 					switch (childPosition) {
 					case 0:
-						selectCatInterface.setCategoryId(101, "Consultants");
+						selectCatInterface.setCategoryId(101, "Accountants");
 						dismiss();
 						break;
 					case 1:
-						selectCatInterface.setCategoryId(102, "Employment Agency");
+						selectCatInterface.setCategoryId(102, "Attorneys");
 						dismiss();
 						break;
 					default:
@@ -360,11 +360,11 @@ public class SelectCategoryDialog extends Dialog implements OnClickListener {
 				case 10:
 					switch (childPosition) {
 					case 0:
-						selectCatInterface.setCategoryId(111, "Consultants");
+						selectCatInterface.setCategoryId(111, "Distribution, Import/Export");
 						dismiss();
 						break;
 					case 1:
-						selectCatInterface.setCategoryId(112, "Employment Agency");
+						selectCatInterface.setCategoryId(112, "Manufacturing");
 						dismiss();
 						break;
 					default:
@@ -375,11 +375,11 @@ public class SelectCategoryDialog extends Dialog implements OnClickListener {
 				case 11:
 					switch (childPosition) {
 					case 0:
-						selectCatInterface.setCategoryId(121, "Consultants");
+						selectCatInterface.setCategoryId(121, "Cards & Gifts");
 						dismiss();
 						break;
 					case 1:
-						selectCatInterface.setCategoryId(122, "Employment Agency");
+						selectCatInterface.setCategoryId(122, "Clothing & Accessories");
 						dismiss();
 						break;
 					default:
@@ -390,11 +390,11 @@ public class SelectCategoryDialog extends Dialog implements OnClickListener {
 				case 12:
 					switch (childPosition) {
 					case 0:
-						selectCatInterface.setCategoryId(131, "Consultants");
+						selectCatInterface.setCategoryId(131, "Civic Groups");
 						dismiss();
 						break;
 					case 1:
-						selectCatInterface.setCategoryId(132, "Employment Agency");
+						selectCatInterface.setCategoryId(132, "Funeral Service Providers & Cemetaries");
 						dismiss();
 						break;
 					default:
@@ -405,11 +405,11 @@ public class SelectCategoryDialog extends Dialog implements OnClickListener {
 				case 13:
 					switch (childPosition) {
 					case 0:
-						selectCatInterface.setCategoryId(141, "Consultants");
+						selectCatInterface.setCategoryId(141, "Agencies & Brokerage");
 						dismiss();
 						break;
 					case 1:
-						selectCatInterface.setCategoryId(142, "Employment Agency");
+						selectCatInterface.setCategoryId(142, "Agents & Brokers");
 						dismiss();
 						break;
 					default:
@@ -420,11 +420,11 @@ public class SelectCategoryDialog extends Dialog implements OnClickListener {
 				case 14:
 					switch (childPosition) {
 					case 0:
-						selectCatInterface.setCategoryId(151, "Consultants");
+						selectCatInterface.setCategoryId(151, "Animal Care & Supplies");
 						dismiss();
 						break;
 					case 1:
-						selectCatInterface.setCategoryId(152, "Employment Agency");
+						selectCatInterface.setCategoryId(152, "Barber & Beauty Salons");
 						dismiss();
 						break;
 					default:
@@ -435,11 +435,11 @@ public class SelectCategoryDialog extends Dialog implements OnClickListener {
 				case 15:
 					switch (childPosition) {
 					case 0:
-						selectCatInterface.setCategoryId(161, "Consultants");
+						selectCatInterface.setCategoryId(161, "Hotel, Motel & Extended Stay");
 						dismiss();
 						break;
 					case 1:
-						selectCatInterface.setCategoryId(162, "Employment Agency");
+						selectCatInterface.setCategoryId(162, "Moving & Storage");
 						dismiss();
 						break;
 					default:

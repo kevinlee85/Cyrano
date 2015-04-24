@@ -34,9 +34,25 @@ public class AppConstant {
     // shared preferences key
 
     public static final String pref_UserId = "prefUserId";
+    public static final String pref_RememberMe = "prefRememberMe";
+    public static final String pref_InboxCounter = "prefInboxCounter";
+	
+	public static final String pref_CategoryId = "prefCategoryId";
+	public static final String pref_CardId = "prefCardId";
+	
+	public static final String pref_CId = "prefCId";
+	public static final String pref_Name = "prefName";
+	public static final String pref_Title = "prefTitle";
+	public static final String pref_Company = "prefCompany";
+	public static final String pref_Phone = "prefPhone";
 	public static final String pref_Email = "prefEmail";
-	public static final String pref_Username = "prefUsername";
-	public static final String pref_RememberMe = "prefRememberMe";
-	public static final String pref_InboxCounter = "prefInboxCounter";
+	public static final String pref_Web = "prefWeb";
+	public static final String pref_FbID = "prefFbID";
+	public static final String pref_InID = "prefInID";
+	public static final String pref_UserImage = "prefUserImage";
+	public static final String pref_FontStyle = "prefFontStyle";
+	public static final String pref_FontColor = "prefFontColor";
+	public static final String pref_IsCardEdit = "prefIsCardEdit";
+	public static final String pref_IsTemplate = "prefIsTemplate";
 
 }

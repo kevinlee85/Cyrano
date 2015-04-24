@@ -27,7 +27,7 @@ public class SelectCard extends Fragment implements OnClickListener, SelectCateg
 	Activity activity;
 	
 	TextView tvtitle;
-	Button btndrawer, btnclose;
+	Button btndrawer, btncard;
 	
 	ListView lvcards;
 	
@@ -55,6 +55,10 @@ public class SelectCard extends Fragment implements OnClickListener, SelectCateg
 		case R.id.btndrawer:
 			((DrawerActivity) activity).showMenu();
 			break;
+			
+		case R.id.btnclose:
+			new SelectCategoryDialog(activity, this).show();
+			break;
 
 		default:
 			break;
@@ -68,8 +72,10 @@ public class SelectCard extends Fragment implements OnClickListener, SelectCateg
 		btndrawer.setTypeface(AppGlobal.setFontAwesomeFonts(activity));
 		btndrawer.setOnClickListener(this);
 		
-		btnclose = (Button) rootView.findViewById(R.id.btnclose);
-		btnclose.setVisibility(View.INVISIBLE);
+		btncard = (Button) rootView.findViewById(R.id.btnclose);
+		btncard.setTypeface(AppGlobal.setFontAwesomeFonts(activity));
+		btncard.setText(getResources().getString(R.string.icon_card));
+		btncard.setOnClickListener(this);
 		
 		tvtitle = (TextView) rootView.findViewById(R.id.tvtitle);
 		tvtitle.setSelected(true);
@@ -91,263 +97,263 @@ public class SelectCard extends Fragment implements OnClickListener, SelectCateg
 	}
 	
 	private void getAllCards() {
-		this.tvtitle.setText("Select Your Card");
+		this.tvtitle.setText("Select Card");
 	}
 
 	private void getSelectedCards(String catName) {
-		this.tvtitle.setText("Select Your Card(" + catName + ")");
+		this.tvtitle.setText("Select Card(" + catName + ")");
 		
 		switch (categoryType) {
 		case 11:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.card_one);
+			cardList.add(R.drawable.card_two);
 			break;
 			
 		case 12:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.card_three);
+			cardList.add(R.drawable.card_four);
 			break;
 
 		case 13:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.card_five);
+			cardList.add(R.drawable.card_six);
 			break;
 
 		case 14:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.card_seven);
+			cardList.add(R.drawable.card_eight);
 			break;
 			
 		case 15:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.card_nine);
+			cardList.add(R.drawable.card_ten);
 			break;
 			
 		case 16:
 			cardList = new ArrayList<Integer>();
 			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_two);
 			break;
 			
 		case 17:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_three);
+			cardList.add(R.drawable.legal_four);
 			break;
 			
 		case 18:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.computer_one);
+			cardList.add(R.drawable.computer_two);
 			break;
 			
 		case 19:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.computer_three);
+			cardList.add(R.drawable.computer_four);
 			break;
 			
 		case 21:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 22:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 23:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 24:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 25:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 31:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 32:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 41:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 42:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 51:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 52:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 61:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 62:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 71:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 72:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 81:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 82:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 91:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 92:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 101:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 102:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 111:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 112:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 121:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 122:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 131:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 132:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 141:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 142:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 151:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 152:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 161:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 			
 		case 162:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.legal_one);
-			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_five);
+			cardList.add(R.drawable.computer_five);
 			break;
 
 		default:

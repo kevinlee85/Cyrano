@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import com.psktechnology.activity.CreateBusinessCard;
 import com.psktechnology.businesscardmanager.R;
 import com.psktechnology.constant.AppConstant;
 import com.psktechnology.constant.AppGlobal;
@@ -76,9 +77,9 @@ public class CardlistAdapter extends BaseAdapter {
 				switch (v.getId()) {
 				
 				case R.id.ivcard:
-//					AppGlobal.setIntegerPreference(activity, AppConstant.pref_CategoryId, categoryType);
-//					AppGlobal.setIntegerPreference(activity, AppConstant.pref_CardId, (position+1));
-//					activity.startActivity(new Intent(activity, CreateBusinessCard.class));
+					AppGlobal.setIntegerPreference(activity, AppConstant.pref_CategoryId, categoryType);
+					AppGlobal.setIntegerPreference(activity, AppConstant.pref_CardId, (position+1));
+					activity.startActivity(new Intent(activity, CreateBusinessCard.class));
 					break;
 					
 				default:

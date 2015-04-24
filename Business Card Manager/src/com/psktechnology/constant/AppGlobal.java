@@ -84,5 +84,22 @@ public class AppGlobal {
 		Typeface typeface = Typeface.createFromAsset(activity.getAssets(), "fontawesome_webfont.ttf");
 		return typeface;
     }
+	
+	public static Typeface setFontStyle1(Activity activity) {
+		Typeface typeface = Typeface.createFromAsset(activity.getAssets(), "fontstyle1.ttf");
+		return typeface;
+    }
+    public static Typeface setFontStyle2(Activity activity) {
+		Typeface typeface = Typeface.createFromAsset(activity.getAssets(), "fontstyle2.ttf");
+		return typeface;
+    }
+    public static Typeface setFontStyle3(Activity activity) {
+		Typeface typeface = Typeface.createFromAsset(activity.getAssets(), "fontstyle3.ttf");
+		return typeface;
+    }
+    public static Typeface setFontStyle4(Activity activity) {
+		Typeface typeface = Typeface.createFromAsset(activity.getAssets(), "fontstyle4.ttf");
+		return typeface;
+    }
 
 }
