@@ -1,8 +1,11 @@
 package com.cjcornell.cyrano.data;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+
+import org.json.JSONArray;
 
 import android.R.string;
 import android.bluetooth.BluetoothDevice;
@@ -20,7 +23,9 @@ import com.cjcornell.cyrano.ScriptItem;
  * valid even if you rotate the screen.
  */
 public class DataStore {
-    private static DataStore instance = new DataStore();
+    public   boolean Firsttime = true;
+
+	private static DataStore instance = new DataStore();
 
     private String token = null;
     private Friend me = null;
@@ -35,6 +40,7 @@ public class DataStore {
     public List<String> bluetoothmacaddress=new ArrayList<String>();
     private List<String> lDES = new ArrayList<String>();
     private boolean fetchSettingFlag = true;
+    public HashMap<String, String> snoozetimeprocess = new HashMap<String, String>();
     private BluetoothDiscover discover;
     private ActivityCyrano activity;
     public String[] DES;
@@ -43,6 +49,7 @@ public class DataStore {
     List<String> priorandcomplist=new ArrayList<String>();
     HashMap<String, Integer> giveidstobtids=new HashMap<String, Integer>();
     HashMap<String, String> IDSofBTIDS = new HashMap<String, String>();
+    HashMap<String, String> remaintime = new HashMap<String, String>();
 
     public boolean setsearchval;
 
@@ -231,8 +238,15 @@ public class DataStore {
         IDSofBTIDS=iDSofBTIDS2;
         
     }
-    
 
-  
+	public HashMap<String, String> getTimestamps() {
+		// TODO Auto-generated method stub
+		return IDSofBTIDS;
+	}
+
+	public  HashMap<String, String> getSnoozetime() {
+		// TODO Auto-generated method stub
+		return snoozetimeprocess;
+	} 
     
 }

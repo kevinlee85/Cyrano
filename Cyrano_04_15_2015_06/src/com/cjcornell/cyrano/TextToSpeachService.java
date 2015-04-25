@@ -380,22 +380,39 @@ public class TextToSpeachService extends Service implements
 
 			if (AppSettings.friendAudio
 					&& DataStore.getInstance().setsearchval
-					&& friend < DataStore.getInstance().NumberofbuletoothFriends) {
-				Log.e(TAG,
-						"value of friend count"
-								+ friend
-								+ DataStore.getInstance().NumberofbuletoothFriends);
+					&& friend<DataStore.getInstance().NumberofbuletoothFriends) {
+					String BTaddress=DataStore.getInstance().getFrientList().get(friend).getAddress();
+					boolean announce=true;
+					if(DataStore.getInstance().getIDSofBTIDS().get(BTaddress)!=null&& DataStore.getInstance().getIDSofBTIDS().get(BTaddress)>1)
+					{
+						DataStore.getInstance().setsearchval = false;
+						announce=false;
+					}
+					else
+						announce=true;
+					
 				if (!friendannounc) {
 					if (DataStore.getInstance().NumberofbuletoothFriends <= AppSettings.maxFriends)
+					{
+						if(announce)
 						friendnamespeak();
-					
+					}
+					else
+					{
+						DataStore.getInstance().setfriendsearchval = false;
+						DataStore.getInstance().setsearchval = false;
+					}
+
 				} else {
 					if (DataStore.getInstance().NumberofbuletoothFriends <= AppSettings.maxFriends) {
-						
+						if(announce)
 						friendreminderspeak();
 						friend++;
 					}
-					
+					else{
+						DataStore.getInstance().setfriendsearchval = false;
+						DataStore.getInstance().setsearchval = false;
+					}
 
 				}
 			} else {
@@ -403,7 +420,7 @@ public class TextToSpeachService extends Service implements
 				DataStore.getInstance().setsearchval = false;
 
 			}
-			Log.e(TAG, DataStore.getInstance().setsearchval + "   "
+			Log.i(TAG, DataStore.getInstance().setsearchval + "   "
 					+ "check for executions");
 			if (!DataStore.getInstance().setsearchval) {
 				if (!instance.commandcall) {
@@ -453,10 +470,8 @@ public class TextToSpeachService extends Service implements
 							.get_BluetoothFriendReminder()
 							.get(DataStore.getInstance().getFrientList()
 									.get(friend).getAddress()));
-			if(friend< DataStore.getInstance().NumberofbuletoothFriends)
-				DataStore.getInstance().setfriendsearchval = true;
 		} catch (Exception e) {
-			
+
 			Log.e(TAG, e.toString());
 		}
 		// speak
@@ -470,10 +485,10 @@ public class TextToSpeachService extends Service implements
 	private void friendnamespeak() {
 		// TODO Auto-generated method stub
 		try {
-			DataStore.getInstance().setfriendsearchval = false;
+			
 			textToSpeech(DataStore.getInstance().getActivity(), DataStore
-					.getInstance().getFrientList().get(friend).getName());// speak
-																			// friend
+					.getInstance().getFrientList().get(friend).getName());// speak//
+																			// friend//
 																			// name
 		} catch (Exception e) {
 			Log.e(TAG, e.toString());

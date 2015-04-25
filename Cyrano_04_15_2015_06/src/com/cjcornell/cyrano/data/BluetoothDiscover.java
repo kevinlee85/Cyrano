@@ -154,10 +154,11 @@ public class BluetoothDiscover {
                 // TaskSearchForTriggers(activity).execute(bluetoothDevices);
                 count++;
                DataStore.getInstance().inc=count;
-               new TaskSendSimulationFile(DataStore.getInstance().getActivity()).execute(bluetoothDevices);
+           
                Log.e("heloo",DataStore.getInstance().setfriendsearchval+"");
                if(DataStore.getInstance().setfriendsearchval)
                {
+            	   new TaskSendSimulationFile(DataStore.getInstance().getActivity()).execute(bluetoothDevices);
                new TaskSearchForFriends(DataStore.getInstance().getActivity()).execute(DataStore.getInstance().getBluetoothDeviceList());
                DataStore.getInstance().setsearchval=true;
                }
@@ -171,6 +172,7 @@ public class BluetoothDiscover {
                 Log.v(TAG, "ACTION_STATE_CHANGED");
             }
         }
+        	
     };
 
    /* class BTFriendFindAsynk extends AsyncTask<String, Void, ArrayList<Friend>> {

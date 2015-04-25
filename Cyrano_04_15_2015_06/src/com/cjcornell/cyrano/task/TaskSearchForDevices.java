@@ -20,6 +20,7 @@ import org.json.JSONObject;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothDevice;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.cjcornell.cyrano.ActivityCyrano;
 import com.cjcornell.cyrano.Constants;
@@ -85,7 +86,19 @@ public class TaskSearchForDevices extends AsyncTask<List<BluetoothDevice>, Void,
     
     //use this loop to add simulation file contents to search
     for (int i = 0; i < DataStore.getInstance().getbluletoothmac().size(); i++) {
-        addresses.append("'" +DataStore.getInstance().getbluletoothmac().get(i)+ "'");
+    	String BTaddress = DataStore.getInstance().getbluletoothmac()
+				.get(i);
+		String Purevalues="";
+		if (BTaddress.contains("GLOBAL")) {
+			int value = BTaddress.toString()
+					.indexOf("GLOBAL");
+			String pure = BTaddress
+					.substring(0, value).trim();
+			Purevalues=pure;
+		}
+		else
+			Purevalues=BTaddress;
+		addresses.append("'" + Purevalues + "'");
         if(i != DataStore.getInstance().getbluletoothmac().size() - 1) {
             addresses.append(",");
         }

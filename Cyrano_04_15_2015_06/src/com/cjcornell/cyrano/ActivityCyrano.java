@@ -5,8 +5,11 @@
 
 package com.cjcornell.cyrano;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -35,11 +38,13 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Bitmap;
 import android.media.AudioManager;
 import android.media.AudioManager.OnAudioFocusChangeListener;
+import android.net.ParseException;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.Settings.Secure;
 import android.support.v4.content.LocalBroadcastManager;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -49,6 +54,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -61,8 +67,10 @@ import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.cjcornell.cyrano.AudioMethods.AudioCompletionNotifiable;
 import com.cjcornell.cyrano.ImageDownload.ImageLoader;
@@ -83,7 +91,7 @@ import com.facebook.Session;
 
 public class ActivityCyrano extends Activity implements
 AudioMethods.AudioCompletionNotifiable,
-com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable {
+com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListener, OnItemSelectedListener {
 
 	private final static String TAG = "Cyrano";
 	private final static int MAX_BRANCHES = 4;
@@ -92,8 +100,14 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable {
 	// Milliseconds before automatically closing splash screen
 	private final static int SPLASH_TIMEOUT = 10000;
 	SharedPreferences sp;
-	boolean isuipause = false, frienddetails;
+	final int snoozethread = 1;
+	boolean isuipause = false, frienddetails,firsttime=true;
 	int triggerval;
+	long elapsedHours,elapsedMinutes;
+	int i=0;
+	String Friendadress = "";
+	String snoozevalues[] = new String[] { "OFF", "5min", "10min", "15min",
+			"30min", "60min" };
 	ImageLoader img = new ImageLoader(ActivityCyrano.this);
 	/**
 	 * Layout attributes - it makes sense to put these here as they are accessed
@@ -103,6 +117,16 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable {
 	private ImageView friendPicture;
 	private TextView friendName, friendAboutText;
 	private TextView friendCoordinates;
+	
+	// Snooze and mute process contents
+		Calendar c = Calendar.getInstance();
+		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy-hh:mm:ss");
+		SimpleDateFormat snoozedf = new SimpleDateFormat("hh:mm");
+
+		public ToggleButton friend_mute_unmute, friend_snooze_unsnooze;
+		public Spinner friend_snoozeTime;
+		public SnoozeMuteCheck SMC;
+		public TextView remainingtime;
 
 
 	private RelativeLayout friendsContent;
@@ -271,6 +295,10 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable {
 			e.putString("about_text", me.getabout_text());
 			e.commit();
 		}
+		SpinnerAdaptor sp = new SpinnerAdaptor(ActivityCyrano.this,
+				snoozevalues);
+		friend_snoozeTime.setAdapter(sp);
+		friend_snoozeTime.setOnItemSelectedListener(this);
 
 	}
 
@@ -762,6 +790,14 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable {
 		friendName = (TextView) findViewById(R.id.friendName);
 		friendAboutText = (TextView) findViewById(R.id.friendAboutus);
 		friendCoordinates = (TextView) findViewById(R.id.friendCoordinates);
+		// Snooze and mute process contents
+				friend_mute_unmute = (ToggleButton) findViewById(R.id.friend_mute_unmute);
+				friend_snooze_unsnooze = (ToggleButton) findViewById(R.id.friend_snooze_unsnooze);
+				friend_snoozeTime = (Spinner) findViewById(R.id.friend_snoozeTime);
+				remainingtime=(TextView)findViewById(R.id.remainingtime);
+				SMC = new SnoozeMuteCheck();
+				friend_snooze_unsnooze.setOnClickListener(this);
+				friend_mute_unmute.setOnClickListener(this);
 
 		friendsContent = (RelativeLayout) findViewById(R.id.friendsContent);
 		friendsList = (ListView) findViewById(R.id.friendsList);
@@ -876,6 +912,36 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable {
 				.append("Email" + bluetoothFriend.getEmail() + "\n")
 				.append("ID" + bluetoothFriend.getId() + "\n");
 				friendCoordinates.setText(sb.toString());
+				
+				// Snoozeprocess
+				Friendadress = bluetoothFriend.getAddress();
+				if (SMC.btIDcheckSnooze(bluetoothFriend.getAddress())) {
+					friend_snooze_unsnooze.setChecked(true);
+					friend_snoozeTime.setVisibility(View.VISIBLE);
+				} else {
+					friend_snooze_unsnooze.setChecked(false);
+					friend_snoozeTime.setVisibility(View.GONE);
+				}
+				String pure = Friendadress + "GLOBAL";
+				String BT = "";
+				if (DataStore.getInstance().getTimestamps().get(pure) != null)
+					BT = DataStore.getInstance().getTimestamps().get(pure);
+				else if (DataStore.getInstance().getTimestamps()
+						.get(Friendadress) != null)
+					BT = DataStore.getInstance().getTimestamps()
+							.get(Friendadress);
+				if (BT.equalsIgnoreCase("00/00/00-00:00:00"))
+				{
+					friend_mute_unmute.setChecked(true);
+					friend_snoozeTime.setVisibility(View.GONE);
+					friend_snooze_unsnooze.setVisibility(View.GONE);
+				}
+				else
+				{
+					friend_mute_unmute.setChecked(false);
+					friend_snoozeTime.setVisibility(View.VISIBLE);
+					friend_snooze_unsnooze.setVisibility(View.VISIBLE);
+				}
 
 				// picture = new
 				// FacebookProfileDownloader().execute(bluetoothFriend.getId()).get();
@@ -1703,6 +1769,133 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable {
 
 	}
 
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch (v.getId()) {
+		case R.id.friend_snooze_unsnooze:
+			if (friend_snooze_unsnooze.isChecked()) {
+				friend_snoozeTime.setVisibility(View.VISIBLE);
+			} else if (Friendadress != null) {
+				friend_snoozeTime.setVisibility(View.GONE);
+				if (DataStore.getInstance().getIDSofBTIDS()
+						.containsKey(Friendadress)) {
+					DataStore.getInstance().getIDSofBTIDS()
+							.remove(Friendadress);
+					String pure = Friendadress + "GLOBAL";
+					if (DataStore.getInstance().getTimestamps().get(pure) != null)
+						DataStore.getInstance().getTimestamps().remove(pure);
+					else
+						DataStore.getInstance().getTimestamps()
+								.remove(Friendadress);
+				}
+			}
+			break;
+		case R.id.friend_mute_unmute:
+			String pure = Friendadress + "GLOBAL";
+			if (friend_mute_unmute.isChecked()) {
+				friend_snoozeTime.setVisibility(View.GONE);
+				friend_snooze_unsnooze.setVisibility(View.GONE);
+
+				if (DataStore.getInstance().getTimestamps().get(pure) != null) {
+					DataStore.getInstance().getTimestamps().remove(pure);
+					DataStore.getInstance().getTimestamps()
+							.put(pure, "00/00/00-00:00:00");
+				} else {
+					if (DataStore.getInstance().getTimestamps()
+							.get(Friendadress) != null) {
+						DataStore.getInstance().getTimestamps()
+								.remove(Friendadress);
+						DataStore.getInstance().getTimestamps()
+								.put(pure, "00/00/00-00:00:00");
+					}
+				}
+			} else {
+				friend_snoozeTime.setVisibility(View.VISIBLE);
+				friend_snooze_unsnooze.setVisibility(View.VISIBLE);
+				if (DataStore.getInstance().getTimestamps().get(pure) != null) {
+					DataStore.getInstance().getTimestamps().remove(pure);
+					DataStore.getInstance().getTimestamps()
+							.put(pure, df.format(c.getTime()));
+				} else {
+					DataStore.getInstance().getTimestamps()
+							.remove(Friendadress);
+					DataStore.getInstance().getTimestamps()
+							.put(Friendadress, df.format(c.getTime()));
+				}
+
+			}
+			break;
+
+		default:
+			break;
+		}
+	}
+
+	@Override
+	public void onItemSelected(AdapterView<?> parent, View view, int position,
+			long id) {
+		// TODO Auto-generated method stub
+		Calendar d = Calendar.getInstance();
+		Calendar tmp = (Calendar) d.clone();
+		if(firsttime){
+		Snoozetime();
+		firsttime=false;
+		}
+		switch (position) {
+		case 0:
+			DataStore.getInstance().getSnoozetime().clear();
+			remainingtime.setText("");
+			break;
+		case 1:
+			tmp.add(Calendar.MINUTE, 5);
+			Log.i(TAG, snoozedf.format(tmp.getTime()));
+			if (DataStore.getInstance().getSnoozetime().get(Friendadress) != null)
+				DataStore.getInstance().getSnoozetime().remove(Friendadress);
+			DataStore.getInstance().getSnoozetime()
+					.put(Friendadress, snoozedf.format(tmp.getTime()));
+			break;
+		case 2:
+			tmp.add(Calendar.MINUTE, 10);
+			if (DataStore.getInstance().getSnoozetime().get(Friendadress) != null)
+				DataStore.getInstance().getSnoozetime().remove(Friendadress);
+			DataStore.getInstance().getSnoozetime()
+					.put(Friendadress, snoozedf.format(tmp.getTime()));
+			break;
+		case 3:
+			tmp.add(Calendar.MINUTE, 15);
+			if (DataStore.getInstance().getSnoozetime().get(Friendadress) != null)
+				DataStore.getInstance().getSnoozetime().remove(Friendadress);
+			DataStore.getInstance().getSnoozetime()
+					.put(Friendadress, snoozedf.format(tmp.getTime()));
+			break;
+		case 4:
+			tmp.add(Calendar.MINUTE, 30);
+			if (DataStore.getInstance().getSnoozetime().get(Friendadress) != null)
+				DataStore.getInstance().getSnoozetime().remove(Friendadress);
+			DataStore.getInstance().getSnoozetime()
+					.put(Friendadress, snoozedf.format(tmp.getTime()));
+			break;
+		case 5:
+			tmp.add(Calendar.MINUTE, 60);
+			if (DataStore.getInstance().getSnoozetime().get(Friendadress) != null)
+				DataStore.getInstance().getSnoozetime().remove(Friendadress);
+			DataStore.getInstance().getSnoozetime()
+					.put(Friendadress, snoozedf.format(tmp.getTime()));
+			break;
+
+		default:
+			break;
+		}
+
+	}
+
+	@Override
+	public void onNothingSelected(AdapterView<?> parent) {
+		// TODO Auto-generated method stub
+		remainingtime.setText("");
+	}
+
 	/*
 	 * public void triggerDES() { // TODO Auto-generated method stub Log.v(TAG,
 	 * TAG + TAG); triggerval = 0; new
@@ -1717,5 +1910,105 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable {
 	 * 
 	 * }
 	 */
+	
+	public  void Snoozetime()
+	{
+		 
+		
+		new Thread(new Runnable() {
+
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			Log.e("RESET PROCESS", "RESET PROCESS");
+			while (snoozethread>0) {
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				if (DataStore.getInstance().getSnoozetime().get(DataStore.getInstance().getFrientList().get(i).getAddress()) != null) {
+					if (DataStore.getInstance().getSnoozetime().get(DataStore.getInstance().getFrientList().get(i).getAddress())
+							.equalsIgnoreCase(
+									timereturn())) {
+						DataStore.getInstance().getIDSofBTIDS().remove(DataStore.getInstance().getFrientList().get(i).getAddress());
+						Log.e("REMOVE", DataStore.getInstance().getFrientList().get(i).getAddress());
+					}
+				}
+				i++;
+				if(DataStore.getInstance().getFrientList().size()>=i)
+					i=0;
+					
+				
+			}
+		}
+	}).start();
+	}
+	public String timereturn()
+	{
+		Calendar c1=Calendar.getInstance();
+		
+			if(DataStore.getInstance().getSnoozetime().get(Friendadress)!=null){
+			try {
+				Date date1 = snoozedf.parse(DataStore.getInstance().getSnoozetime().get(Friendadress));
+				Date date2 = snoozedf.parse(snoozedf.format(c1.getTime()));
+				printDifference(date1,date2);
+			} catch (java.text.ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+			}
+	
+	
+		return snoozedf.format(c1.getTime());
+		
+	}
+	public void printDifference(Date startDate, Date endDate){
+		 
+		//milliseconds
+		long different = endDate.getTime() - startDate.getTime();
+ 
+		System.out.println("startDate : " + startDate);
+		System.out.println("endDate : "+ endDate);
+		System.out.println("different : " + different);
+ 
+		long secondsInMilli = 1000;
+		long minutesInMilli = secondsInMilli * 60;
+		long hoursInMilli = minutesInMilli * 60;
+		long daysInMilli = hoursInMilli * 24;
+ 
+		long elapsedDays = different / daysInMilli;
+		different = different % daysInMilli;
+ 
+		elapsedHours = different / hoursInMilli;
+		different = different % hoursInMilli;
+ 
+		elapsedMinutes = different / minutesInMilli;
+		different = different % minutesInMilli;
+ 
+		long elapsedSeconds = different / secondsInMilli;
+ 
+		System.out.printf(
+		    "%d days, %d hours, %d minutes, %d seconds%n", 
+		    elapsedDays,
+		    elapsedHours, elapsedMinutes, elapsedSeconds);
+			Log.i(TAG,elapsedHours+":"+elapsedMinutes);
+			 runOnUiThread(new Runnable() {
+
+                 @Override
+                 public void run() {
+                   // do something
+                	
+                	 remainingtime.setText("REMAINING TIME   "+elapsedHours+" "+":"+" "+elapsedMinutes);
+ 				if(elapsedHours>=0 && elapsedMinutes>=0)
+                	 {
+                		 remainingtime.setText(""); 
+                	 }
+                 }
+             });
+			
+	}
+
 
 }

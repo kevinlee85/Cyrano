@@ -15,7 +15,6 @@
 		<RelativeLayout android:id="@+id/friendContent"
 			  android:layout_width="fill_parent" 
 	          android:layout_height="wrap_content" 
-	          android:orientation="horizontal" 
 	          android:visibility="gone" >
 		    
 		    <ImageView android:id="@+id/friendPicture"
@@ -50,6 +49,36 @@
                 android:padding="10dp"
                 android:text="Aboutus Text"
                 android:textColor="#FFFFFF" />
+		    <ToggleButton 
+		       
+		        android:layout_height="wrap_content"
+		        android:layout_width="wrap_content"
+		        android:id="@+id/friend_mute_unmute"
+		        android:textOn="Mute"
+		        android:textOff="Unmute"
+		        android:layout_below="@+id/friendAboutus"/>
+		     <ToggleButton 
+		       
+		        android:layout_height="wrap_content"
+		        android:layout_width="wrap_content"
+		        android:id="@+id/friend_snooze_unsnooze"
+		        android:textOn="Snooze"
+		        android:textOff="Unsnooze"
+		        android:layout_below="@+id/friendAboutus"
+		        android:layout_toRightOf="@+id/friend_mute_unmute"/>
+		    
+		     <Spinner android:id="@+id/friend_snoozeTime"
+		         android:layout_height="wrap_content"
+		         android:layout_width="wrap_content"
+		         android:layout_toRightOf="@+id/friend_snooze_unsnooze"
+		         android:layout_below="@+id/friendAboutus"/>
+		     <TextView 
+		         android:id="@+id/remainingtime"
+		         android:layout_height="wrap_content"
+		         android:layout_width="wrap_content"
+		         android:textColor="#FF0000"
+		         android:layout_below="@+id/friend_mute_unmute"/>
+		   
 		</RelativeLayout>
 	</ScrollView>
 	
