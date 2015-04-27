@@ -372,7 +372,7 @@ public class TaskSendSimulationFile extends
 							.getbluletoothmac().size(); i++) {
 						String temp = DataStore.getInstance()
 								.getbluletoothmac().get(i);
-						if (!temp.equalsIgnoreCase(" "))
+						if (!temp.equalsIgnoreCase(""))
 							after_compaire.add(temp.trim());
 						if(DataStore.getInstance().getTimestamps().get(temp)==null)
 						DataStore.getInstance().getTimestamps().put(temp, df.format(c.getTime()));

@@ -18,4 +18,23 @@
     android:textColor="#FFFFFF"
     android:layout_toRightOf="@+id/imageoffriends"
     android:text="hello"/>
+
+<ImageView
+    android:id="@+id/imvmute"
+    android:layout_width="25dp"
+    android:layout_height="25dp"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentBottom="true"
+    android:src="@drawable/mute"
+    android:visibility="gone" />
+<ImageView
+    android:id="@+id/imvsnooze"
+    android:layout_width="25dp"
+    android:layout_height="25dp"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentBottom="true"
+    android:layout_marginRight="30dp"
+    android:src="@drawable/snooze" 
+    android:visibility="gone"/>
+
 </RelativeLayout>

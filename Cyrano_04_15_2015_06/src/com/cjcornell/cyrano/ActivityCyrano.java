@@ -88,10 +88,12 @@ import com.cjcornell.cyrano.task.TaskSearchForTriggers;
 import com.cjcornell.cyrano.task.TaskUpdateBluetoothEarpiece;
 import com.cjcornell.cyrano.utils.Utils;
 import com.facebook.Session;
+import com.facebook.android.Util;
 
 public class ActivityCyrano extends Activity implements
-AudioMethods.AudioCompletionNotifiable,
-com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListener, OnItemSelectedListener {
+		AudioMethods.AudioCompletionNotifiable,
+		com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable,
+		OnClickListener, OnItemSelectedListener {
 
 	private final static String TAG = "Cyrano";
 	private final static int MAX_BRANCHES = 4;
@@ -101,10 +103,10 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 	private final static int SPLASH_TIMEOUT = 10000;
 	SharedPreferences sp;
 	final int snoozethread = 1;
-	boolean isuipause = false, frienddetails,firsttime=true;
+	boolean isuipause = false, frienddetails, firsttime = true;
 	int triggerval;
-	long elapsedHours,elapsedMinutes;
-	int i=0;
+	long elapsedHours, elapsedMinutes;
+	int i = 0;
 	String Friendadress = "";
 	String snoozevalues[] = new String[] { "OFF", "5min", "10min", "15min",
 			"30min", "60min" };
@@ -117,17 +119,16 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 	private ImageView friendPicture;
 	private TextView friendName, friendAboutText;
 	private TextView friendCoordinates;
-	
+
 	// Snooze and mute process contents
-		Calendar c = Calendar.getInstance();
-		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy-hh:mm:ss");
-		SimpleDateFormat snoozedf = new SimpleDateFormat("hh:mm");
+	Calendar c = Calendar.getInstance();
+	SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy-hh:mm:ss");
+	SimpleDateFormat snoozedf = new SimpleDateFormat("hh:mm");
 
-		public ToggleButton friend_mute_unmute, friend_snooze_unsnooze;
-		public Spinner friend_snoozeTime;
-		public SnoozeMuteCheck SMC;
-		public TextView remainingtime;
-
+	public ToggleButton friend_mute_unmute, friend_snooze_unsnooze;
+	public Spinner friend_snoozeTime;
+	public SnoozeMuteCheck SMC;
+	public TextView remainingtime;
 
 	private RelativeLayout friendsContent;
 	private ListView friendsList;
@@ -400,6 +401,68 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 		case R.id.action_account:
 			showAccountInformation();
 			return true;
+		case R.id.action_muteall:
+			// Mute all
+			for (int j = 0; j < DataStore.getInstance().getpriorandcomlist()
+					.size(); j++) {
+				String pure = DataStore.getInstance().getpriorandcomlist()
+						.get(j)
+						+ "GLOBAL";
+				String Btaddress = DataStore.getInstance().getpriorandcomlist()
+						.get(j);
+				Log.e(TAG + TAG, Btaddress);
+				if (DataStore.getInstance().getTimestamps().get(pure) != null) {
+					DataStore.getInstance().getTimestamps().remove(pure);
+					DataStore.getInstance().getTimestamps()
+							.put(pure, "00/00/00-00:00:00");
+					Log.i(TAG + TAG, Btaddress);
+					friend_snoozeTime.setVisibility(View.GONE);
+					friend_snooze_unsnooze.setVisibility(View.GONE);
+				} else {
+					if (DataStore.getInstance().getTimestamps().get(Btaddress) != null) {
+						DataStore.getInstance().getTimestamps()
+								.remove(Btaddress);
+						DataStore.getInstance().getTimestamps()
+								.put(Btaddress, "00/00/00-00:00:00");
+						Log.d(TAG, Btaddress);
+						friend_snoozeTime.setVisibility(View.GONE);
+						friend_snooze_unsnooze.setVisibility(View.GONE);
+					}
+				}
+			}
+			Utils.showShortToast(ActivityCyrano.this, "Mute All");
+			return true;
+		case R.id.action_snoozeall:
+			// Snooze All
+			for (int j = 0; j < DataStore.getInstance().getpriorandcomlist()
+					.size(); j++) {
+				String pure = DataStore.getInstance().getpriorandcomlist()
+						.get(j)
+						+ "GLOBAL";
+				String Btaddress = DataStore.getInstance().getpriorandcomlist()
+						.get(j);
+				if (DataStore.getInstance().getIDSofBTIDS().get(pure) != null) {
+					DataStore.getInstance().getIDSofBTIDS().remove(pure);
+					DataStore.getInstance().getIDSofBTIDS().put(pure, 2);
+					Log.i("Snooze", Btaddress);
+					friend_snoozeTime.setVisibility(View.VISIBLE);
+					friend_snooze_unsnooze.setVisibility(View.VISIBLE);
+
+				} else {
+					if (DataStore.getInstance().getIDSofBTIDS().get(Btaddress) != null) {
+						DataStore.getInstance().getIDSofBTIDS()
+								.remove(Btaddress);
+						DataStore.getInstance().getIDSofBTIDS()
+								.put(Btaddress, 2);
+						Log.d("Snooze", Btaddress);
+						friend_snoozeTime.setVisibility(View.VISIBLE);
+						friend_snooze_unsnooze.setVisibility(View.VISIBLE);
+
+					}
+				}
+			}
+			Utils.showShortToast(ActivityCyrano.this, "Snooze All");
+			return true;
 		case R.id.action_about:
 			showAbout();
 			return true;
@@ -430,23 +493,24 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 			startActivity(loginIntent);
 			finish();
 			return true;
-		case R.id.action_exit://guru
-			
-			if(dialog.isShowing()){
+		case R.id.action_exit:// guru
+
+			if (dialog.isShowing()) {
 				dialog.dismiss();
 				dialog.cancel();
 			}
 			// STOP THE BROADCASTRECEIVER
-			if (gotBTFriends!=null) {
-				LocalBroadcastManager.getInstance(this).unregisterReceiver(gotBTFriends);
-				gotBTFriends=null;
+			if (gotBTFriends != null) {
+				LocalBroadcastManager.getInstance(this).unregisterReceiver(
+						gotBTFriends);
+				gotBTFriends = null;
 			}
 			// STOP THE SERVICE
 			stopFFS = new Intent(FriendFinderService.SHUTDOWN_FFS);
 			LocalBroadcastManager.getInstance(this).sendBroadcast(stopFFS);
 			Intent homeIntent = new Intent(Intent.ACTION_MAIN);
 			homeIntent.addCategory(Intent.CATEGORY_HOME);
-			startActivity(homeIntent);			
+			startActivity(homeIntent);
 			finish();
 		case R.id.action_search_for:
 
@@ -474,24 +538,24 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 						// Search for friend
 						discover.start();
 						new TaskSearchForFriends(ActivityCyrano.this)
-						.execute(DataStore.getInstance()
-								.getBluetoothDeviceList());
+								.execute(DataStore.getInstance()
+										.getBluetoothDeviceList());
 						break;
 
 					case 1:
 						// Search for devices
 						discover.start();
 						new TaskSearchForDevices(ActivityCyrano.this)
-						.execute(DataStore.getInstance()
-								.getBluetoothDeviceList());
+								.execute(DataStore.getInstance()
+										.getBluetoothDeviceList());
 						break;
 
 					case 2:
 						// Search for triggers
 						discover.start();
 						new TaskSearchForTriggers(ActivityCyrano.this)
-						.execute(DataStore.getInstance()
-								.getBluetoothDeviceList());
+								.execute(DataStore.getInstance()
+										.getBluetoothDeviceList());
 						break;
 
 					case 3:
@@ -510,11 +574,13 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 			return super.onOptionsItemSelected(item);
 		}
 	}
+
 	@Override
 	public void onContextMenuClosed(Menu menu) {
 		super.onContextMenuClosed(menu);
 		closeContextMenu();
 	}
+
 	/**
 	 * Called when the pause play control is pressed
 	 */
@@ -540,18 +606,20 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 
 		// LocalBroadcastManager.getInstance(this).unregisterReceiver(gotFriends);
 
-		if (gotBTFriends!=null) {
-			LocalBroadcastManager.getInstance(this).unregisterReceiver(gotBTFriends);
-			gotBTFriends=null;
+		if (gotBTFriends != null) {
+			LocalBroadcastManager.getInstance(this).unregisterReceiver(
+					gotBTFriends);
+			gotBTFriends = null;
 		}
 	}
 
 	@Override
-	public void onDestroy(){
+	public void onDestroy() {
 		super.onDestroy();
-		if (gotBTFriends!=null) {
-			LocalBroadcastManager.getInstance(this).unregisterReceiver(gotBTFriends);
-			gotBTFriends=null;
+		if (gotBTFriends != null) {
+			LocalBroadcastManager.getInstance(this).unregisterReceiver(
+					gotBTFriends);
+			gotBTFriends = null;
 		}
 	}
 
@@ -594,7 +662,8 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 			filter.addAction(BluetoothDevice.ACTION_ACL_CONNECTED);
 			filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
 			filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
-			LocalBroadcastManager.getInstance(this).registerReceiver(gotBTFriends, biff);
+			LocalBroadcastManager.getInstance(this).registerReceiver(
+					gotBTFriends, biff);
 		} catch (Exception e) {
 			Log.e(TAG, e.toString());
 		}
@@ -693,7 +762,7 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 			new TextToSpeachService().textToSpeech(ActivityCyrano.this, this
 					.getResources().getString(R.string.noFriendsMessage));
 			Toast.makeText(this, R.string.noFriendsMessage, Toast.LENGTH_SHORT)
-			.show();
+					.show();
 		}
 
 	}
@@ -791,13 +860,13 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 		friendAboutText = (TextView) findViewById(R.id.friendAboutus);
 		friendCoordinates = (TextView) findViewById(R.id.friendCoordinates);
 		// Snooze and mute process contents
-				friend_mute_unmute = (ToggleButton) findViewById(R.id.friend_mute_unmute);
-				friend_snooze_unsnooze = (ToggleButton) findViewById(R.id.friend_snooze_unsnooze);
-				friend_snoozeTime = (Spinner) findViewById(R.id.friend_snoozeTime);
-				remainingtime=(TextView)findViewById(R.id.remainingtime);
-				SMC = new SnoozeMuteCheck();
-				friend_snooze_unsnooze.setOnClickListener(this);
-				friend_mute_unmute.setOnClickListener(this);
+		friend_mute_unmute = (ToggleButton) findViewById(R.id.friend_mute_unmute);
+		friend_snooze_unsnooze = (ToggleButton) findViewById(R.id.friend_snooze_unsnooze);
+		friend_snoozeTime = (Spinner) findViewById(R.id.friend_snoozeTime);
+		remainingtime = (TextView) findViewById(R.id.remainingtime);
+		SMC = new SnoozeMuteCheck();
+		friend_snooze_unsnooze.setOnClickListener(this);
+		friend_mute_unmute.setOnClickListener(this);
 
 		friendsContent = (RelativeLayout) findViewById(R.id.friendsContent);
 		friendsList = (ListView) findViewById(R.id.friendsList);
@@ -869,7 +938,7 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 			Log.v("bhupinder...", " " + list.toString());
 			// adapter = new ArrayAdapter<Friend>(this, R.layout.layout_list2,
 			// friends);
-
+			//for icon update in list
 			ca = new Customadaptor(ActivityCyrano.this, list);
 		} else {
 			adapter = new ArrayAdapter<BluetoothFriend>(this,
@@ -909,10 +978,10 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 								+ bluetoothFriend.getEmail() + ")"));
 				StringBuilder sb = new StringBuilder();
 				sb.append("MAC Address" + bluetoothFriend.getAddress() + "\n")
-				.append("Email" + bluetoothFriend.getEmail() + "\n")
-				.append("ID" + bluetoothFriend.getId() + "\n");
+						.append("Email" + bluetoothFriend.getEmail() + "\n")
+						.append("ID" + bluetoothFriend.getId() + "\n");
 				friendCoordinates.setText(sb.toString());
-				
+
 				// Snoozeprocess
 				Friendadress = bluetoothFriend.getAddress();
 				if (SMC.btIDcheckSnooze(bluetoothFriend.getAddress())) {
@@ -930,14 +999,11 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 						.get(Friendadress) != null)
 					BT = DataStore.getInstance().getTimestamps()
 							.get(Friendadress);
-				if (BT.equalsIgnoreCase("00/00/00-00:00:00"))
-				{
+				if (BT.equalsIgnoreCase("00/00/00-00:00:00")) {
 					friend_mute_unmute.setChecked(true);
 					friend_snoozeTime.setVisibility(View.GONE);
 					friend_snooze_unsnooze.setVisibility(View.GONE);
-				}
-				else
-				{
+				} else {
 					friend_mute_unmute.setChecked(false);
 					friend_snoozeTime.setVisibility(View.VISIBLE);
 					friend_snooze_unsnooze.setVisibility(View.VISIBLE);
@@ -1014,6 +1080,9 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 			// " ")).get();
 			url = "https://graph.facebook.com/" + sp.getString("id", " ")
 					+ "/picture?type=large";
+			friend_mute_unmute.setVisibility(View.GONE);
+			friend_snooze_unsnooze.setVisibility(View.GONE);
+			friend_snoozeTime.setVisibility(View.GONE);
 		} else {
 			// About to get very hacky...
 			friendName.setText(friend.getName()
@@ -1023,13 +1092,13 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 
 			StringBuilder sb = new StringBuilder();
 			sb.append(AppSettings.formatter.format(friend.getLatitude()))
-			.append(", ")
-			.append(AppSettings.formatter.format(friend.getLongitude()))
-			.append(" (").append(friend.getDistanceString())
-			.append(")\n").append("Details1: ")
-			.append(friend.getDetails1()).append("\nDetails2: ")
-			.append(friend.getDetails2()).append("\nDetails3: ")
-			.append(friend.getDetails3());
+					.append(", ")
+					.append(AppSettings.formatter.format(friend.getLongitude()))
+					.append(" (").append(friend.getDistanceString())
+					.append(")\n").append("Details1: ")
+					.append(friend.getDetails1()).append("\nDetails2: ")
+					.append(friend.getDetails2()).append("\nDetails3: ")
+					.append(friend.getDetails3());
 			friendCoordinates.setText(sb.toString());
 
 			// picture = new
@@ -1055,7 +1124,7 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 				new TextToSpeachService().getInstance().textToSpeech(
 						ActivityCyrano.this,
 						sp.getString("name", " ")
-						+ sp.getString("about_text", " "));
+								+ sp.getString("about_text", " "));
 
 			}
 		}, 20);
@@ -1481,9 +1550,9 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 					devices.add(arr.getJSONObject(i)
 							.getString("bt_mac_address"));
 					BlutoothFriendReminders
-					.put(arr.getJSONObject(i).getString(
-							"bt_mac_address"), arr.getJSONObject(i)
-							.getString("personal_reminder"));// this
+							.put(arr.getJSONObject(i).getString(
+									"bt_mac_address"), arr.getJSONObject(i)
+									.getString("personal_reminder"));// this
 					// thing
 					// is
 					// use
@@ -1500,7 +1569,7 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 				}
 			}
 			new TaskGetUserInfoBluetoothList(ActivityCyrano.this)
-			.execute(devices);
+					.execute(devices);
 			DataStore.getInstance().set_BlutoothFriendReminders(
 					BlutoothFriendReminders);
 		} else {
@@ -1508,7 +1577,7 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 				Toast.makeText(
 						ActivityCyrano.this,
 						this.getResources()
-						.getString(R.string.noFriendsMessage),
+								.getString(R.string.noFriendsMessage),
 						Toast.LENGTH_SHORT).show();
 				// new TextToSpeachService().textToSpeech(ActivityCyrano.this,
 				// this.getResources().getString(R.string.noFriendsMessage));
@@ -1549,9 +1618,9 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 		if (DataStore.getInstance().setsearchval == false) {
 			Utils.eLog(TAG + ": onErrorSearchForFriend" + "BHUPINDer1");
 			new TaskSearchForDevices(DataStore.getInstance().getActivity())
-			.execute(DataStore.getInstance().getBluetoothDeviceList());
+					.execute(DataStore.getInstance().getBluetoothDeviceList());
 			new TaskSearchForTriggers(DataStore.getInstance().getActivity())
-			.execute(DataStore.getInstance().getBluetoothDeviceList());
+					.execute(DataStore.getInstance().getBluetoothDeviceList());
 			DataStore.getInstance().setfriendsearchval = false;
 		}
 
@@ -1575,7 +1644,7 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 			new TextToSpeachService().getInstance().textToSpeech(
 					ActivityCyrano.this,
 					this.getResources()
-					.getString(R.string.singleFriendsMessage));
+							.getString(R.string.singleFriendsMessage));
 		} else if (arr.length() > 1) {
 			new TextToSpeachService().getInstance().textToSpeech(
 					ActivityCyrano.this,
@@ -1586,11 +1655,11 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 			DataStore.getInstance().setsearchval = false;
 			if (DataStore.getInstance().setsearchval = false) {
 				new TaskSearchForDevices(DataStore.getInstance().getActivity())
-				.execute(DataStore.getInstance()
-						.getBluetoothDeviceList());
+						.execute(DataStore.getInstance()
+								.getBluetoothDeviceList());
 				new TaskSearchForTriggers(DataStore.getInstance().getActivity())
-				.execute(DataStore.getInstance()
-						.getBluetoothDeviceList());
+						.execute(DataStore.getInstance()
+								.getBluetoothDeviceList());
 				DataStore.getInstance().setfriendsearchval = false;
 			}
 		}
@@ -1641,18 +1710,18 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 		Utils.showShortToast(
 				ActivityCyrano.this,
 				size
-				+ (serviceName.contains(Utils.KEYWORD_FRIEND) ? " friend(s)"
-						: serviceName.contains(Utils.KEYWORD_DEVICE) ? " device(s)"
-								: " trigger(s)") + " found");
+						+ (serviceName.contains(Utils.KEYWORD_FRIEND) ? " friend(s)"
+								: serviceName.contains(Utils.KEYWORD_DEVICE) ? " device(s)"
+										: " trigger(s)") + " found");
 	}
 
 	public void onCompleteAdvanceSearchResult(JSONArray arr, String serviceName) {
 		Utils.showShortToast(
 				ActivityCyrano.this,
 				arr.length()
-				+ (serviceName.contains(Utils.KEYWORD_FRIEND) ? " friend(s) record"
-						: serviceName.contains(Utils.KEYWORD_DEVICE) ? " device(s) record"
-								: " trigger(s) record") + " found");
+						+ (serviceName.contains(Utils.KEYWORD_FRIEND) ? " friend(s) record"
+								: serviceName.contains(Utils.KEYWORD_DEVICE) ? " device(s) record"
+										: " trigger(s) record") + " found");
 	}
 
 	private void advanceSearch() {
@@ -1673,7 +1742,7 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 		numberPickerRecordCount.setMaxValue(100);
 		numberPickerRecordCount.setMinValue(1);
 		numberPickerRecordCount
-		.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
+				.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);
 
 		final CheckBox checkBoxDetailRecord = (CheckBox) dialog
 				.findViewById(R.id.check_detail_search);
@@ -1681,21 +1750,21 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 				.findViewById(R.id.button_search);
 
 		checkBoxCountOnly
-		.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				numberPickerRecordCount
-				.setVisibility(isChecked ? View.INVISIBLE
-						: View.VISIBLE);
-				textView.setVisibility(isChecked ? View.INVISIBLE
-						: View.VISIBLE);
-				checkBoxDetailRecord
-				.setVisibility(isChecked ? View.INVISIBLE
-						: View.VISIBLE);
-			}
-		});
+					@Override
+					public void onCheckedChanged(CompoundButton buttonView,
+							boolean isChecked) {
+						numberPickerRecordCount
+								.setVisibility(isChecked ? View.INVISIBLE
+										: View.VISIBLE);
+						textView.setVisibility(isChecked ? View.INVISIBLE
+								: View.VISIBLE);
+						checkBoxDetailRecord
+								.setVisibility(isChecked ? View.INVISIBLE
+										: View.VISIBLE);
+					}
+				});
 		checkBoxCountOnly.setChecked(true);
 
 		buttonSearch.setOnClickListener(new OnClickListener() {
@@ -1740,11 +1809,11 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 						+ Constants.SEPERATOR
 						+ (countOnly ? Utils.FIRST_PARAM_COUNT
 								: Utils.FIRST_PARAM_RECORD)
-								+ Constants.SEPERATOR
-								+ (detailedRecord ? Utils.SECOND_PARAM_FULL
-										: Utils.SECOND_PARAM_LIGHT)
-										+ Constants.SEPERATOR
-										+ numberPickerRecordCount.getValue();
+						+ Constants.SEPERATOR
+						+ (detailedRecord ? Utils.SECOND_PARAM_FULL
+								: Utils.SECOND_PARAM_LIGHT)
+						+ Constants.SEPERATOR
+						+ numberPickerRecordCount.getValue();
 
 				new TaskAdvanceSearch(ActivityCyrano.this, service, countOnly,
 						detailedRecord).execute(requestUrl);
@@ -1776,18 +1845,22 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 		case R.id.friend_snooze_unsnooze:
 			if (friend_snooze_unsnooze.isChecked()) {
 				friend_snoozeTime.setVisibility(View.VISIBLE);
+				DataStore.getInstance().getIDSofBTIDS()
+				.remove(Friendadress);
+				DataStore.getInstance().getIDSofBTIDS().put(Friendadress,2);
+				
 			} else if (Friendadress != null) {
 				friend_snoozeTime.setVisibility(View.GONE);
 				if (DataStore.getInstance().getIDSofBTIDS()
 						.containsKey(Friendadress)) {
 					DataStore.getInstance().getIDSofBTIDS()
 							.remove(Friendadress);
-					String pure = Friendadress + "GLOBAL";
+					/*String pure = Friendadress + "GLOBAL";
 					if (DataStore.getInstance().getTimestamps().get(pure) != null)
 						DataStore.getInstance().getTimestamps().remove(pure);
 					else
 						DataStore.getInstance().getTimestamps()
-								.remove(Friendadress);
+								.remove(Friendadress);*/
 				}
 			}
 			break;
@@ -1838,9 +1911,9 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 		// TODO Auto-generated method stub
 		Calendar d = Calendar.getInstance();
 		Calendar tmp = (Calendar) d.clone();
-		if(firsttime){
-		Snoozetime();
-		firsttime=false;
+		if (firsttime) {
+			Snoozetime();
+			firsttime = false;
 		}
 		switch (position) {
 		case 0:
@@ -1910,105 +1983,113 @@ com.cjcornell.cyrano.TextToSpeachService.AudioCompletionNotifiable, OnClickListe
 	 * 
 	 * }
 	 */
-	
-	public  void Snoozetime()
-	{
-		 
-		
+
+	public void Snoozetime() {
+
 		new Thread(new Runnable() {
 
-		@Override
-		public void run() {
-			// TODO Auto-generated method stub
-			Log.e("RESET PROCESS", "RESET PROCESS");
-			while (snoozethread>0) {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				Log.e("RESET PROCESS", "RESET PROCESS");
+				while (snoozethread > 0) {
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				if (DataStore.getInstance().getSnoozetime().get(DataStore.getInstance().getFrientList().get(i).getAddress()) != null) {
-					if (DataStore.getInstance().getSnoozetime().get(DataStore.getInstance().getFrientList().get(i).getAddress())
-							.equalsIgnoreCase(
-									timereturn())) {
-						DataStore.getInstance().getIDSofBTIDS().remove(DataStore.getInstance().getFrientList().get(i).getAddress());
-						Log.e("REMOVE", DataStore.getInstance().getFrientList().get(i).getAddress());
+					if (DataStore
+							.getInstance()
+							.getSnoozetime()
+							.get(DataStore.getInstance().getFrientList().get(i)
+									.getAddress()) != null) {
+						if (DataStore
+								.getInstance()
+								.getSnoozetime()
+								.get(DataStore.getInstance().getFrientList()
+										.get(i).getAddress())
+								.equalsIgnoreCase(timereturn())) {
+							DataStore
+									.getInstance()
+									.getIDSofBTIDS()
+									.remove(DataStore.getInstance()
+											.getFrientList().get(i)
+											.getAddress());
+							Log.e("REMOVE", DataStore.getInstance()
+									.getFrientList().get(i).getAddress());
+						}
 					}
+					i++;
+					if (DataStore.getInstance().getFrientList().size() >= i)
+						i = 0;
+
 				}
-				i++;
-				if(DataStore.getInstance().getFrientList().size()>=i)
-					i=0;
-					
-				
 			}
-		}
-	}).start();
+		}).start();
 	}
-	public String timereturn()
-	{
-		Calendar c1=Calendar.getInstance();
-		
-			if(DataStore.getInstance().getSnoozetime().get(Friendadress)!=null){
+
+	public String timereturn() {
+		Calendar c1 = Calendar.getInstance();
+
+		if (DataStore.getInstance().getSnoozetime().get(Friendadress) != null) {
 			try {
-				Date date1 = snoozedf.parse(DataStore.getInstance().getSnoozetime().get(Friendadress));
+				Date date1 = snoozedf.parse(DataStore.getInstance()
+						.getSnoozetime().get(Friendadress));
 				Date date2 = snoozedf.parse(snoozedf.format(c1.getTime()));
-				printDifference(date1,date2);
+				printDifference(date1, date2);
 			} catch (java.text.ParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}	
 			}
-	
-	
+		}
+
 		return snoozedf.format(c1.getTime());
-		
+
 	}
-	public void printDifference(Date startDate, Date endDate){
-		 
-		//milliseconds
+
+	public void printDifference(Date startDate, Date endDate) {
+
+		// milliseconds
 		long different = endDate.getTime() - startDate.getTime();
- 
+
 		System.out.println("startDate : " + startDate);
-		System.out.println("endDate : "+ endDate);
+		System.out.println("endDate : " + endDate);
 		System.out.println("different : " + different);
- 
+
 		long secondsInMilli = 1000;
 		long minutesInMilli = secondsInMilli * 60;
 		long hoursInMilli = minutesInMilli * 60;
 		long daysInMilli = hoursInMilli * 24;
- 
+
 		long elapsedDays = different / daysInMilli;
 		different = different % daysInMilli;
- 
+
 		elapsedHours = different / hoursInMilli;
 		different = different % hoursInMilli;
- 
+
 		elapsedMinutes = different / minutesInMilli;
 		different = different % minutesInMilli;
- 
+
 		long elapsedSeconds = different / secondsInMilli;
- 
-		System.out.printf(
-		    "%d days, %d hours, %d minutes, %d seconds%n", 
-		    elapsedDays,
-		    elapsedHours, elapsedMinutes, elapsedSeconds);
-			Log.i(TAG,elapsedHours+":"+elapsedMinutes);
-			 runOnUiThread(new Runnable() {
 
-                 @Override
-                 public void run() {
-                   // do something
-                	
-                	 remainingtime.setText("REMAINING TIME   "+elapsedHours+" "+":"+" "+elapsedMinutes);
- 				if(elapsedHours>=0 && elapsedMinutes>=0)
-                	 {
-                		 remainingtime.setText(""); 
-                	 }
-                 }
-             });
-			
+		System.out.printf("%d days, %d hours, %d minutes, %d seconds%n",
+				elapsedDays, elapsedHours, elapsedMinutes, elapsedSeconds);
+		Log.i(TAG, elapsedHours + ":" + elapsedMinutes);
+		runOnUiThread(new Runnable() {
+
+			@Override
+			public void run() {
+				// do something
+
+				remainingtime.setText("REMAINING TIME   " + elapsedHours + " "
+						+ ":" + " " + elapsedMinutes);
+				if (elapsedHours >= 0 && elapsedMinutes >= 0) {
+					remainingtime.setText("");
+				}
+			}
+		});
+
 	}
-
 
 }
