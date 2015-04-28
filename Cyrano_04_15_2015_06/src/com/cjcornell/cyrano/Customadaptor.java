@@ -30,8 +30,7 @@ public class Customadaptor extends BaseAdapter {
 		// TODO Auto-generated constructor stub
 		f1.addAll(friends);
 		c = activityCyrano;
-		inflater = (LayoutInflater) c
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		img = new ImageLoader(activityCyrano);
 
 	}
@@ -68,36 +67,33 @@ public class Customadaptor extends BaseAdapter {
 		text.setText(f1.get(position).getName() + "");
 		ImageView imvmute = (ImageView) vi.findViewById(R.id.imvmute);
 		ImageView imvsnooze = (ImageView) vi.findViewById(R.id.imvsnooze);
-
-		for (int j = 0; j < DataStore.getInstance().getFrientList().size(); j++) {
-
-			String pure = DataStore.getInstance().getFrientList().get(j).getAddress() + "GLOBAL";
-			String BT = DataStore.getInstance().getFrientList().get(j).getAddress();
-
-			if (DataStore.getInstance().getIDSofBTIDS().get(BT) != null) {
-				if (DataStore.getInstance().getIDSofBTIDS().get(BT) > 1)
-					imvsnooze.setVisibility(View.VISIBLE);
-				else
-					imvsnooze.setVisibility(View.GONE);
-
-			}
-			if (DataStore.getInstance().getTimestamps().get(pure) != null) {
-				if (DataStore.getInstance().getTimestamps().get(pure)
-						.equalsIgnoreCase("00/00/00-00:00:00"))
-					imvmute.setVisibility(View.VISIBLE);
-				else
-					imvmute.setVisibility(View.GONE);
-
-			}
-			else if(DataStore.getInstance().getTimestamps().get(BT) != null) {
-				if (DataStore.getInstance().getTimestamps().get(pure)
-						.equalsIgnoreCase("00/00/00-00:00:00"))
-					imvmute.setVisibility(View.VISIBLE);
-				else
-					imvmute.setVisibility(View.GONE);
-			}
+		//for icon update in list
+		if (DataStore.getInstance().getIDSofBTIDS().get(f1.get(position).getAddress()) != null) {
+			if (DataStore.getInstance().getIDSofBTIDS().get(f1.get(position).getAddress()) > 1)
+				imvsnooze.setVisibility(View.VISIBLE);
+			else
+				imvsnooze.setVisibility(View.GONE);
 		}
+		String pure = DataStore.getInstance().getFrientList().get(position).getAddress() + "GLOBAL";
+		String BT = DataStore.getInstance().getFrientList().get(position).getAddress();
+		
+		
+		if (DataStore.getInstance().getTimestamps().get(pure) != null) {
+			if (DataStore.getInstance().getTimestamps().get(pure)
+					.equalsIgnoreCase("00/00/00-00:00:00"))
+				imvmute.setVisibility(View.VISIBLE);
+			else
+				imvmute.setVisibility(View.GONE);
 
+		}
+		else if(DataStore.getInstance().getTimestamps().get(BT) != null) {
+			if (DataStore.getInstance().getTimestamps().get(BT)
+					.equalsIgnoreCase("00/00/00-00:00:00"))
+				imvmute.setVisibility(View.VISIBLE);
+			else
+				imvmute.setVisibility(View.GONE);
+		}
+		
 		// picture = new
 		// FacebookProfileDownloader().execute(f1.get(position).getId()).get();
 		// im.setImageBitmap(picture);
