@@ -31,9 +31,13 @@ import android.widget.TextView;
 import com.psktechnology.businesscardmanager.R;
 import com.psktechnology.constant.AppConstant;
 import com.psktechnology.constant.AppGlobal;
+import com.psktechnology.constant.WSConstant;
 import com.psktechnology.helper.MyTextWatcher;
+import com.psktechnology.interfaces.WSResponseListener;
+import com.psktechnology.model.ResponseObject;
+import com.psktechnology.webservice.WebServices;
 
-public class CreateBusinessCard extends Activity implements OnClickListener {
+public class CreateBusinessCard extends Activity implements OnClickListener, WSResponseListener {
 	
 	Activity activity;
 	
@@ -58,6 +62,9 @@ public class CreateBusinessCard extends Activity implements OnClickListener {
 	
 	private Uri uriContact;
     private String contactID;
+    
+    WebServices ws;
+    String userId;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +77,9 @@ public class CreateBusinessCard extends Activity implements OnClickListener {
 	
 	private void init() {
 		activity = (Activity) CreateBusinessCard.this;
+		ws = new WebServices();
+		
+		userId = AppGlobal.getStringPreference(activity, AppConstant.pref_UserId);
 		categoryId = AppGlobal.getIntegerPreference(activity, AppConstant.pref_CategoryId);
 		cardId = AppGlobal.getIntegerPreference(activity, AppConstant.pref_CardId);
 		
@@ -354,6 +364,24 @@ public class CreateBusinessCard extends Activity implements OnClickListener {
 			
 		case R.id.btnsave:
 			
+			if (isValidate()) {
+				if (AppGlobal.isNetworkConnected(activity)) {
+					
+					String name = etname.getText().toString().trim();
+					String title = ettitle.getText().toString().trim();
+					String company = etcompany.getText().toString().trim();
+					String phone = etphone.getText().toString().trim();
+					String email = etemail.getText().toString().trim();
+					String web = etweb.getText().toString().trim();
+					String fb = etfb.getText().toString().trim();
+					String in = etin.getText().toString().trim();
+					
+					ws.saveCard(activity, categoryId, cardId, name, title, company, phone, email, web, fb, in, "", font, color,
+									((isTemplate)? 1 : 0));
+				} else
+					AppGlobal.showToast(activity, AppConstant.noInternetConnection);
+			}
+			
 		/*	try {
 				mDbHelper = new DBHelper(activity);
 				mDb = mDbHelper.getWritableDatabase();
@@ -433,6 +461,12 @@ public class CreateBusinessCard extends Activity implements OnClickListener {
 		default:
 			break;
 		}
+	}
+	
+	private boolean isValidate() {
+		boolean result = true;
+
+		return result;
 	}
 
 	// TODO open contact list to pick a contact details
@@ -534,7 +568,7 @@ public class CreateBusinessCard extends Activity implements OnClickListener {
                 ivuser.setImageBitmap(myBitmap);
                 
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                myBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);   
+                myBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                 byte[] b = baos.toByteArray(); 
 
                 encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
@@ -545,7 +579,7 @@ public class CreateBusinessCard extends Activity implements OnClickListener {
                 
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                byte[] b = baos.toByteArray(); 
+                byte[] b = baos.toByteArray();
 
                 encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
                 
@@ -677,6 +711,52 @@ public class CreateBusinessCard extends Activity implements OnClickListener {
 		
 		// this is our fallback here
 		return uri.getPath();
+	}
+	
+	// TODO response from web service
+	@Override
+	public void onDelieverResponse(String serviceType, Object data, Exception error) {
+
+		// MainResponseObject MainResponseObject = (MainResponseObject) data;
+		ResponseObject responseObj = (ResponseObject) data;
+
+		if (error == null) {
+			if (responseObj != null) {
+
+				if (serviceType.equalsIgnoreCase(WSConstant.RT_SAVE_CARD)) {
+
+					if (responseObj.getStatus().equalsIgnoreCase(AppConstant.success)) {
+						AppGlobal.showToast(activity, responseObj.getMsg());
+						
+						String cardId = responseObj.getId();
+						ws.saveMessage(activity, userId, 0, "0", 0, 0, cardId);
+
+					} else if (responseObj.getStatus().equalsIgnoreCase(AppConstant.fail)) {
+						AppGlobal.showToast(activity, responseObj.getMsg());
+					}
+				} else if (serviceType.equalsIgnoreCase(WSConstant.RT_SAVE_MESSAGE)) {
+
+					if (responseObj.getStatus().equalsIgnoreCase(AppConstant.success)) {
+						AppGlobal.showToast(activity, responseObj.getMsg());
+						
+						// got ot finalize screen
+
+					} else if (responseObj.getStatus().equalsIgnoreCase(AppConstant.fail)) {
+						AppGlobal.showToast(activity, responseObj.getMsg());
+					}
+				}
+				
+
+			}
+		} else {
+			AppGlobal.showToast(activity, error.getLocalizedMessage());
+		}
+
+	}
+
+	@Override
+	public void onDelieverResponse_Fragment(String serviceType, Object data,
+			Exception error, Activity activity) {
 	}
 
 }

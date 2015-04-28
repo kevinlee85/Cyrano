@@ -1,15 +1,12 @@
 package com.psktechnology.webservice;
 
-import java.io.File;
 import java.util.ArrayList;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
 
-import com.psktechnology.asyncTask.AsyncGetService;
 import com.psktechnology.asyncTask.AsyncPostService;
 import com.psktechnology.constant.WSConstant;
 
@@ -46,109 +43,43 @@ public class WebServices {
         new AsyncPostService(activity, WSConstant.RT_FORGOT_PASSWORD, namevalue, true).execute(WSConstant.WS_FORGOT_PASSWORD);
     }
 
-    public void getSecurityQuestion(Activity activity, String responseType, String url) {
-        new AsyncGetService(activity, responseType, false).execute(url);
-    }
-    
-    public void getCourseDetail(Activity activity, String responseType, String url) {
-        new AsyncGetService(activity, responseType, false).execute(url);
-    }
-
-    public void registerStep2(Activity activity, String userId, String name, String phone, String gender, String DOB,
-                              String question1key, String answer1, String question2key, String answer2) {
-
+	public void saveCard(Activity activity, int categoryId, int cardId,
+							String name, String title, String company, String phone,
+							String email, String web, String fb, String in, String imagePath,
+							int font, int color, int isTemplate) {
+		
         ArrayList<NameValuePair> namevalue = new ArrayList<NameValuePair>();
+        namevalue.add(new BasicNameValuePair("categoryId", String.valueOf(categoryId)));
+        namevalue.add(new BasicNameValuePair("cardId", String.valueOf(cardId)));
+        namevalue.add(new BasicNameValuePair("name", name));
+        namevalue.add(new BasicNameValuePair("title", title));
+        namevalue.add(new BasicNameValuePair("company", company));
+        namevalue.add(new BasicNameValuePair("phone", phone));
+        namevalue.add(new BasicNameValuePair("email", email));
+        namevalue.add(new BasicNameValuePair("web", web));
+        namevalue.add(new BasicNameValuePair("fb", fb));
+        namevalue.add(new BasicNameValuePair("in", in));
+        namevalue.add(new BasicNameValuePair("imagePath", imagePath));
+        namevalue.add(new BasicNameValuePair("font", String.valueOf(font)));
+        namevalue.add(new BasicNameValuePair("color", String.valueOf(color)));
+        namevalue.add(new BasicNameValuePair("isTemplate", String.valueOf(isTemplate)));
 
-        namevalue.add(new BasicNameValuePair("txtUserId", userId));
-        namevalue.add(new BasicNameValuePair("txtFullname", name));
-        namevalue.add(new BasicNameValuePair("txtPhone", phone));
-        namevalue.add(new BasicNameValuePair("txtSex", gender));
-        namevalue.add(new BasicNameValuePair("txtDob", DOB));
-        namevalue.add(new BasicNameValuePair("txtQuestionid1", question1key));
-        namevalue.add(new BasicNameValuePair("txtAnswer1", answer1));
-        namevalue.add(new BasicNameValuePair("txtQuestionid2", question2key));
-        namevalue.add(new BasicNameValuePair("txtAnswer2", answer2));
+        new AsyncPostService(activity, WSConstant.RT_SAVE_CARD, namevalue, true).execute(WSConstant.WS_SAVE_CARD);
+		
+	}
 
-        new AsyncPostService(activity, WSConstant.RT_REGISTER_STEP2, namevalue, true).execute(WSConstant.WS_REGISTER_STEP2);
-    }
-    
-    public void getInbox(Activity activity, Fragment fragment, String userid) {
-
+	public void saveMessage(Activity activity, String userId, int to, String mto, int type, int isTrash, String cardId) {
+		
         ArrayList<NameValuePair> namevalue = new ArrayList<NameValuePair>();
-        namevalue.add(new BasicNameValuePair("userid", userid));
+        namevalue.add(new BasicNameValuePair("from", userId));
+        namevalue.add(new BasicNameValuePair("to", String.valueOf(to)));
+        namevalue.add(new BasicNameValuePair("mto", mto));
+        namevalue.add(new BasicNameValuePair("type", String.valueOf(type)));
+        namevalue.add(new BasicNameValuePair("isTrash", String.valueOf(isTrash)));
+        namevalue.add(new BasicNameValuePair("cid", cardId));
 
-        new AsyncPostService(activity, fragment, WSConstant.RT_INBOX, namevalue, true).execute(WSConstant.WS_INBOX);
-    }
-    
-    public void getSentbox(Activity activity, Fragment fragment, String userid) {
-
-        ArrayList<NameValuePair> namevalue = new ArrayList<NameValuePair>();
-        namevalue.add(new BasicNameValuePair("userid", userid));
-
-        new AsyncPostService(activity, fragment, WSConstant.RT_SENTBOX, namevalue, true).execute(WSConstant.WS_SENTBOX);
-    }
-    
-    public void getInboxDetails(Activity activity, String queryid, String userid) {
-
-        ArrayList<NameValuePair> namevalue = new ArrayList<NameValuePair>();
-        namevalue.add(new BasicNameValuePair("queryid", queryid));
-        namevalue.add(new BasicNameValuePair("userid", userid));
-
-        new AsyncPostService(activity, WSConstant.RT_INBOX_DETAILS, namevalue, true).execute(WSConstant.WS_INBOX_DETAILS);
-    }
-    
-    public void getSentboxDetails(Activity activity, String queryid, String userid) {
-
-        ArrayList<NameValuePair> namevalue = new ArrayList<NameValuePair>();
-        namevalue.add(new BasicNameValuePair("queryid", queryid));
-        namevalue.add(new BasicNameValuePair("userid", userid));
-
-        new AsyncPostService(activity, WSConstant.RT_SENTBOX_DETAILS, namevalue, true).execute(WSConstant.WS_SENTBOX_DETAILS);
-    }
-    
-    public void SetCreateNewTask(Activity activity, String txtTitle, String userid, String courseid, String categoryid,
-    		String txtusernotes, String txtestimatewords,
-    		String txtchat, String txtreqdate, String txtreqtime, String txtsummary) {
-
-        ArrayList<NameValuePair> namevalue = new ArrayList<NameValuePair>();
-        namevalue.add(new BasicNameValuePair("txtTitle", txtTitle));
-        namevalue.add(new BasicNameValuePair("userid", userid));
-        namevalue.add(new BasicNameValuePair("courseid", courseid));
-        namevalue.add(new BasicNameValuePair("categoryid", categoryid));
-        namevalue.add(new BasicNameValuePair("txtusernotes", txtusernotes));
-        namevalue.add(new BasicNameValuePair("txtestimatewords", txtestimatewords));
-        namevalue.add(new BasicNameValuePair("txtchat", txtchat));
-        namevalue.add(new BasicNameValuePair("txtreqdate", txtreqdate));
-        namevalue.add(new BasicNameValuePair("txtreqtime", txtreqtime));
-        namevalue.add(new BasicNameValuePair("txtsummary", txtsummary));
-
-        new AsyncPostService(activity, WSConstant.RT_ADDITEM, namevalue, false).execute(WSConstant.WS_ADDITEM);
-    }
-    
-    public void uploadFile(Activity activity, String queryId, File file, String fileType) {
-
-        ArrayList<NameValuePair> namevalue = new ArrayList<NameValuePair>();
-        namevalue.add(new BasicNameValuePair("queryid", queryId));
-        namevalue.add(new BasicNameValuePair("txtFilesQuery[]", String.valueOf(file)));
-        namevalue.add(new BasicNameValuePair("selFileType[]", fileType));
-
-        new AsyncPostService(activity, WSConstant.RT_ADDFILES, namevalue, false).execute(WSConstant.WS_ADDFILES);
-    }
-    
-    public void getFileList(Activity activity, String queryid) {
-
-        ArrayList<NameValuePair> namevalue = new ArrayList<NameValuePair>();
-        namevalue.add(new BasicNameValuePair("queryid", queryid));
-
-        new AsyncPostService(activity, WSConstant.RT_SENTFILES, namevalue, false).execute(WSConstant.WS_SENTFILES);
-    }
-    
-    public void deleteFile(Activity activity, String fileId) {
-
-        ArrayList<NameValuePair> namevalue = new ArrayList<NameValuePair>();
-        namevalue.add(new BasicNameValuePair("fileids[]", fileId));
-
-        new AsyncPostService(activity, WSConstant.RT_DELETEFILES, namevalue, false).execute(WSConstant.WS_DELETEFILES);
-    }
+        new AsyncPostService(activity, WSConstant.RT_SAVE_MESSAGE, namevalue, true).execute(WSConstant.WS_SAVE_MESSAGE);
+		
+	}
 
 }
