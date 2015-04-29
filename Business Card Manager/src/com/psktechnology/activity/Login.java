@@ -79,6 +79,7 @@ public class Login extends Activity implements OnClickListener, WSResponseListen
 
 	private void signup() {
 		startActivity(new Intent(activity, Signup.class));
+		finish();
 	}
 
 	private void login() {

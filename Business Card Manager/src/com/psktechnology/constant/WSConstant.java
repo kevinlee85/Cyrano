@@ -11,6 +11,7 @@ public class WSConstant {
 	public static final String WS_FORGOT_PASSWORD = WS_ROOT + "forgotPassword.php";
 	public static final String WS_SAVE_CARD = WS_ROOT + "cardInsert.php";
 	public static final String WS_SAVE_MESSAGE = WS_ROOT + "messageInsert.php";
+	public static final String WS_UPDATE_CARD = WS_ROOT + "cardUpdate.php";
 
 	
 	/********** WS Parameters Request Types ************/	
@@ -20,6 +21,7 @@ public class WSConstant {
 	public static final String RT_FORGOT_PASSWORD = "forgotPassword";
 	public static final String RT_SAVE_CARD = "cardInsert";
 	public static final String RT_SAVE_MESSAGE = "messageInsert";
+	public static final String RT_UPDATE_CARD = "cardUpdate";
 
 	
 	/********** WS Parameters ************/

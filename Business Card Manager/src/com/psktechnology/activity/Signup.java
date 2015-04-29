@@ -73,7 +73,8 @@ public class Signup extends Activity implements OnClickListener, WSResponseListe
 		
 		switch (v.getId()) {
 		case R.id.btndrawer:
-			onBackPressed();
+			startActivity(new Intent(activity, Login.class));
+			finish();
 			break;
 			
 		case R.id.btnregister:

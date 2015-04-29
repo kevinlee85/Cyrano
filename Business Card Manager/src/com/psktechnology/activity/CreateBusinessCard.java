@@ -53,9 +53,9 @@ public class CreateBusinessCard extends Activity implements OnClickListener, WSR
 	int color = -1, font = -1;
 	String encodedImage = "";
 	
-	int categoryId = 1;
-	int cardId = 1;
-	long cId;
+	int categoryId = -1;
+	int cardId = -1;
+	String cId;
 	
 	Boolean isCardEdit = false;
 	Boolean isTemplate = false;
@@ -158,7 +158,7 @@ public class CreateBusinessCard extends Activity implements OnClickListener, WSR
 			
 			categoryId = AppGlobal.getIntegerPreference(activity, AppConstant.pref_CategoryId);
 			cardId = AppGlobal.getIntegerPreference(activity, AppConstant.pref_CardId);
-			cId = Long.parseLong(AppGlobal.getStringPreference(activity, AppConstant.pref_CId));
+			cId = AppGlobal.getStringPreference(activity, AppConstant.pref_CId);
 			
 			String name = AppGlobal.getStringPreference(activity, AppConstant.pref_Name);
 			String title = AppGlobal.getStringPreference(activity, AppConstant.pref_Title);
@@ -376,8 +376,18 @@ public class CreateBusinessCard extends Activity implements OnClickListener, WSR
 					String fb = etfb.getText().toString().trim();
 					String in = etin.getText().toString().trim();
 					
-					ws.saveCard(activity, categoryId, cardId, name, title, company, phone, email, web, fb, in, "", font, color,
-									((isTemplate)? 1 : 0));
+					if(!isCardEdit) {
+						
+						ws.saveCard(activity, categoryId, cardId, name, title, company, phone, email, web, fb, in, "", font, color,
+								((isTemplate)? 1 : 0));
+					}
+					else {
+						ws.updateCard(activity, categoryId, cardId, name, title, company, phone, email, web, fb, in, "", font, color,
+								((isTemplate)? 1 : 0), cId);
+						
+						isCardEdit = false;
+						AppGlobal.setBooleanPreference(activity, AppConstant.pref_IsCardEdit, isCardEdit);
+					}
 				} else
 					AppGlobal.showToast(activity, AppConstant.noInternetConnection);
 			}
@@ -728,8 +738,8 @@ public class CreateBusinessCard extends Activity implements OnClickListener, WSR
 					if (responseObj.getStatus().equalsIgnoreCase(AppConstant.success)) {
 						AppGlobal.showToast(activity, responseObj.getMsg());
 						
-						String cardId = responseObj.getId();
-						ws.saveMessage(activity, userId, 0, "0", 0, 0, cardId);
+						cId = responseObj.getId();
+						ws.saveMessage(activity, userId, 0, "0", 0, 0, cId);
 
 					} else if (responseObj.getStatus().equalsIgnoreCase(AppConstant.fail)) {
 						AppGlobal.showToast(activity, responseObj.getMsg());
@@ -738,8 +748,16 @@ public class CreateBusinessCard extends Activity implements OnClickListener, WSR
 
 					if (responseObj.getStatus().equalsIgnoreCase(AppConstant.success)) {
 						AppGlobal.showToast(activity, responseObj.getMsg());
-						
-						// got ot finalize screen
+						saveData();
+
+					} else if (responseObj.getStatus().equalsIgnoreCase(AppConstant.fail)) {
+						AppGlobal.showToast(activity, responseObj.getMsg());
+					}
+				} else if (serviceType.equalsIgnoreCase(WSConstant.RT_UPDATE_CARD)) {
+
+					if (responseObj.getStatus().equalsIgnoreCase(AppConstant.success)) {
+						AppGlobal.showToast(activity, responseObj.getMsg());
+						saveData();
 
 					} else if (responseObj.getStatus().equalsIgnoreCase(AppConstant.fail)) {
 						AppGlobal.showToast(activity, responseObj.getMsg());
@@ -752,6 +770,27 @@ public class CreateBusinessCard extends Activity implements OnClickListener, WSR
 			AppGlobal.showToast(activity, error.getLocalizedMessage());
 		}
 
+	}
+
+	private void saveData() {
+		AppGlobal.setStringPreference(activity, AppConstant.pref_CId, String.valueOf(cId));
+		AppGlobal.setStringPreference(activity, AppConstant.pref_Name, etname.getText().toString().trim());
+		AppGlobal.setStringPreference(activity, AppConstant.pref_Title, ettitle.getText().toString().trim());
+		AppGlobal.setStringPreference(activity, AppConstant.pref_Company, etcompany.getText().toString().trim());
+		AppGlobal.setStringPreference(activity, AppConstant.pref_Phone, etphone.getText().toString().trim());
+		AppGlobal.setStringPreference(activity, AppConstant.pref_Email, etemail.getText().toString().trim());
+		AppGlobal.setStringPreference(activity, AppConstant.pref_Web, etweb.getText().toString().trim());
+		AppGlobal.setStringPreference(activity, AppConstant.pref_FbID, etfb.getText().toString().trim());
+		AppGlobal.setStringPreference(activity, AppConstant.pref_InID, etin.getText().toString().trim());
+		AppGlobal.setStringPreference(activity, AppConstant.pref_UserImage, encodedImage);
+		
+		AppGlobal.setIntegerPreference(activity, AppConstant.pref_FontStyle, font);
+		AppGlobal.setIntegerPreference(activity, AppConstant.pref_FontColor, color);
+		
+		AppGlobal.setBooleanPreference(activity, AppConstant.pref_IsTemplate, isTemplate);
+		
+		startActivity(new Intent(activity, FinalizeBusinessCard.class));
+		finish();
 	}
 
 	@Override

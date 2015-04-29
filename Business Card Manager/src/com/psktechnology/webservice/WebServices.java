@@ -81,5 +81,31 @@ public class WebServices {
         new AsyncPostService(activity, WSConstant.RT_SAVE_MESSAGE, namevalue, true).execute(WSConstant.WS_SAVE_MESSAGE);
 		
 	}
+	
+	public void updateCard(Activity activity, int categoryId, int cardId,
+							String name, String title, String company, String phone,
+							String email, String web, String fb, String in, String imagePath,
+							int font, int color, int isTemplate, String cId) {
+
+		ArrayList<NameValuePair> namevalue = new ArrayList<NameValuePair>();
+		namevalue.add(new BasicNameValuePair("categoryId", String.valueOf(categoryId)));
+		namevalue.add(new BasicNameValuePair("cardId", String.valueOf(cardId)));
+		namevalue.add(new BasicNameValuePair("name", name));
+		namevalue.add(new BasicNameValuePair("title", title));
+		namevalue.add(new BasicNameValuePair("company", company));
+		namevalue.add(new BasicNameValuePair("phone", phone));
+		namevalue.add(new BasicNameValuePair("email", email));
+		namevalue.add(new BasicNameValuePair("web", web));
+		namevalue.add(new BasicNameValuePair("fb", fb));
+		namevalue.add(new BasicNameValuePair("in", in));
+		namevalue.add(new BasicNameValuePair("imagePath", imagePath));
+		namevalue.add(new BasicNameValuePair("font", String.valueOf(font)));
+		namevalue.add(new BasicNameValuePair("color", String.valueOf(color)));
+		namevalue.add(new BasicNameValuePair("isTemplate", String.valueOf(isTemplate)));
+		namevalue.add(new BasicNameValuePair("cId", cId));
+
+		new AsyncPostService(activity, WSConstant.RT_UPDATE_CARD, namevalue, true).execute(WSConstant.WS_UPDATE_CARD);
+
+	}
 
 }

@@ -106,14 +106,14 @@ public class SelectCard extends Fragment implements OnClickListener, SelectCateg
 		switch (categoryType) {
 		case 11:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.card_one);
-			cardList.add(R.drawable.card_two);
+			cardList.add(R.drawable.legal_one);
+			cardList.add(R.drawable.legal_two);
 			break;
 			
 		case 12:
 			cardList = new ArrayList<Integer>();
-			cardList.add(R.drawable.card_three);
-			cardList.add(R.drawable.card_four);
+			cardList.add(R.drawable.computer_one);
+			cardList.add(R.drawable.computer_two);
 			break;
 
 		case 13:

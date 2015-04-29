@@ -64,6 +64,7 @@ public final class R {
         public static final int actionbar_button_height=0x7f060003;
         public static final int actionbar_button_width=0x7f060002;
         /**  Default screen margins, per the Android Design guidelines. 
+ Default screen margins, per the Android Design guidelines. 
 
          Example customization of dimensions originally defined in res/values/dimens.xml
          (such as screen margins) for screens with more than 820dp of available width. This
@@ -72,7 +73,78 @@ public final class R {
          */
         public static final int activity_horizontal_margin=0x7f060000;
         public static final int activity_vertical_margin=0x7f060001;
+        public static final int card_one_iv_margin_left=0x7f06002d;
+        /**           card one         
+         */
+        public static final int card_one_iv_margin_top=0x7f06002c;
+        public static final int card_one_iv_size=0x7f06002e;
+        public static final int card_one_name_margin_right=0x7f060030;
+        public static final int card_one_name_margin_top=0x7f06002f;
+        public static final int card_one_name_size=0x7f060031;
+        public static final int card_one_title_margin_right=0x7f060033;
+        public static final int card_one_title_margin_top=0x7f060032;
+        public static final int card_one_tv_margin_left=0x7f060034;
+        public static final int card_one_web_margin_bottom=0x7f060035;
+        public static final int card_two_iv_margin_right=0x7f060037;
+        /**           card two         
+         */
+        public static final int card_two_iv_margin_top=0x7f060036;
+        public static final int card_two_iv_size=0x7f060038;
+        public static final int card_two_name_margin_left=0x7f06003a;
+        public static final int card_two_name_margin_top=0x7f060039;
+        public static final int card_two_name_size=0x7f06003b;
+        public static final int card_two_title_margin_left=0x7f06003d;
+        public static final int card_two_title_margin_top=0x7f06003c;
+        public static final int card_two_tv_margin_left=0x7f06003e;
+        public static final int card_two_web_margin_bottom=0x7f06003f;
+        public static final int computer_one_iv_margin_right=0x7f060017;
+        /**           computer card one         
+         */
+        public static final int computer_one_iv_margin_top=0x7f060016;
+        public static final int computer_one_iv_size=0x7f060018;
+        public static final int computer_one_name_margin_left=0x7f06001a;
+        public static final int computer_one_name_margin_top=0x7f060019;
+        public static final int computer_one_name_size=0x7f06001b;
+        public static final int computer_one_title_margin_left=0x7f06001d;
+        public static final int computer_one_title_margin_top=0x7f06001c;
+        public static final int computer_one_tv_margin_left=0x7f06001e;
+        public static final int computer_one_web_margin_bottom=0x7f06001f;
+        public static final int computer_two_company_margin_left=0x7f060026;
+        public static final int computer_two_email_margin_right=0x7f060029;
+        /**           computer card one         
+         */
+        public static final int computer_two_iv_size=0x7f060020;
+        public static final int computer_two_name_margin_right=0x7f060022;
+        public static final int computer_two_name_margin_top=0x7f060021;
+        public static final int computer_two_name_size=0x7f060023;
+        public static final int computer_two_phone_margin_bottom=0x7f060028;
+        public static final int computer_two_phone_margin_left=0x7f060027;
+        public static final int computer_two_title_margin_right=0x7f060025;
+        public static final int computer_two_title_margin_top=0x7f060024;
+        public static final int computer_two_web_margin_bottom=0x7f06002b;
+        public static final int computer_two_web_margin_right=0x7f06002a;
         public static final int create_card_tv_width=0x7f060004;
+        public static final int legal_one_iv_margin_left=0x7f060006;
+        /**           legal card one         
+         */
+        public static final int legal_one_iv_margin_top=0x7f060005;
+        public static final int legal_one_iv_size=0x7f060007;
+        public static final int legal_one_name_margin_top=0x7f060008;
+        public static final int legal_one_name_size=0x7f060009;
+        public static final int legal_one_title_margin_top=0x7f06000a;
+        public static final int legal_one_tv_margin_right=0x7f06000b;
+        public static final int legal_one_web_margin_bottom=0x7f06000c;
+        public static final int legal_two_company_margin_top=0x7f060013;
+        public static final int legal_two_iv_margin_left=0x7f06000e;
+        /**           legal card two         
+         */
+        public static final int legal_two_iv_margin_top=0x7f06000d;
+        public static final int legal_two_iv_size=0x7f06000f;
+        public static final int legal_two_name_margin_top=0x7f060010;
+        public static final int legal_two_name_size=0x7f060011;
+        public static final int legal_two_title_margin_top=0x7f060012;
+        public static final int legal_two_tv_margin_right=0x7f060014;
+        public static final int legal_two_web_margin_bottom=0x7f060015;
     }
     public static final class drawable {
         public static final int btn_bg=0x7f020000;
@@ -122,24 +194,28 @@ public final class R {
     }
     public static final class id {
         public static final int btncancel=0x7f0a001b;
-        public static final int btnclear=0x7f0a002c;
+        public static final int btnclear=0x7f0a0033;
         public static final int btnclose=0x7f0a0029;
         public static final int btncolor=0x7f0a0019;
+        public static final int btndelete=0x7f0a002d;
         public static final int btndrawer=0x7f0a0027;
+        public static final int btnedit=0x7f0a002f;
+        public static final int btnlist=0x7f0a0030;
         public static final int btnlogin=0x7f0a0021;
         public static final int btnregister=0x7f0a0025;
         public static final int btnsave=0x7f0a001a;
-        public static final int btnsend=0x7f0a002a;
+        public static final int btnsend=0x7f0a0031;
+        public static final int btnshare=0x7f0a002e;
         public static final int btnstyle=0x7f0a0018;
-        public static final int colorBlue=0x7f0a003a;
-        public static final int colorDefault=0x7f0a0037;
-        public static final int colorGreen=0x7f0a0039;
-        public static final int colorRed=0x7f0a0038;
-        public static final int colorWhite=0x7f0a003b;
-        public static final int content_frame=0x7f0a002e;
-        public static final int drawer_Linear_layout=0x7f0a002f;
-        public static final int drawer_layout=0x7f0a002d;
-        public static final int email=0x7f0a003d;
+        public static final int colorBlue=0x7f0a0041;
+        public static final int colorDefault=0x7f0a003e;
+        public static final int colorGreen=0x7f0a0040;
+        public static final int colorRed=0x7f0a003f;
+        public static final int colorWhite=0x7f0a0042;
+        public static final int content_frame=0x7f0a0035;
+        public static final int drawer_Linear_layout=0x7f0a0036;
+        public static final int drawer_layout=0x7f0a0034;
+        public static final int email=0x7f0a0044;
         public static final int etcompany=0x7f0a000d;
         public static final int etconfirmpassword=0x7f0a0024;
         public static final int etemail=0x7f0a0011;
@@ -152,32 +228,35 @@ public final class R {
         public static final int etphone=0x7f0a000f;
         public static final int ettitle=0x7f0a000c;
         public static final int etweb=0x7f0a0013;
-        public static final int exlvcategory=0x7f0a002b;
-        public static final int facebook=0x7f0a003e;
-        public static final int imgchild=0x7f0a0032;
-        public static final int imggroup=0x7f0a0034;
+        public static final int exlvcategory=0x7f0a0032;
+        public static final int facebook=0x7f0a0045;
+        public static final int imgchild=0x7f0a0039;
+        public static final int imggroup=0x7f0a003b;
         public static final int include=0x7f0a0000;
         public static final int ivcard=0x7f0a0026;
         public static final int ivuser=0x7f0a0009;
-        public static final int left_drawer=0x7f0a0030;
-        public static final int linkedin=0x7f0a003f;
-        public static final int lvcards=0x7f0a0031;
+        public static final int left_drawer=0x7f0a0037;
+        public static final int linkedin=0x7f0a0046;
+        public static final int llcard=0x7f0a002a;
+        public static final int lvcards=0x7f0a0038;
+        public static final int rlcard=0x7f0a002b;
+        public static final int sbtextsize=0x7f0a002c;
         public static final int scrollView1=0x7f0a000a;
-        public static final int style1=0x7f0a0041;
-        public static final int style2=0x7f0a0042;
-        public static final int style3=0x7f0a0043;
-        public static final int style4=0x7f0a0044;
-        public static final int styleDefault=0x7f0a0040;
-        public static final int text=0x7f0a003c;
+        public static final int style1=0x7f0a0048;
+        public static final int style2=0x7f0a0049;
+        public static final int style3=0x7f0a004a;
+        public static final int style4=0x7f0a004b;
+        public static final int styleDefault=0x7f0a0047;
+        public static final int text=0x7f0a0043;
         public static final int textView1=0x7f0a001c;
         public static final int textView2=0x7f0a001f;
-        public static final int tvchild=0x7f0a0033;
+        public static final int tvchild=0x7f0a003a;
         public static final int tvcompany=0x7f0a0003;
         public static final int tvemail=0x7f0a0005;
         public static final int tvfbid=0x7f0a0007;
         public static final int tvforgotpass=0x7f0a0020;
-        public static final int tvgcounter=0x7f0a0036;
-        public static final int tvgroup=0x7f0a0035;
+        public static final int tvgcounter=0x7f0a003d;
+        public static final int tvgroup=0x7f0a003c;
         public static final int tviconemail=0x7f0a0010;
         public static final int tviconfb=0x7f0a0014;
         public static final int tviconin=0x7f0a0016;
@@ -197,13 +276,21 @@ public final class R {
         public static final int activity_signup=0x7f030002;
         public static final int adapter_cardlist=0x7f030003;
         public static final int custom_actionbar=0x7f030004;
-        public static final int dialog_forgot_password=0x7f030005;
-        public static final int dialog_select_category=0x7f030006;
-        public static final int fragment_activity_drawer_activity=0x7f030007;
-        public static final int fragment_mycards=0x7f030008;
-        public static final int fragment_selectcard=0x7f030009;
-        public static final int listchild=0x7f03000a;
-        public static final int listgroup=0x7f03000b;
+        public static final int custom_card=0x7f030005;
+        public static final int custom_card_computer_one=0x7f030006;
+        public static final int custom_card_computer_two=0x7f030007;
+        public static final int custom_card_legal_one=0x7f030008;
+        public static final int custom_card_legal_two=0x7f030009;
+        public static final int custom_card_one=0x7f03000a;
+        public static final int custom_card_three=0x7f03000b;
+        public static final int custom_card_two=0x7f03000c;
+        public static final int dialog_forgot_password=0x7f03000d;
+        public static final int dialog_select_category=0x7f03000e;
+        public static final int fragment_activity_drawer_activity=0x7f03000f;
+        public static final int fragment_mycards=0x7f030010;
+        public static final int fragment_selectcard=0x7f030011;
+        public static final int listchild=0x7f030012;
+        public static final int listgroup=0x7f030013;
     }
     public static final class menu {
         public static final int popup_color=0x7f090000;
@@ -258,9 +345,20 @@ public final class R {
         res/values-v11/styles.xml on API 14+ devices.
     
  API 14 theme customizations can go here. 
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
          */
         public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+ Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f080001;

@@ -4,7 +4,7 @@
     <string-array name="drawer_menu">
         
         <item>My Cards</item>
-        <item>Select Card</item>
+        <item>Create New Card</item>
         <item>Inbox</item>
         <item>Sent</item>
         <item>Logout</item>
