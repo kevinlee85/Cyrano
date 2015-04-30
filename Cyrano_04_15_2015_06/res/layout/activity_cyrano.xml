@@ -54,16 +54,16 @@
 		        android:layout_height="wrap_content"
 		        android:layout_width="wrap_content"
 		        android:id="@+id/friend_mute_unmute"
-		        android:textOn="Mute"
-		        android:textOff="Unmute"
+		        android:textOff="Mute"
+		        android:textOn="Unmute"
 		        android:layout_below="@+id/friendAboutus"/>
 		     <ToggleButton 
 		       
 		        android:layout_height="wrap_content"
 		        android:layout_width="wrap_content"
 		        android:id="@+id/friend_snooze_unsnooze"
-		        android:textOn="Snooze"
-		        android:textOff="Unsnooze"
+		        android:textOff="Snooze"
+		        android:textOn="Unsnooze"
 		        android:layout_below="@+id/friendAboutus"
 		        android:layout_toRightOf="@+id/friend_mute_unmute"/>
 		    
@@ -78,6 +78,14 @@
 		         android:layout_width="wrap_content"
 		         android:textColor="#FF0000"
 		         android:layout_below="@+id/friend_mute_unmute"/>
+		     <TextView 
+		         android:id="@+id/friendstatus"
+		         android:layout_height="wrap_content"
+		         android:layout_width="wrap_content"
+		         android:textColor="#FF0000"
+		         android:layout_centerHorizontal="true"
+		         android:layout_marginTop="20dp"
+		         android:layout_below="@+id/remainingtime"/>
 		   
 		</RelativeLayout>
 	</ScrollView>

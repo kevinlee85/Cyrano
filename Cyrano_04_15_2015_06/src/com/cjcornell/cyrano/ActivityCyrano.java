@@ -108,8 +108,7 @@ public class ActivityCyrano extends Activity implements
 	long elapsedHours, elapsedMinutes;
 	int i = 0;
 	String Friendadress = "";
-	String snoozevalues[] = new String[] { "OFF", "5min", "10min", "15min",
-			"30min", "60min" };
+	String snoozevalues[] = new String[] { "OFF", "5min", "10min", "15min","30min", "60min" };
 	ImageLoader img = new ImageLoader(ActivityCyrano.this);
 	/**
 	 * Layout attributes - it makes sense to put these here as they are accessed
@@ -128,7 +127,7 @@ public class ActivityCyrano extends Activity implements
 	public ToggleButton friend_mute_unmute, friend_snooze_unsnooze;
 	public Spinner friend_snoozeTime;
 	public SnoozeMuteCheck SMC;
-	public TextView remainingtime;
+	public TextView remainingtime,friendstatus;
 
 	private RelativeLayout friendsContent;
 	private ListView friendsList;
@@ -864,6 +863,7 @@ public class ActivityCyrano extends Activity implements
 		friend_snooze_unsnooze = (ToggleButton) findViewById(R.id.friend_snooze_unsnooze);
 		friend_snoozeTime = (Spinner) findViewById(R.id.friend_snoozeTime);
 		remainingtime = (TextView) findViewById(R.id.remainingtime);
+		friendstatus= (TextView) findViewById(R.id.friendstatus);
 		SMC = new SnoozeMuteCheck();
 		friend_snooze_unsnooze.setOnClickListener(this);
 		friend_mute_unmute.setOnClickListener(this);
@@ -938,7 +938,7 @@ public class ActivityCyrano extends Activity implements
 			Log.v("bhupinder...", " " + list.toString());
 			// adapter = new ArrayAdapter<Friend>(this, R.layout.layout_list2,
 			// friends);
-			//for icon update in list
+			
 			ca = new Customadaptor(ActivityCyrano.this, list);
 		} else {
 			adapter = new ArrayAdapter<BluetoothFriend>(this,
@@ -1002,13 +1002,16 @@ public class ActivityCyrano extends Activity implements
 				if (BT.equalsIgnoreCase("00/00/00-00:00:00")) {
 					friend_mute_unmute.setChecked(true);
 					friend_snoozeTime.setVisibility(View.GONE);
+					friendstatus.setText("STATUS :- MUTE");
 					friend_snooze_unsnooze.setVisibility(View.GONE);
 				} else {
 					friend_mute_unmute.setChecked(false);
+					if(friend_snooze_unsnooze.isChecked())
 					friend_snoozeTime.setVisibility(View.VISIBLE);
+					friendstatus.setText("STATUS :- UNMUTE");
 					friend_snooze_unsnooze.setVisibility(View.VISIBLE);
 				}
-
+				remainingtime.setText("");
 				// picture = new
 				// FacebookProfileDownloader().execute(bluetoothFriend.getId()).get();
 				url = "https://graph.facebook.com/" + bluetoothFriend.getId()
@@ -1033,8 +1036,7 @@ public class ActivityCyrano extends Activity implements
 					// ii.putExtra("speach",friend.getName());
 					// startService(ii);
 					Log.v(TAG, TAG + "BHU");
-					AudioMethods.textToSpeech(ActivityCyrano.this,
-							bluetoothFriend.getName());
+					AudioMethods.textToSpeech(ActivityCyrano.this,bluetoothFriend.getName());
 				}
 
 			}
@@ -1851,6 +1853,8 @@ public class ActivityCyrano extends Activity implements
 				
 			} else if (Friendadress != null) {
 				friend_snoozeTime.setVisibility(View.GONE);
+				if (DataStore.getInstance().getSnoozetime().get(Friendadress) != null)
+					DataStore.getInstance().getSnoozetime().remove(Friendadress);
 				if (DataStore.getInstance().getIDSofBTIDS()
 						.containsKey(Friendadress)) {
 					DataStore.getInstance().getIDSofBTIDS()
@@ -1867,6 +1871,7 @@ public class ActivityCyrano extends Activity implements
 		case R.id.friend_mute_unmute:
 			String pure = Friendadress + "GLOBAL";
 			if (friend_mute_unmute.isChecked()) {
+				friendstatus.setText("STATUS :- MUTE");
 				friend_snoozeTime.setVisibility(View.GONE);
 				friend_snooze_unsnooze.setVisibility(View.GONE);
 
@@ -1884,6 +1889,7 @@ public class ActivityCyrano extends Activity implements
 					}
 				}
 			} else {
+				friendstatus.setText("STATUS :- UNMUTE");
 				friend_snoozeTime.setVisibility(View.VISIBLE);
 				friend_snooze_unsnooze.setVisibility(View.VISIBLE);
 				if (DataStore.getInstance().getTimestamps().get(pure) != null) {
@@ -1909,6 +1915,7 @@ public class ActivityCyrano extends Activity implements
 	public void onItemSelected(AdapterView<?> parent, View view, int position,
 			long id) {
 		// TODO Auto-generated method stub
+		Log.e(TAG, "Spiiner");
 		Calendar d = Calendar.getInstance();
 		Calendar tmp = (Calendar) d.clone();
 		if (firsttime) {
@@ -1917,16 +1924,15 @@ public class ActivityCyrano extends Activity implements
 		}
 		switch (position) {
 		case 0:
-			DataStore.getInstance().getSnoozetime().clear();
+			if (DataStore.getInstance().getSnoozetime().get(Friendadress) != null)
+			DataStore.getInstance().getSnoozetime().remove(Friendadress);
 			remainingtime.setText("");
 			break;
 		case 1:
 			tmp.add(Calendar.MINUTE, 5);
-			Log.i(TAG, snoozedf.format(tmp.getTime()));
 			if (DataStore.getInstance().getSnoozetime().get(Friendadress) != null)
 				DataStore.getInstance().getSnoozetime().remove(Friendadress);
-			DataStore.getInstance().getSnoozetime()
-					.put(Friendadress, snoozedf.format(tmp.getTime()));
+			DataStore.getInstance().getSnoozetime().put(Friendadress, snoozedf.format(tmp.getTime()));
 			break;
 		case 2:
 			tmp.add(Calendar.MINUTE, 10);
@@ -1999,25 +2005,11 @@ public class ActivityCyrano extends Activity implements
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					if (DataStore
-							.getInstance()
-							.getSnoozetime()
-							.get(DataStore.getInstance().getFrientList().get(i)
-									.getAddress()) != null) {
-						if (DataStore
-								.getInstance()
-								.getSnoozetime()
-								.get(DataStore.getInstance().getFrientList()
-										.get(i).getAddress())
-								.equalsIgnoreCase(timereturn())) {
-							DataStore
-									.getInstance()
-									.getIDSofBTIDS()
-									.remove(DataStore.getInstance()
-											.getFrientList().get(i)
-											.getAddress());
-							Log.e("REMOVE", DataStore.getInstance()
-									.getFrientList().get(i).getAddress());
+					if (DataStore.getInstance().getSnoozetime().get(DataStore.getInstance().getFrientList().get(i).getAddress()) != null) {
+						if (DataStore.getInstance().getSnoozetime().get(DataStore.getInstance().getFrientList().get(i).getAddress()).equalsIgnoreCase(timereturn())) {
+							DataStore.getInstance().getIDSofBTIDS().remove(DataStore.getInstance().getFrientList().get(i).getAddress());
+							DataStore.getInstance().getSnoozetime().remove(DataStore.getInstance().getFrientList().get(i).getAddress());
+							Log.e("REMOVE", DataStore.getInstance().getFrientList().get(i).getAddress());
 						}
 					}
 					i++;
@@ -2034,6 +2026,7 @@ public class ActivityCyrano extends Activity implements
 
 		if (DataStore.getInstance().getSnoozetime().get(Friendadress) != null) {
 			try {
+				remainingtime.setVisibility(View.VISIBLE);
 				Date date1 = snoozedf.parse(DataStore.getInstance()
 						.getSnoozetime().get(Friendadress));
 				Date date2 = snoozedf.parse(snoozedf.format(c1.getTime()));
@@ -2043,9 +2036,7 @@ public class ActivityCyrano extends Activity implements
 				e.printStackTrace();
 			}
 		}
-
 		return snoozedf.format(c1.getTime());
-
 	}
 
 	public void printDifference(Date startDate, Date endDate) {
@@ -2075,15 +2066,15 @@ public class ActivityCyrano extends Activity implements
 
 		System.out.printf("%d days, %d hours, %d minutes, %d seconds%n",
 				elapsedDays, elapsedHours, elapsedMinutes, elapsedSeconds);
-		Log.i(TAG, elapsedHours + ":" + elapsedMinutes);
+		Log.i(TAG, elapsedHours + ":" + elapsedMinutes+Friendadress);
 		runOnUiThread(new Runnable() {
 
 			@Override
 			public void run() {
-				// do something
-
-				remainingtime.setText("REMAINING TIME   " + elapsedHours + " "
-						+ ":" + " " + elapsedMinutes);
+				if (DataStore.getInstance().getSnoozetime().get(Friendadress) == null)
+					remainingtime.setText("");
+				else
+				remainingtime.setText("REMAINING TIME TO UNSNOOZE  " + elapsedHours + " "+ ":" + " " + elapsedMinutes);
 				if (elapsedHours >= 0 && elapsedMinutes >= 0) {
 					remainingtime.setText("");
 				}
