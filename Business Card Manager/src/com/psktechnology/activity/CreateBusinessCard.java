@@ -739,7 +739,8 @@ public class CreateBusinessCard extends Activity implements OnClickListener, WSR
 						AppGlobal.showToast(activity, responseObj.getMsg());
 						
 						cId = responseObj.getId();
-						ws.saveMessage(activity, userId, 0, "0", 0, 0, cId);
+//						ws.saveMessage(activity, userId, 0, "0", 0, 0, cId);
+						saveData();
 
 					} else if (responseObj.getStatus().equalsIgnoreCase(AppConstant.fail)) {
 						AppGlobal.showToast(activity, responseObj.getMsg());

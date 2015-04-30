@@ -23,8 +23,6 @@ import android.widget.TextView;
 import com.psktechnology.businesscardmanager.R;
 import com.psktechnology.constant.AppConstant;
 import com.psktechnology.constant.AppGlobal;
-import com.psktechnology.helper.MyDragListener;
-import com.psktechnology.helper.MyTouchListener;
 
 public class FinalizeBusinessCard extends Activity implements OnClickListener {
 	
@@ -479,7 +477,7 @@ public class FinalizeBusinessCard extends Activity implements OnClickListener {
 			} else
 				ivuser.setVisibility(View.INVISIBLE);
 			
-			tvname.setOnTouchListener(new MyTouchListener(sbtextize));
+		/*	tvname.setOnTouchListener(new MyTouchListener(sbtextize));
 			tvtitlee.setOnTouchListener(new MyTouchListener(sbtextize));
 			tvcompany.setOnTouchListener(new MyTouchListener(sbtextize));
 			tvphone.setOnTouchListener(new MyTouchListener(sbtextize));
@@ -487,14 +485,14 @@ public class FinalizeBusinessCard extends Activity implements OnClickListener {
 			tvweb.setOnTouchListener(new MyTouchListener(sbtextize));
 			ivuser.setOnTouchListener(new MyTouchListener(sbtextize));
 			
-			rlcard.setOnDragListener(new MyDragListener(rlcard));
+			rlcard.setOnDragListener(new MyDragListener(rlcard)); */
 			
 			if(!isFromViewCard) {
 				new Handler().postDelayed(new Runnable() {
 					public void run() {
 						AppGlobal.saveBusinessCard(activity, rlcard, cId);
 					}
-				}, 2000);
+				}, 0);
 			}
 			
 		} else {
