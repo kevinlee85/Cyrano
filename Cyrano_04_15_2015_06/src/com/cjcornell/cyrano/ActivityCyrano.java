@@ -2005,6 +2005,7 @@ public class ActivityCyrano extends Activity implements
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+					Log.e("RESET ", "RES"+i);
 					if (DataStore.getInstance().getSnoozetime().get(DataStore.getInstance().getFrientList().get(i).getAddress()) != null) {
 						if (DataStore.getInstance().getSnoozetime().get(DataStore.getInstance().getFrientList().get(i).getAddress()).equalsIgnoreCase(timereturn())) {
 							DataStore.getInstance().getIDSofBTIDS().remove(DataStore.getInstance().getFrientList().get(i).getAddress());
@@ -2013,8 +2014,10 @@ public class ActivityCyrano extends Activity implements
 						}
 					}
 					i++;
-					if (DataStore.getInstance().getFrientList().size() >= i)
+					if (i>=DataStore.getInstance().getFrientList().size()){
 						i = 0;
+					}
+						
 
 				}
 			}
