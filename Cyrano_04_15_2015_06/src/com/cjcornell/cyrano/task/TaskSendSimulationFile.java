@@ -57,7 +57,7 @@ public class TaskSendSimulationFile extends
 	static final String FTP_USER = "cyranotech";
 
 	/********* FTP PASSWORD ***********/
-	static final String FTP_PASS = "Elance2015!!";
+	static final String FTP_PASS = "Odesk2015##";
 
 	public FTPClient client;
 
