@@ -380,36 +380,39 @@ public class TextToSpeachService extends Service implements
 
 			if (AppSettings.friendAudio
 					&& DataStore.getInstance().setsearchval
-					&& friend<DataStore.getInstance().NumberofbuletoothFriends) {
-					String BTaddress=DataStore.getInstance().getFrientList().get(friend).getAddress();
-					boolean announce=true;
-					if(DataStore.getInstance().getIDSofBTIDS().get(BTaddress)!=null&& DataStore.getInstance().getIDSofBTIDS().get(BTaddress)>1)
-					{
-						DataStore.getInstance().setsearchval = false;
-						announce=false;
-					}
-					else
-						announce=true;
-					
+					&& friend < DataStore.getInstance().NumberofbuletoothFriends) {
+				String BTaddress = "";
+				if (!DataStore.getInstance().getFrientList().isEmpty()) {
+					BTaddress = DataStore.getInstance().getFrientList()
+							.get(friend).getAddress();
+				} else {
+					BTaddress = null;
+				}
+
+				boolean announce = true;
+				if (DataStore.getInstance().getIDSofBTIDS().get(BTaddress) != null
+						&& DataStore.getInstance().getIDSofBTIDS()
+								.get(BTaddress) > 1) {
+					DataStore.getInstance().setsearchval = false;
+					announce = false;
+				} else
+					announce = true;
+
 				if (!friendannounc) {
-					if (DataStore.getInstance().NumberofbuletoothFriends <= AppSettings.maxFriends)
-					{
-						if(announce)
-						friendnamespeak();
-					}
-					else
-					{
+					if (DataStore.getInstance().NumberofbuletoothFriends <= AppSettings.maxFriends) {
+						if (announce)
+							friendnamespeak();
+					} else {
 						DataStore.getInstance().setfriendsearchval = false;
 						DataStore.getInstance().setsearchval = false;
 					}
 
 				} else {
 					if (DataStore.getInstance().NumberofbuletoothFriends <= AppSettings.maxFriends) {
-						if(announce)
-						friendreminderspeak();
+						if (announce)
+							friendreminderspeak();
 						friend++;
-					}
-					else{
+					} else {
 						DataStore.getInstance().setfriendsearchval = false;
 						DataStore.getInstance().setsearchval = false;
 					}
@@ -485,7 +488,7 @@ public class TextToSpeachService extends Service implements
 	private void friendnamespeak() {
 		// TODO Auto-generated method stub
 		try {
-			
+
 			textToSpeech(DataStore.getInstance().getActivity(), DataStore
 					.getInstance().getFrientList().get(friend).getName());// speak//
 																			// friend//
