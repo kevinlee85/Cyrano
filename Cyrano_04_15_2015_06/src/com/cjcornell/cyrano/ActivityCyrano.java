@@ -371,8 +371,7 @@ public class ActivityCyrano extends Activity implements
 					currentItem.pause();
 				}
 			}
-			List<BluetoothFriend> list = DataStore.getInstance()
-					.getFrientList();
+			List<BluetoothFriend> list = DataStore.getInstance().getFrientList();
 			if (list.size() > 0) {
 				displayMultipleFriends(list);
 				setupFriendsDisplay();
@@ -931,19 +930,19 @@ public class ActivityCyrano extends Activity implements
 		// Set the adapter, using the layout corresponding to the current font
 		// size setting
 		ArrayAdapter<BluetoothFriend> adapter = null;
-		if (AppSettings.textSize < 1) {
-			adapter = new ArrayAdapter<BluetoothFriend>(this,
-					R.layout.layout_list1, list);
-		} else if (AppSettings.textSize == 1) {
-			Log.v("bhupinder...", " " + list.toString());
+		//if (AppSettings.textSize < 1) {
+			//adapter = new ArrayAdapter<BluetoothFriend>(this,
+					//R.layout.layout_list1, list);
+		//} else if (AppSettings.textSize == 1) {
+			//Log.v("bhupinder...", " " + list.toString());
 			// adapter = new ArrayAdapter<Friend>(this, R.layout.layout_list2,
 			// friends);
 			
 			ca = new Customadaptor(ActivityCyrano.this, list);
-		} else {
-			adapter = new ArrayAdapter<BluetoothFriend>(this,
-					R.layout.layout_list3, list);
-		}
+		//} else {
+			//adapter = new ArrayAdapter<BluetoothFriend>(this,
+			//		R.layout.layout_list3, list);
+		//}
 		friendsList.setAdapter(ca);
 
 		// Set up the action for clicking on a friend in the list
@@ -2005,7 +2004,6 @@ public class ActivityCyrano extends Activity implements
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					Log.e("RESET ", "RES"+i);
 					if (DataStore.getInstance().getSnoozetime().get(DataStore.getInstance().getFrientList().get(i).getAddress()) != null) {
 						if (DataStore.getInstance().getSnoozetime().get(DataStore.getInstance().getFrientList().get(i).getAddress()).equalsIgnoreCase(timereturn())) {
 							DataStore.getInstance().getIDSofBTIDS().remove(DataStore.getInstance().getFrientList().get(i).getAddress());
@@ -2042,7 +2040,7 @@ public class ActivityCyrano extends Activity implements
 		return snoozedf.format(c1.getTime());
 	}
 
-	public void printDifference(Date startDate, Date endDate) {
+public void printDifference(Date startDate, Date endDate) {
 
 		// milliseconds
 		long different = endDate.getTime() - startDate.getTime();

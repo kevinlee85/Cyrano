@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.cjcornell.cyrano.ImageDownload.ImageLoader;
+import com.cjcornell.cyrano.data.AppSettings;
 import com.cjcornell.cyrano.data.DataStore;
 
 public class Customadaptor extends BaseAdapter {
@@ -59,8 +60,12 @@ public class Customadaptor extends BaseAdapter {
 		View vi = convertView;
 
 		/****** Inflate tabitem.xml file for each row ( Defined below ) *******/
+		if (AppSettings.textSize < 1)
+		vi = inflater.inflate(R.layout.layout_list1, null);
+		else if (AppSettings.textSize == 1)
 		vi = inflater.inflate(R.layout.layout_list2, null);
-
+		else
+			vi = inflater.inflate(R.layout.layout_list3, null);
 		/****** View Holder Object to contain tabitem.xml file elements ******/
 		TextView text = (TextView) vi.findViewById(R.id.listTextView);
 		ImageView im = (ImageView) vi.findViewById(R.id.imageoffriends);

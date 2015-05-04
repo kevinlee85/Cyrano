@@ -1,8 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    android:layout_height="match_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent">
+    <ImageView 
+        android:id="@+id/imageoffriends"
+        android:layout_height="70dp"
+        android:layout_width="100dp"
+        android:src="@drawable/ic_launcher"
+       android:layout_alignParentTop="true"
+       android:layout_alignParentLeft="true"
+        />
+<TextView 
+    android:id="@+id/listTextView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:textColor="#FFFFFF"
+    android:layout_toRightOf="@+id/imageoffriends"
+   android:textAppearance="?android:attr/textAppearanceSmall"
+    android:text="hello"/>
+
+<ImageView
+    android:id="@+id/imvmute"
+    android:layout_width="25dp"
+    android:layout_height="25dp"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentBottom="true"
+    android:src="@drawable/mute"
+    android:visibility="gone" />
+<ImageView
+    android:id="@+id/imvsnooze"
+    android:layout_width="25dp"
+    android:layout_height="25dp"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentBottom="true"
+    android:layout_marginRight="30dp"
+    android:src="@drawable/snooze" 
+    android:visibility="gone"/>
+
+</RelativeLayout>
+<!-- <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/listTextView"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
     android:textColor="#FFFFFF"
-    android:textAppearance="?android:attr/textAppearanceSmall" />
+    android:textAppearance="?android:attr/textAppearanceSmall" /> -->
