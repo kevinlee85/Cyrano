@@ -365,10 +365,10 @@ public class Command {
                 // activity.startService(ii);
                 // AudioMethods.textToSpeech(activity, description, (delay == 0)
                 // ? activity : null);
-                new TextToSpeachService().getInstance().textToSpeech(activity, description, (delay == 0)
+                new TextToSpeachService(0).getInstance().textToSpeech(activity, description, (delay == 0)
                  ? activity : null);
-                new TextToSpeachService().getInstance().commandcall=true;
-                new TextToSpeachService().getInstance().Delay=delay;
+                new TextToSpeachService(0).getInstance().commandcall=true;
+                new TextToSpeachService(0).getInstance().Delay=delay;
                 Log.e("CALL", "METOD CALL HO GIYA");
                // new TextToSpeachService().playtts();
             } else if (this.type.equals("2")) {

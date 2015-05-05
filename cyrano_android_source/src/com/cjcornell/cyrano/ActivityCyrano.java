@@ -757,7 +757,7 @@ public class ActivityCyrano extends Activity implements
 
 			// If no friends are nearby, display a toast stating this
 		} else {
-			new TextToSpeachService().textToSpeech(ActivityCyrano.this, this
+			new TextToSpeachService(1).textToSpeech(ActivityCyrano.this, this
 					.getResources().getString(R.string.noFriendsMessage));
 			Toast.makeText(this, R.string.noFriendsMessage, Toast.LENGTH_SHORT)
 					.show();
@@ -1122,7 +1122,7 @@ public class ActivityCyrano extends Activity implements
 		handler.postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				new TextToSpeachService().getInstance().textToSpeech(
+				new TextToSpeachService(2).getInstance().textToSpeech(
 						ActivityCyrano.this,
 						sp.getString("name", " ")
 								+ sp.getString("about_text", " "));
@@ -1287,12 +1287,12 @@ public class ActivityCyrano extends Activity implements
 			currentItem.pause();
 			cancelAutoAdvance();
 			pauseButton.setText(getString(R.string.playButtonText));
-			new TextToSpeachService().getInstance().mp.pause();
+			new TextToSpeachService(0).getInstance().mp.pause();
 		} else {
 			currentItem.play(this);
 			if (autoAdvance == null) {
 				scheduleAutoAdvance(currentItem);
-				new TextToSpeachService().getInstance().mp.start();
+				new TextToSpeachService(0).getInstance().mp.start();
 			}
 			pauseButton.setText(getString(R.string.pauseButtonText));
 		}
@@ -1412,7 +1412,7 @@ public class ActivityCyrano extends Activity implements
 		if (currentItem != null && currentItem.getDelay() > 0) {
 			Log.v(TAG, "Advancing to next item in " + currentItem.getDelay()
 					+ " seconds");
-			new TextToSpeachService().getInstance().scriptpaly(currentItem,
+			new TextToSpeachService(0).getInstance().scriptpaly(currentItem,
 					ActivityCyrano.this);
 			// autoAdvance = runner.schedule(new Advancer(currentItem),
 			// (long)currentItem.getDelay(), TimeUnit.SECONDS);
@@ -1487,7 +1487,7 @@ public class ActivityCyrano extends Activity implements
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				startTroubleshooting(scripts.get(position));
-				new TextToSpeachService().getInstance().commandcallPush = true;
+				new TextToSpeachService(0).getInstance().commandcallPush = true;
 
 			}
 		});
@@ -1631,7 +1631,6 @@ public class ActivityCyrano extends Activity implements
 		taskSearchForBTFriend = null;
 		Utils.eLog(TAG + ": onErrorSearchForFriend" + "BHUPINDer");
 		Utils.showShortToast(ActivityCyrano.this, message);
-
 	}
 
 	public void onCompleteSearchForFriend(JSONArray arr) {
@@ -1642,12 +1641,12 @@ public class ActivityCyrano extends Activity implements
 				+ " friend(s) found");
 
 		if (arr.length() == 1) {
-			new TextToSpeachService().getInstance().textToSpeech(
+			new TextToSpeachService(4).getInstance().textToSpeech(
 					ActivityCyrano.this,
 					this.getResources()
 							.getString(R.string.singleFriendsMessage));
 		} else if (arr.length() > 1) {
-			new TextToSpeachService().getInstance().textToSpeech(
+			new TextToSpeachService(4).getInstance().textToSpeech(
 					ActivityCyrano.this,
 					this.getResources().getString(
 							R.string.multipleFriendsMessage, arr.length()));
@@ -1826,9 +1825,9 @@ public class ActivityCyrano extends Activity implements
 	public void nextscript(Command whichItem) {
 
 		if (whichItem.isLast()) {
-			new TextToSpeachService().getInstance().commandcallPush = false;
-			new TextToSpeachService().getInstance().commandcall = false;
-			if (!new TextToSpeachService().getInstance().Triggerscript) {
+			new TextToSpeachService(3).getInstance().commandcallPush = false;
+			new TextToSpeachService(3).getInstance().commandcall = false;
+			if (!new TextToSpeachService(3).getInstance().Triggerscript) {
 				DataStore.getInstance().setfriendsearchval = true;
 			}
 			finishTroubleshooting();

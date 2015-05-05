@@ -9,10 +9,13 @@ package com.cjcornell.cyrano;
 import java.text.DecimalFormat;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.media.AudioManager;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.Editable;
 import android.text.InputType;
@@ -47,6 +50,12 @@ public class ActivitySettings extends Activity {
     
     private TaskUpdateDefaultSettings updateSettingsTask;
     
+    AudioManager audioManager = null;
+    int audio_level = 0;
+    
+    Vibrator v;
+    int vibrate_level = 0;
+    
     /**
      * Called on initial creation of the page
      */
@@ -70,6 +79,13 @@ public class ActivitySettings extends Activity {
             Log.e(TAG, e.toString());
             ((TextView)findViewById(R.id.versionInfo)).setVisibility(View.GONE);
         }
+        
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+		audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+		audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, audio_level, 0);
+		
+		v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+		v.vibrate(vibrate_level);
         
         // Load the GUI components
         terseModeButton = (ToggleButton)findViewById(R.id.terseModeButton);

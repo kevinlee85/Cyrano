@@ -183,7 +183,7 @@ public class TaskSearchForTriggers extends
 				new TaskTriggerScript(activity, Id).execute(1, activity);
 			}
 			if (Id.length() > 1) {
-				new TextToSpeachService().getInstance().Triggerscript = true;
+				new TextToSpeachService(0).getInstance().Triggerscript = true;
 			}
 
 		} catch (JSONException e) {

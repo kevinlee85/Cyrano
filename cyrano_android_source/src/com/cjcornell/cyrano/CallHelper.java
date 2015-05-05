@@ -24,7 +24,7 @@ public class CallHelper {
                         prev_state = state;
                         // Answered Call which is ended
                         Log.v(TAG, "end");
-                        new TextToSpeachService().getInstance().resumeMP();
+                        new TextToSpeachService(0).getInstance().resumeMP();
                        
                     
                        
@@ -33,7 +33,7 @@ public class CallHelper {
                         prev_state = state;
                         // Rejected or Missed call
                         Log.v(TAG, "Rejected");
-                        new TextToSpeachService().getInstance().resumeMP();
+                        new TextToSpeachService(0).getInstance().resumeMP();
                         
                     }
 
@@ -62,14 +62,14 @@ public class CallHelper {
                     // AudioMethods.textToSpeech(ctx,
                     // "Hello puran calling from 8226011160");
                    
-              new TextToSpeachService().getInstance().pauseMP();
+              new TextToSpeachService(0).getInstance().pauseMP();
                     Log.d(TAG, "CALL_STATE_RINGING");
                     prev_state = state;
 
                     break;
                 }
                 case TelephonyManager.CALL_STATE_OFFHOOK: {
-                    new TextToSpeachService().getInstance().pauseMP();
+                    new TextToSpeachService(0).getInstance().pauseMP();
                     Log.d(TAG, "CALL_STATE_OFFHOOK");
                     prev_state = state;
                     break;

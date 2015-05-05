@@ -30,7 +30,7 @@ import com.cjcornell.cyrano.task.TaskTriggerScript;
 
 public class TextToSpeachService extends Service implements
 		OnCompletionListener {
-	private static TextToSpeachService instance = new TextToSpeachService();
+	private static TextToSpeachService instance = new TextToSpeachService(1);
 	private final String TAG = "TextToSpeachService";
 	public static AudioManager am;
 	String path = Environment.getExternalStorageDirectory().getAbsolutePath()
@@ -46,14 +46,15 @@ public class TextToSpeachService extends Service implements
 	public boolean commandcall, triggercall, cell, friendannounc;
 	public boolean Triggerscript;
 	private boolean mppause;
+	private int identifier;
 
 	@Override
 	public IBinder onBind(Intent intent) {
-
 		return null;
 	}
 
-	public TextToSpeachService() {
+	public TextToSpeachService(int identifier) {
+		this.identifier = identifier;
 	};
 
 	public static TextToSpeachService getInstance() {
@@ -67,8 +68,7 @@ public class TextToSpeachService extends Service implements
 		// String s = intent.getStringExtra("friends");
 
 		// Friend friends[] = (Friend[])intent.getSerializableExtra("friends");
-		ArrayList<Friend> friends = (ArrayList<Friend>) intent
-				.getSerializableExtra("friends");
+		ArrayList<Friend> friends = (ArrayList<Friend>) intent.getSerializableExtra("friends");
 
 		// Log.v(TAG, "sas" + s); if (s != null) {
 		/*
