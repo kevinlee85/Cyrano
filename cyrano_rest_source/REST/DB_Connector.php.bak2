@@ -1,0 +1,111 @@
+<?php
+include("rest_config.php");
+class DB_Connector {
+
+    private $connection;
+	
+	const TIMEOUT = 28800;
+    
+    function __construct() {
+        /* Parse configuration file */
+        $ini = parse_ini_file("db_config.ini");
+
+        $this->connection = new mysqli($ini["host"], $ini["user"], $ini["password"], $ini["database"]);
+
+        /* Check connection */
+        if ($this->connection->connect_errno) {
+            printf("Connect failed: %s\n", $this->connection->connect_error);
+            exit();
+        }
+    }
+
+    public function getConnection() {
+        return $this->connection;
+    }
+    public function getFBUser($userId){
+        $dbname=$GLOBALS['db'];
+        //$db = new DB_Connector();
+        $cnx = $this->getConnection();
+        $query= "select `fb_auth_fields` from $dbname.users where user_id='$userId'";
+        $stmt = $cnx->query($query);
+        if($stmt->field_count){
+        $rsw=$stmt->fetch_row();
+        $fb_auth_fields= $rsw[0];
+        }else
+            $fb_auth_fields=0;
+        $cnx->close();
+        return $fb_auth_fields;
+    }
+    /* Hit Facebook to verify that this token is still valid */
+    public function verifyToken($token, $userId) {
+
+       $fbUser=$this->getFBUser($userId);
+        $requestString = "https://graph.facebook.com/me?fields=id&access_token=%s";
+        $json = json_decode(file_get_contents(sprintf($requestString, $token)));
+        //echo $fbUser."oooo";
+        return $fbUser == $json->{'id'};
+    }
+
+    /* Register upon login if the facebookId is not already in the database */
+    public function loginOrRegister($token, $userId,$bluetooth_address) {
+	$dbname=$GLOBALS['db'];
+        if ($this->verifyToken($token, $userId) || $GLOBALS['opencall']==1) {
+
+            if ($this->isRegistered($userId)!=0) {
+                //$local_user_id=$this->isRegistered($userId);
+                $requestString = "https://graph.facebook.com/me?fields=id,email,first_name,last_name&access_token=%s";
+                $json = json_decode(file_get_contents(sprintf($requestString, $token)));
+
+                $facebookId = $json->{'id'};
+                $email = $json->{'email'};
+                $firstName = $json->{'first_name'};
+                $lastName  = $json->{'last_name'};
+                //$date=new Datetime();
+                $time = date("Y-m-d H:i:s");
+
+                $stmt = $this->connection->prepare("update $dbname.users set  firstname='$firstName', lastname='$lastName', last_update='$time', bt_mac_address='$bluetooth_address' where fb_auth_fields='$facebookId'");
+                //$stmt->bind_param('ssss',$firstName, $lastName);
+                $stmt->execute();
+                $stmt->close();
+
+            }
+			else
+			{
+
+                $requestString = "https://graph.facebook.com/me?fields=id,email,first_name,last_name&access_token=%s";
+                $json = json_decode(file_get_contents(sprintf($requestString, $token)));
+
+                $facebookId = $json->{'id'};
+                $email = $json->{'email'};
+                $firstName = $json->{'first_name'};
+                $lastName  = $json->{'last_name'};
+
+                $stmt = $this->connection->prepare("INSERT INTO $dbname.users (fb_auth_fields, firstname, lastname, latitude, longitude, email, bt_mac_address) VALUES (?, ?, ?, NULL, NULL, ?, ?);");
+                $stmt->bind_param('sssss', $facebookId, $firstName, $lastName, $email, $bluetooth_address);
+                $stmt->execute();
+                $stmt->close();
+
+
+            }
+            return true;
+        }
+
+        return false;
+    }
+
+    private function isRegistered($userId) {
+	$dbname=$GLOBALS['db'];
+        $fb_user=$this->getFBUser($userId);
+       // echo "SELECT COUNT(*) FROM $dbname.users WHERE fb_auth_fields='$userId'";
+        $stmt = $this->connection->prepare("SELECT COUNT(*),user_id FROM $dbname.users WHERE fb_auth_fields=?;");
+        $stmt->bind_param('s', $fb_user);
+        $stmt->execute();
+        $stmt->bind_result($count,$local_user_id);
+        $stmt->fetch();
+        $stmt->close();
+        //echo "$local_user_id";
+
+        return $count!=0;
+    }
+
+}
