@@ -8,8 +8,8 @@ package com.cjcornell.cyrano;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -38,13 +38,13 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.Bitmap;
 import android.media.AudioManager;
 import android.media.AudioManager.OnAudioFocusChangeListener;
-import android.net.ParseException;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.Settings.Secure;
 import android.support.v4.content.LocalBroadcastManager;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -88,7 +88,6 @@ import com.cjcornell.cyrano.task.TaskSearchForTriggers;
 import com.cjcornell.cyrano.task.TaskUpdateBluetoothEarpiece;
 import com.cjcornell.cyrano.utils.Utils;
 import com.facebook.Session;
-import com.facebook.android.Util;
 
 public class ActivityCyrano extends Activity implements
 		AudioMethods.AudioCompletionNotifiable,
@@ -1122,7 +1121,7 @@ public class ActivityCyrano extends Activity implements
 		handler.postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				new TextToSpeachService(2).getInstance().textToSpeech(
+				new TextToSpeachService(0).getInstance().textToSpeech(
 						ActivityCyrano.this,
 						sp.getString("name", " ")
 								+ sp.getString("about_text", " "));
@@ -1634,6 +1633,8 @@ public class ActivityCyrano extends Activity implements
 	}
 
 	public void onCompleteSearchForFriend(JSONArray arr) {
+		
+		RingtoneManager.getRingtone(ActivityCyrano.this, Uri.parse(Constants.SOUND_FRIEND)).play();
 
 		taskSearchForBTFriend = null;
 		Utils.dLog("onCompleteSearchForFriend: " + arr.toString());
@@ -1641,12 +1642,12 @@ public class ActivityCyrano extends Activity implements
 				+ " friend(s) found");
 
 		if (arr.length() == 1) {
-			new TextToSpeachService(4).getInstance().textToSpeech(
+			new TextToSpeachService(0).getInstance().textToSpeech(
 					ActivityCyrano.this,
 					this.getResources()
 							.getString(R.string.singleFriendsMessage));
 		} else if (arr.length() > 1) {
-			new TextToSpeachService(4).getInstance().textToSpeech(
+			new TextToSpeachService(0).getInstance().textToSpeech(
 					ActivityCyrano.this,
 					this.getResources().getString(
 							R.string.multipleFriendsMessage, arr.length()));
@@ -1674,6 +1675,8 @@ public class ActivityCyrano extends Activity implements
 	}
 
 	public void onCompleteSearchForDevices(int size, JSONArray arr) {
+		
+		RingtoneManager.getRingtone(ActivityCyrano.this, Uri.parse(Constants.SOUND_DEVICE)).play();
 
 		Utils.dLog("onCompleteSearchForDevices: " + arr.toString());
 		Utils.showShortToast(ActivityCyrano.this, size + " device(s) found");
@@ -1689,6 +1692,8 @@ public class ActivityCyrano extends Activity implements
 	}
 
 	public void onCompleteSearchForTriggers(int size, JSONArray arr) {
+		
+		RingtoneManager.getRingtone(ActivityCyrano.this, Uri.parse(Constants.SOUND_TRIGGER)).play();
 
 		Utils.dLog("onCompleteSearchForTriggers: " + arr.toString());
 		Utils.showShortToast(ActivityCyrano.this, size + " trigger(s) found");
@@ -1825,9 +1830,9 @@ public class ActivityCyrano extends Activity implements
 	public void nextscript(Command whichItem) {
 
 		if (whichItem.isLast()) {
-			new TextToSpeachService(3).getInstance().commandcallPush = false;
-			new TextToSpeachService(3).getInstance().commandcall = false;
-			if (!new TextToSpeachService(3).getInstance().Triggerscript) {
+			new TextToSpeachService(0).getInstance().commandcallPush = false;
+			new TextToSpeachService(0).getInstance().commandcall = false;
+			if (!new TextToSpeachService(0).getInstance().Triggerscript) {
 				DataStore.getInstance().setfriendsearchval = true;
 			}
 			finishTroubleshooting();

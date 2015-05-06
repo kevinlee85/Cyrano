@@ -13,7 +13,7 @@ class DefaultSettings {
      * OR
      * curl -X GET http://localhost/REST/defaultsettings/{token}/{userId}/ */
 
-    public function put($token = null, $user_id,$terseMode,$tsAudio,$graphicalMode,$friendFinder,$friendAudio,$textSize,$gpsTimeDelay,$maxFriends,$autoDisplayFriends,$nearbyTimeout ) {
+    public function put($token = null, $user_id,$terseMode,$tsAudio,$graphicalMode,$friendFinder,$friendAudio,$textSize,$gpsTimeDelay,$maxFriends,$autoDisplayFriends,$nearbyTimeout,$TTS_style,$pre_tone_style,$pre_tone_volume,$vibrate ) {
         if (!isset($token)) {
             $response = new Response(false, "You must be logged in to access this feature.", null, 403);
             return $response->getJSONData();
@@ -43,15 +43,15 @@ class DefaultSettings {
             /* Update the user's bluetooth mac address in the DB */
             $userUpdateQuery = "UPDATE $dbname.user_settings u SET u.terse_mode = ?,u.ts_audio =?, u.graphical_mode = ?,
             u.friend_finder =?, u.friend_audio =?,u.text_size =?, u.gps_time_delay =?, u.max_friends =?,
-            u.auto_display_friends = ?, u.nearby_timeout=? where user_id=?;";
+            u.auto_display_friends = ?, u.nearby_timeout=?, u.TTS_style=?, u.pre_tone_style=?, u.pre_tone_volume=?, u.vibrate=? where user_id=?;";
             $stmt = $cnx->prepare($userUpdateQuery);
-            $stmt->bind_param('iiiiiidiiii',$terseMode,$tsAudio,$graphicalMode,$friendFinder,$friendAudio,$textSize,$gpsTimeDelay,$maxFriends,$autoDisplayFriends,$nearbyTimeout,$user_id);
+            $stmt->bind_param('iiiiiidiiiiiiii',$terseMode,$tsAudio,$graphicalMode,$friendFinder,$friendAudio,$textSize,$gpsTimeDelay,$maxFriends,$autoDisplayFriends,$nearbyTimeout,$TTS_style,$pre_tone_style,$pre_tone_volume,$vibrate,$user_id);
             $stmt->execute();
                 $stmt->close();
             }else{
-                $userUpdateQuery = "INSERT INTO $dbname.user_settings(`user_id`,`terse_mode`,`ts_audio`,`graphical_mode`,`friend_finder`,`friend_audio`,`text_size`,`gps_time_delay`,`max_friends`,`auto_display_friends`,`nearby_timeout`) values(?,?,?,?,?,?,?,?,?,?,?)";
+                $userUpdateQuery = "INSERT INTO $dbname.user_settings(`user_id`,`terse_mode`,`ts_audio`,`graphical_mode`,`friend_finder`,`friend_audio`,`text_size`,`gps_time_delay`,`max_friends`,`auto_display_friends`,`nearby_timeout`,`TTS_style`,`pre_tone_style`,`pre_tone_volume`,`vibrate`) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 $stmt = $cnx->prepare($userUpdateQuery);
-                $stmt->bind_param('iiiiiiidiii', $user_id,$terseMode,$tsAudio,$graphicalMode,$friendFinder,$friendAudio,$textSize,$gpsTimeDelay,$maxFriends,$autoDisplayFriends,$nearbyTimeout);
+                $stmt->bind_param('iiiiiiidiiiiiii', $user_id,$terseMode,$tsAudio,$graphicalMode,$friendFinder,$friendAudio,$textSize,$gpsTimeDelay,$maxFriends,$autoDisplayFriends,$nearbyTimeout,$TTS_style,$pre_tone_style,$pre_tone_volume,$vibrate);
                 $stmt->execute();
                 $stmt->close();
             }
@@ -118,7 +118,10 @@ class DefaultSettings {
 					'gpsTimeDelay' => $gpsTimeDelay,
 					'maxFriends' => $maxFriends,
 					'autoDisplayFriends' => $autoDisplayFriends,
-					'TTS_style' => $TTS_style
+					'TTS_style' => $TTS_style,
+					'preToneStyle' => $pre_tone_style,
+					'preToneVolume' => $pre_tone_volume,
+					'vibrate' => $vibrate
 				);
 				array_push($settings, $setting);
 			}

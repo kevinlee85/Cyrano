@@ -73,7 +73,7 @@ class UserScripts {
 			/*******************************************************************************************************************/
 			
 	       $prepSQL = "SELECT  s.script_id as script_id,user_id,script_type,script_name,script_desc,privacy_level,sharing_types,script_image,
-            create_date,update_date,preload_flag FROM $dbname.scripts as s
+            create_date,update_date,preload_flag,TTS_style,pre_tone_style,pre_tone_volume,vibrate FROM $dbname.scripts as s
 			WHERE s.user_id = $userId";
 			
 			$rs = $cnx->query($prepSQL);
@@ -99,7 +99,11 @@ class UserScripts {
                         "script_image"=>$rows['script_image'],
                         "create_date"=>$rows['create_date'],
                         "update_date"=>$rows['update_date'],
-                        "preload_flag"=>$rows['preload_flag']
+                        "preload_flag"=>$rows['preload_flag'],
+                    	"TTS_style"=>$rows['TTS_style'],
+                    	"pre_tone_style"=>$rows['pre_tone_style'],
+                    	"pre_tone_volume"=>$rows['pre_tone_volume'],
+                    	"vibrate"=>$rows['vibrate']
                         )
                 );
 				

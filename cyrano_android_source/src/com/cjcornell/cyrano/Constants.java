@@ -85,4 +85,10 @@ public class Constants
     public static final String KEY_COMMAND_OTHER = "other";
     public static final String KEY_COMMAND_CANCEL = "cancel_id";
     
+    
+    public static final String SOUND_SCRIPT = "content://media/internal/audio/media/39";
+    public static final String SOUND_FRIEND = "content://media/internal/audio/media/46";
+    public static final String SOUND_TRIGGER = "content://media/internal/audio/media/62";
+    public static final String SOUND_DEVICE = "content://media/internal/audio/media/87";
+    
 }
